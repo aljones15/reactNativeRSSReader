@@ -251,8 +251,10 @@ function getComponent(s){
   if(!s){
     return(<Text>no s</Text>);
   }
-  const rss_parse = /^\s*<\s*([A-z]+)[^>]*>([\s\S]*)<\/([A-z]+)[^>]*>\s*$/;
+  const rss_parse = /^\s*<\s*([A-z]+)[^>]*>([\s\S]*)<\/([A-z]+)[^>]*>$/g;
   const just_text = /^([^<]*)<\/[A-z]+[^>]*>([\s\S]*)/;
+  const splitTag = /(?=<\/?\s*[A-z]+[^>]*>)/;
+  // do it bf item
   if(!rss_parse.test(s)) {
     if(just_text.test(s)){
       let text = just_text.exec(s);
