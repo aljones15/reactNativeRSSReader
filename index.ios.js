@@ -15,16 +15,21 @@ import {
 
 import { Button, Card } from 'react-native-material-design';
 
+let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
+// https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%20=%20%27http://boingboing.net/feed%27
+
 
 function getRss(url, cb){
-    return fetch(url, {
+    let uri = encodeURI(yahooQLbase + "'" + url + "'");
+    console.log('uri is ' + uri);
+    return fetch(uri, {
     method: 'GET',
     headers: {
-      'Accept': 'text/xml'
+      'Accept': 'application/json'
     }
   }).then((r) => {
     if(r){
-      r.text().then((t) => cb(t))
+      r.json().then((t) => cb(t))
   } else {
     cb(null);
   }
@@ -55,6 +60,9 @@ class CHANNEL extends Component {
 }
 
 class ITEM extends Component {
+  constructor(props){
+    super(props);
+  }
   render() {
     <View>
       {this.props.children}
@@ -245,20 +253,35 @@ class DAY extends Component {
   }
 }
 
+function cleanText(text, tag){
+  return text.replace(tag);
+}
+
+function getAllItems(feed){
+  var item = /<\s*[Ii][Tt][Ee][Mm][^>]*>/g;
+  // ^(<\/\s*[Ii][Tt][Ee][Mm][^>]*>)*<\/\s*[Ii][Tt][Ee][Mm][^>]*>
+  var items = [];
+  let itemStrings = feed.split(item);
+  console.log(itemStrings);
+
+  while(i = item.exec(feed)){
+    items.push(i);
+  }
+  return items;
+}
+
 function getComponent(s){
-  console.log("s");
-  console.log(s);
   if(!s){
     return(<Text>no s</Text>);
   }
   const rss_parse = /^\s*<\s*([A-z]+)[^>]*>([\s\S]*)<\/([A-z]+)[^>]*>$/g;
   const just_text = /^([^<]*)<\/[A-z]+[^>]*>([\s\S]*)/;
   const splitTag = /(?=<\/?\s*[A-z]+[^>]*>)/;
+  // https://www.raymondcamden.com/2015/12/08/parsing-rss-feeds-in-javascript-options
   // do it bf item
   if(!rss_parse.test(s)) {
     if(just_text.test(s)){
       let text = just_text.exec(s);
-      console.log(text);
       return(<Text>{ text[1] }</Text>)
     }
     return null;
@@ -267,10 +290,8 @@ function getComponent(s){
 
   let match = rss_parse.exec(s);
   let tag = match[1] ? match[1].toLowerCase() : null;
-  console.log("processing " + tag);
   switch (tag) {
     case "rss":
-      console.log("returning rss tag");
       return(<RSS>{getComponent(match[2])}</RSS>);
     case "channel":
       return(<CHANNEL>{getComponent(match[2])}</CHANNEL>);
@@ -278,7 +299,6 @@ function getComponent(s){
       return(<TITLE>{getComponent(match[2])}</TITLE>);
     default:
       if(!tag){
-        console.log("tag");
         return(<Text>{match[2]}</Text>);
       }
       return(<Text>fell through</Text>);
@@ -293,18 +313,18 @@ class test3 extends Component {
     };
   }
   printResult(responseText){
+      console.log(responseText);
       this.setState({ rss: getComponent(responseText) });
 
   }
   fetchResult(){
-    let rss = getRss("file:///Users/andrewjones/Documents/codePen/reactNative/test3/simple.rss", this.printResult.bind(this));
+    let rss = getRss("http://boingboing.net/feed", this.printResult.bind(this));
     return rss;
   }
   componentDidMount(){
     this.fetchResult();
   }
   render() {
-    console.log(this.state.rss);
     return(this.state.rss);
   }
 }
