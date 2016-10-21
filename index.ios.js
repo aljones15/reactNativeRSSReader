@@ -7,6 +7,7 @@
 
 import React, { Component } from 'react';
 import {
+  ListView,
   AppRegistry,
   StyleSheet,
   Text,
@@ -36,37 +37,14 @@ function getRss(url, cb){
   });
 }
 
-
-
-
-class RSS extends Component {
-  render() {
-    return(
-      <View style={styles.container }>
-         {this.props.children}
-      </View>
-    )
-  }
-}
-
-class CHANNEL extends Component {
-  render() {
-    return(
-    <View>
-      {this.props.children}
-    </View>
-  )
-  }
-}
-
 class ITEM extends Component {
   constructor(props){
     super(props);
+    console.log(props);
+
   }
   render() {
-    <View>
-      {this.props.children}
-    </View>
+      return(<Text>{this.props.item.title}</Text>)
   }
 }
 
@@ -253,68 +231,22 @@ class DAY extends Component {
   }
 }
 
-function cleanText(text, tag){
-  return text.replace(tag);
-}
-
-function getAllItems(feed){
-  var item = /<\s*[Ii][Tt][Ee][Mm][^>]*>/g;
-  // ^(<\/\s*[Ii][Tt][Ee][Mm][^>]*>)*<\/\s*[Ii][Tt][Ee][Mm][^>]*>
-  var items = [];
-  let itemStrings = feed.split(item);
-  console.log(itemStrings);
-
-  while(i = item.exec(feed)){
-    items.push(i);
-  }
-  return items;
-}
-
-function getComponent(s){
-  if(!s){
-    return(<Text>no s</Text>);
-  }
-  const rss_parse = /^\s*<\s*([A-z]+)[^>]*>([\s\S]*)<\/([A-z]+)[^>]*>$/g;
-  const just_text = /^([^<]*)<\/[A-z]+[^>]*>([\s\S]*)/;
-  const splitTag = /(?=<\/?\s*[A-z]+[^>]*>)/;
-  // https://www.raymondcamden.com/2015/12/08/parsing-rss-feeds-in-javascript-options
-  // do it bf item
-  if(!rss_parse.test(s)) {
-    if(just_text.test(s)){
-      let text = just_text.exec(s);
-      return(<Text>{ text[1] }</Text>)
-    }
-    return null;
-  };
-
-
-  let match = rss_parse.exec(s);
-  let tag = match[1] ? match[1].toLowerCase() : null;
-  switch (tag) {
-    case "rss":
-      return(<RSS>{getComponent(match[2])}</RSS>);
-    case "channel":
-      return(<CHANNEL>{getComponent(match[2])}</CHANNEL>);
-    case "title":
-      return(<TITLE>{getComponent(match[2])}</TITLE>);
-    default:
-      if(!tag){
-        return(<Text>{match[2]}</Text>);
-      }
-      return(<Text>fell through</Text>);
-  }
-}
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
 class test3 extends Component {
   constructor(props){
     super(props)
+
     this.state = {
-      rss: <View style={styles.container}><Text>Loading</Text></View>
+      rss: ds.cloneWithRows(["Loading"])
     };
   }
   printResult(responseText){
-      console.log(responseText);
-      this.setState({ rss: getComponent(responseText) });
+      console.log(responseText.query.results.item[0]);
+      if(responseText.query && responseText.query.results && responseText.query.results.item){
+        this.setState({ rss: ds.cloneWithRows(responseText.query.results.item) });
+      }
+
 
   }
   fetchResult(){
@@ -325,7 +257,12 @@ class test3 extends Component {
     this.fetchResult();
   }
   render() {
-    return(this.state.rss);
+    return(
+      <ListView
+        dataSource={this.state.rss}
+        renderRow={(rowData) => <ITEM item={rowData}>item</ITEM>}
+      />
+    );
   }
 }
 
