@@ -14,7 +14,7 @@ import {
   View
 } from 'react-native';
 
-import { Button, Card } from 'react-native-material-design';
+import { Button, Card, Subheader } from 'react-native-material-design';
 
 let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
 // https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%20=%20%27http://boingboing.net/feed%27
@@ -44,7 +44,15 @@ class ITEM extends Component {
 
   }
   render() {
-      return(<Text>{this.props.item.title}</Text>)
+      return(
+        <View>
+          <Subheader text={this.props.item.title ? this.props.item.title : ""}>
+          </Subheader>
+          <Text>
+            {this.props.item.description}
+          </Text>
+        </View>
+      )
   }
 }
 
@@ -80,15 +88,7 @@ class CATEGORY extends Component {
   }
 }
 
-class TITLE extends Component {
-  render() {
-    return(
-    <View>
-      {this.props.children}
-    </View>
-  )
-  }
-}
+
 
 class LINK extends Component {
   render() {
