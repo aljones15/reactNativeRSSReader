@@ -11,7 +11,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  WebView
 } from 'react-native';
 
 import { Button, Card, Subheader } from 'react-native-material-design';
@@ -40,18 +41,24 @@ function getRss(url, cb){
 class ITEM extends Component {
   constructor(props){
     super(props);
-    console.log(props);
-
+  }
+  makeSafeLink(){
+    console.log("make safe link");
+    return null; //this.props.item.link.replace("http", "https");
+  }
+  ErrorFun(){
+    return(
+      <Text>Error</Text>
+    )
+  }
+  getHtml(){
+    return '<!DOCTYPE html><html><body><h1>This is a heading!</h1></body></html>';
   }
   render() {
       return(
         <View>
-          <Subheader text={this.props.item.title ? this.props.item.title : ""}>
-          </Subheader>
-          <Text>
-            {this.props.item.description}
-          </Text>
-        </View>
+          <Subheader text={this.props.item.title ? this.props.item.title : ""} />
+          </View>
       )
   }
 }
@@ -258,10 +265,12 @@ class test3 extends Component {
   }
   render() {
     return(
+      <View>
       <ListView
         dataSource={this.state.rss}
         renderRow={(rowData) => <ITEM item={rowData}>item</ITEM>}
       />
+      </View>
     );
   }
 }
