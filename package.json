@@ -10,7 +10,8 @@
     "react": "15.3.2",
     "react-calendar": "^1.1.0",
     "react-native": "0.34.1",
-    "react-native-material-design": "^0.3.7"
+    "react-native-material-design": "^0.3.7",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "request": "^2.75.0",
