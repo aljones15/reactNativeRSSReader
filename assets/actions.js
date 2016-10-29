@@ -12,3 +12,10 @@ export const RSS_UPDATE = (payload) => {
     payload: payload
   }
 }
+
+export const select_item = (item) => {
+  return {
+    type: SHOW_ITEM,
+    payload: item
+  }
+}

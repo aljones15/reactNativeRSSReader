@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, ListView, Text } from 'react-native';
-import { RSS_UPDATE, UPDATE_ITEMS_FAILED } from '../actions.js';
+import { View, ListView, Text, WebView } from 'react-native';
+import { RSS_UPDATE, UPDATE_ITEMS_FAILED, select_item } from '../actions.js';
 import { Item } from './item.js';
 
 export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
@@ -34,7 +34,17 @@ class RssBase extends Component {
   componentDidMount(){
     this.props.getItems("http://boingboing.net/feed");
   }
+  componentDidUpdate(){
+    console.log("RssBaoe Updated");
+  }
   render(){
+    if(this.props.item){
+      return(
+        <View>
+          <Text>Item</Text>
+        </View>
+      )
+    }
     return(
     <View>
     <ListView
@@ -55,13 +65,14 @@ const mapStateToProps = (state, props) => {
     return false;
   }
   return {
-    items: validateRss(state) ? ds.cloneWithRows(state.rss.query.results.item) : ds.cloneWithRows(["Loading"])
+    items: validateRss(state) ? ds.cloneWithRows(state.rss.query.results.item) : ds.cloneWithRows(["Loading"]),
+    item: state.item
   };
 }
 
 const dispatchToStore = (dispatch) => {
   return {
-    selectItem: () => { return () =>{ console.log("select item"); } },
+    selectItem: () => { return (e) => console.log(e != null); },
     getItems: getRss(dispatch)
   }
 }

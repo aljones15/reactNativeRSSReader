@@ -16,10 +16,11 @@ export function reduceItems(state = initialState, action){
       state.errors.push(action.payload);
       return Object.assign({}, state);
     case Actions.REMOVE_ITEM:
-      this.state.item = null;
+      state.item = null;
       return Object({}, state);
     case Actions.SHOW_ITEM:
-      this.state.item = action.payload;
+      console.log(action);
+      state.item = action.payload;
       return Object.assign({}, state);
     case Actions.REMOVE_ERROR:
       state.errors = state.errors.filter((e) =>{ if(e != action.payload) return e; });
