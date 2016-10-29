@@ -15,7 +15,25 @@ import {
   WebView
 } from 'react-native';
 
-import { Button, Card, Subheader } from 'react-native-material-design';
+import Redux, { createStore } from 'redux';
+import { connect } from 'react-redux';
+import { Button, Subheader } from 'react-native-material-design';
+
+var initialState = {};
+
+const UPDATE_ITEMS = "UPDATE_ITEMS";
+
+function reduceItems(state = initialState, action){
+  if(typeof state === 'undefined') return initialState;
+  switch (action.type) {
+    case UPDATE_ITEMS:
+      return initialState
+    default:
+      return state
+  }
+}
+
+let store = createStore(reduceItems);
 
 let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
 // https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%20=%20%27http://boingboing.net/feed%27
