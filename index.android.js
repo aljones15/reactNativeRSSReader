@@ -13,7 +13,6 @@ import {
   View,
   WebView
 } from 'react-native';
-
 import { Button, Subheader } from 'react-native-material-design';
 import { store } from './assets/reduxCreate.js';
 import { Provider } from 'react-redux';

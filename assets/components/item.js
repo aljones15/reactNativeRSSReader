@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Subheader } from 'react-native-material-design';
-import { View } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
+import { connect } from 'react-redux';
 
 
-export class ITEM extends Component {
+export class Item extends Component {
   constructor(props){
     super(props);
   }
@@ -21,9 +22,11 @@ export class ITEM extends Component {
   }
   render() {
       return(
+        <TouchableWithoutFeedback onPress={this.props.selectItem(this.props.item)}>
         <View>
           <Subheader text={this.props.item.title ? this.props.item.title : ""} />
-          </View>
+        </View>
+        </TouchableWithoutFeedback>
       )
   }
 }

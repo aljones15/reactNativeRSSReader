@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, ListView } from 'react-native';
+import { View, ListView, Text } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED } from '../actions.js';
-import { ITEM } from './item.js';
+import { Item } from './item.js';
 
 export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
 
 export function getRss(dispatch){
   return function(url){
-    console.log("curry at url");
       let uri = encodeURI(yahooQLbase + "'" + url + "'");
       return fetch(uri, {
       method: 'GET',
@@ -40,7 +39,7 @@ class RssBase extends Component {
     <View>
     <ListView
       dataSource={this.props.items}
-      renderRow={(rowData) => <ITEM item={rowData}></ITEM>}
+      renderRow={(rowData) => <Item item={rowData} selectItem={this.props.selectItem}></Item>}
     />
       {this.props.children}
     </View>
@@ -49,7 +48,6 @@ class RssBase extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-  console.log("map state to props");
   function validateRss(s){
     if(s.rss && s.rss.query && s.rss.query.results && s.rss.query.results.item){
       return s;
@@ -62,9 +60,8 @@ const mapStateToProps = (state, props) => {
 }
 
 const dispatchToStore = (dispatch) => {
-  console.log("map dispatch to props");
   return {
-    selectItem: () => { console.log("select item"); },
+    selectItem: () => { return () =>{ console.log("select item"); } },
     getItems: getRss(dispatch)
   }
 }
