@@ -40,9 +40,7 @@ class RssBase extends Component {
   render(){
     if(this.props.item){
       return(
-        <View>
-          <Text>Item</Text>
-        </View>
+          <WebView source={{uri: 'https://github.com/facebook/react-native'}} style={{marginTop: 20}} />
       )
     }
     return(
@@ -72,7 +70,7 @@ const mapStateToProps = (state, props) => {
 
 const dispatchToStore = (dispatch) => {
   return {
-    selectItem: () => { return (e) => console.log(e != null); },
+    selectItem: () => { return (i) => dispatch(select_item(i)) },
     getItems: getRss(dispatch)
   }
 }

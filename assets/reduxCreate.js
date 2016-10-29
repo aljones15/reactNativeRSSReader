@@ -19,7 +19,7 @@ export function reduceItems(state = initialState, action){
       state.item = null;
       return Object({}, state);
     case Actions.SHOW_ITEM:
-      console.log(action);
+      console.log("show item reducer");
       state.item = action.payload;
       return Object.assign({}, state);
     case Actions.REMOVE_ERROR:
