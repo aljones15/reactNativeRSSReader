@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, ListView, Text, WebView } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED, select_item } from '../actions.js';
 import { Item } from './item.js';
+import { styles } from '../styles.js';
 
 export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
 
@@ -25,7 +26,7 @@ export function getRss(dispatch){
 }
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
-
+//
 
 class RssBase extends Component {
   constructor(props){
@@ -35,13 +36,14 @@ class RssBase extends Component {
     this.props.getItems("http://boingboing.net/feed");
   }
   componentDidUpdate(){
-    console.log("RssBaoe Updated");
+    console.log("RssBase Updated");
+    console.log(this.props.item);
   }
   render(){
     if(this.props.item){
       return(
-        <View>
-          <WebView source={{uri: 'https://www.google.com'}} style={{marginTop: 20}} />
+        <View style={styles.webView}>
+           <WebView source={{html: this.props.item.description}} style={{marginTop: 20}} />
         </View>
       )
     }
@@ -72,7 +74,7 @@ const mapStateToProps = (state, props) => {
 
 const dispatchToStore = (dispatch) => {
   return {
-    selectItem: () => { return (i) => dispatch(select_item(i)) },
+    selectItem: (item) => { return (event) => dispatch(select_item(item)) },
     getItems: getRss(dispatch)
   }
 }

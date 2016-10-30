@@ -17,7 +17,8 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
   },
   webView: {
-  backgroundColor: 'white',
-  height: 350,
+    marginTop: 20,
+    backgroundColor: 'blue',
+    height: 550,
 }
 });
