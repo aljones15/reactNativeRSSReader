@@ -40,7 +40,9 @@ class RssBase extends Component {
   render(){
     if(this.props.item){
       return(
-          <WebView source={{uri: 'https://github.com/facebook/react-native'}} style={{marginTop: 20}} />
+        <View>
+          <WebView source={{uri: 'https://www.google.com'}} style={{marginTop: 20}} />
+        </View>
       )
     }
     return(

@@ -19,7 +19,7 @@ import { Provider } from 'react-redux';
 import { RssStore} from './assets/components/RssBase.js'
 
 
-class test3 extends Component {
+class Root extends Component {
   constructor(props){
     super(props)
 
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('test3', () => test3);
+AppRegistry.registerComponent('test3', () => Root);
