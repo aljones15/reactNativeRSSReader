@@ -20,5 +20,8 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: 'blue',
     height: 550,
-}
+},
+  scollWebView : {
+    flex: 1
+  }
 });

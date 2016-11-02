@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, ListView, Text, WebView } from 'react-native';
+import { View, ListView, Text, WebView, ScrollView } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED, select_item } from '../actions.js';
 import { Item } from './item.js';
 import { styles } from '../styles.js';
@@ -19,14 +19,16 @@ export function getRss(dispatch){
       if(r){
         r.json().then((t) => dispatch(RSS_UPDATE(t)))
     } else {
-      dispatch({type: UPDATE_ITEMS_FAILED});
+      dispatch({
+        type: UPDATE_ITEMS_FAILED,
+        payload: r
+      });
     }
   });
-}
+  }
 }
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
-//
 
 class RssBase extends Component {
   constructor(props){
@@ -35,6 +37,14 @@ class RssBase extends Component {
   componentDidMount(){
     this.props.getItems("http://boingboing.net/feed");
   }
+  secureUri(uri){
+    const isSecure = /^\s*[Hh][Tt]{2}[Pp][Ss]/;
+    const notSecure = /^\s*[Hh][Tt]{2}[Pp]/;
+    if(isSecure.test(uri)){
+      return uri;
+    }
+    return uri.replace(notSecure, "https");
+  }
   componentDidUpdate(){
     console.log("RssBase Updated");
     console.log(this.props.item);
@@ -42,9 +52,9 @@ class RssBase extends Component {
   render(){
     if(this.props.item){
       return(
-        <View style={styles.webView}>
-           <WebView source={{html: this.props.item.description}} style={{marginTop: 20}} />
-        </View>
+        <ScrollView style={styles.scollWebView}>
+           <WebView source={{uri: this.secureUri(this.props.item.link) }} style={styles.webView} />
+        </ScrollView>
       )
     }
     return(
