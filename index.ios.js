@@ -4,32 +4,7 @@
  * @flow
  */
 
-
-import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
-import { styles } from './assets/styles.js';
-import { store } from './assets/reduxCreate.js';
-import { Provider } from 'react-redux';
-import { RssStore} from './assets/components/RssBase.js'
-
-
-class Root extends Component {
-  constructor(props){
-    super(props)
-  }
-  componentDidMount(){
-
-  }
-  render() {
-    return(
-      <Provider store={store}>
-       <View>
-       <RssStore>
-       </RssStore>
-       </View>
-      </Provider>
-    );
-  }
-}
+import { AppRegistry } from 'react-native';
+import Root from './assets/components/root'
 
 AppRegistry.registerComponent('test3', () => Root);
