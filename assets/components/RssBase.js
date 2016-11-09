@@ -4,6 +4,7 @@ import { View, ListView, Text, WebView, ScrollView } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED, select_item } from '../actions.js';
 import { Item } from './item.js';
 import { styles } from '../styles.js';
+import Header from './header.js';
 
 export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
 
@@ -46,8 +47,7 @@ class RssBase extends Component {
     return uri.replace(notSecure, "https");
   }
   componentDidUpdate(){
-    console.log("RssBase Updated");
-    console.log(this.props.item);
+
   }
   render(){
     if(this.props.item){
@@ -59,6 +59,7 @@ class RssBase extends Component {
     }
     return(
     <View>
+    <Header />
     <ListView
       dataSource={this.props.items}
       renderRow={(rowData) => <Item item={rowData} selectItem={this.props.selectItem}></Item>}
@@ -89,4 +90,4 @@ const dispatchToStore = (dispatch) => {
   }
 }
 
-export const RssStore = connect(mapStateToProps, dispatchToStore)(RssBase);
+export default connect(mapStateToProps, dispatchToStore)(RssBase);
