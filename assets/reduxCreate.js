@@ -17,7 +17,7 @@ export function reduceItems(state = initialState, action){
       return Object.assign({}, state);
     case Actions.REMOVE_ITEM:
       state.item = null;
-      return Object({}, state);
+      return Object.assign({}, state);
     case Actions.SHOW_ITEM:
       console.log("show item reducer");
       state.item = action.payload;

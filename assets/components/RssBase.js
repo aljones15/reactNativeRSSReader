@@ -52,9 +52,12 @@ class RssBase extends Component {
   render(){
     if(this.props.item){
       return(
+        <View>
+        <Header />
         <ScrollView style={styles.scollWebView}>
            <WebView source={{uri: this.secureUri(this.props.item.link) }} style={styles.webView} />
         </ScrollView>
+        </View>
       )
     }
     return(
