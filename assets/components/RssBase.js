@@ -65,6 +65,7 @@ class RssBase extends Component {
     <View>
     <MainHeader />
     <ListView
+      style={ styles.mainFeed }
       dataSource={this.props.items}
       renderRow={(rowData) => <Item item={rowData} selectItem={this.props.selectItem}></Item>}
     />

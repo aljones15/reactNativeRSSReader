@@ -11,7 +11,7 @@ class MainHeader extends Component{
   }
   render(){
     return(
-      <Toolbar title="Main" style={ styles.header }>
+      <Toolbar title="Main" style={ styles.mainHeader }>
         <Button value="Items" text="Items" onPress={this.props.open()} />
       </Toolbar>
     )

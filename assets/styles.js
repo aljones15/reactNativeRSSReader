@@ -25,5 +25,11 @@ export const styles = StyleSheet.create({
   },
   header: {
     marginTop: 20
+  },
+  mainFeed: {
+    marginTop: 70
+  },
+  mainHeader: {
+    marginTop: 20
   }
 });
