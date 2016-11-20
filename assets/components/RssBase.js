@@ -5,6 +5,7 @@ import { RSS_UPDATE, UPDATE_ITEMS_FAILED, select_item } from '../actions.js';
 import { Item } from './item.js';
 import { styles } from '../styles.js';
 import Header from './header.js';
+import MainHeader from './mainHeader.js';
 
 export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
 
@@ -62,7 +63,7 @@ class RssBase extends Component {
     }
     return(
     <View>
-    <Header />
+    <MainHeader />
     <ListView
       dataSource={this.props.items}
       renderRow={(rowData) => <Item item={rowData} selectItem={this.props.selectItem}></Item>}

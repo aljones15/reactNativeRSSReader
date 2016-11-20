@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { styles } from '../styles.js';
 import { REMOVE_ITEM } from '../actions.js';
-import { Button } from 'react-native-material-design';
+import { Button, Toolbar } from 'react-native-material-design';
 
-class Header extends Component{
+class MainHeader extends Component{
   constructor(props){
     super(props)
   }
   render(){
     return(
-      <View style={ styles.header }>
-        <Button value="Back" text="Back" onPress={this.props.back()} />
-      </View>
+      <Toolbar title="Main" style={ styles.header }>
+        <Button value="Items" text="Items" onPress={this.props.open()} />
+      </Toolbar>
     )
   }
 }
@@ -24,9 +24,9 @@ const mapStateToProps = (state, props) => {
 
 const dispatchToStore = (dispatch) => {
   return {
-    back: () => () => dispatch({type: REMOVE_ITEM})
+    open: () => () => dispatch({type: REMOVE_ITEM})
   }
 
 }
 
-export default connect(mapStateToProps, dispatchToStore)(Header)
+export default connect(mapStateToProps, dispatchToStore)(MainHeader)
