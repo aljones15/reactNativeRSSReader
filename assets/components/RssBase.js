@@ -47,22 +47,20 @@ class RssBase extends Component {
     }
     return uri.replace(notSecure, "https");
   }
-  componentDidUpdate(){
-
-  }
   render(){
     if(this.props.item){
       return(
-        <View>
-        <Header />
-        <ScrollView style={styles.scollWebView}>
-           <WebView source={{uri: this.secureUri(this.props.item.link) }} style={styles.webView} />
-        </ScrollView>
+        <View style={{ flex: 1}}>
+          <View style={ styles.flexSpace }></View>
+          <Header />
+          <ScrollView style={styles.scollWebView}>
+             <WebView source={{uri: this.secureUri(this.props.item.link) }} style={styles.webView} />
+          </ScrollView>
         </View>
       )
     }
     return(
-    <View>
+    <View style={ styles.container }>
     <MainHeader />
     <ListView
       style={ styles.mainFeed }

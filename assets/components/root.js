@@ -15,10 +15,8 @@ class Root extends Component {
   render() {
     return(
       <Provider store={store}>
-       <View>
        <RssStore>
        </RssStore>
-       </View>
       </Provider>
     );
   }

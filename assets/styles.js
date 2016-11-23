@@ -17,19 +17,24 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
   },
   webView: {
-    marginTop: 20,
-    height: 9999,
+    height: 600,
+    width: 500
 },
   scollWebView : {
-    flex: 1
+    flex: 25,
+    backgroundColor: 'red'
   },
   header: {
-    marginTop: 20
+    flex: 2,
+    backgroundColor: 'blue'
   },
   mainFeed: {
     marginTop: 70
   },
   mainHeader: {
     marginTop: 20
+  },
+  flexSpace: {
+    flex: 1,
   }
 });
