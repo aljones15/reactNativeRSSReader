@@ -33,6 +33,9 @@ export const styles = StyleSheet.create({
   mainHeader: {
     flex: 2,
     backgroundColor: 'blue',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    flexDirection: 'row'
   },
   flexSpace: {
     flex: 1,

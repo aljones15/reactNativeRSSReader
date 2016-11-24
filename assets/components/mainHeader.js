@@ -12,7 +12,8 @@ class MainHeader extends Component{
   render(){
     return(
       <View style={ styles.mainHeader }>
-        <Button value="Items" text="Items" onPress={this.props.open()} />
+        <Button value="Items" text="Items" onPress={this.props.open()} style={{flex: 1}} />
+        <Button value="AddFeed" text="Add Feed" onPress={this.props.open()} style={{flex: 1}} />
       </View>
     )
   }
