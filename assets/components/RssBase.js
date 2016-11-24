@@ -61,6 +61,7 @@ class RssBase extends Component {
     }
     return(
     <View style={ styles.container }>
+    <View style={ styles.flexSpace }></View>
     <MainHeader />
     <ListView
       style={ styles.mainFeed }

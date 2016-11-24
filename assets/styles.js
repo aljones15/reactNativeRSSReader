@@ -2,8 +2,6 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
@@ -26,13 +24,15 @@ export const styles = StyleSheet.create({
   },
   header: {
     flex: 2,
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
+    justifyContent: 'flex-start'
   },
   mainFeed: {
-    marginTop: 70
+    flex: 25
   },
   mainHeader: {
-    marginTop: 20
+    flex: 2,
+    backgroundColor: 'blue',
   },
   flexSpace: {
     flex: 1,
