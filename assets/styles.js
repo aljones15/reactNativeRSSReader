@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   webView: {
     height: 600,
-    width: 500
+    width: 385
 },
   scollWebView : {
     flex: 25,
