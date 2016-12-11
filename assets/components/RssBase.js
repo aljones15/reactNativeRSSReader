@@ -1,34 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, ListView, Text, WebView, ScrollView } from 'react-native';
+import { View, ListView, Text, WebView, ScrollView, Dimensions } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED, select_item } from '../actions.js';
 import { Item } from './item.js';
 import { styles } from '../styles.js';
 import Header from './header.js';
 import MainHeader from './mainHeader.js';
-
-export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
-
-export function getRss(dispatch){
-  return function(url){
-      let uri = encodeURI(yahooQLbase + "'" + url + "'");
-      return fetch(uri, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then((r) => {
-      if(r){
-        r.json().then((t) => dispatch(RSS_UPDATE(t)))
-    } else {
-      dispatch({
-        type: UPDATE_ITEMS_FAILED,
-        payload: r
-      });
-    }
-  });
-  }
-}
+import { getRss } from '../actions';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
@@ -48,13 +26,14 @@ class RssBase extends Component {
     return uri.replace(notSecure, "https");
   }
   render(){
+    let {width, height, scale} = Dimensions.get('window');
     if(this.props.item){
       return(
         <View style={{ flex: 1}}>
           <View style={ styles.flexSpace }></View>
           <Header />
           <ScrollView style={styles.scollWebView}>
-             <WebView source={{uri: this.secureUri(this.props.item.link) }} style={styles.webView} />
+             <WebView source={{uri: this.secureUri(this.props.item.link) }} style={{ height: height, width: width }} />
           </ScrollView>
         </View>
       )

@@ -32,4 +32,12 @@ export function reduceItems(state = initialState, action){
   }
 }
 
+export function reduceDisplay(state = { addModal: false }, action){
+  if(typeof state === 'undefined') return initialState;
+  switch (action.type) {
+    case Actions.OPEN_MODAL:
+      return Object.assign({}, state);
+  }
+}
+
 export let store = createStore(reduceItems);

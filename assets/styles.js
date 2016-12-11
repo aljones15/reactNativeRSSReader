@@ -1,4 +1,8 @@
 import { StyleSheet } from 'react-native';
+
+const headerBG = '#84C9F5';
+export const fontColor = '#011827';
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -24,20 +28,25 @@ export const styles = StyleSheet.create({
   },
   header: {
     flex: 2,
-    backgroundColor: 'blue',
-    justifyContent: 'flex-start'
+    backgroundColor: headerBG,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row'
   },
   mainFeed: {
     flex: 25
   },
   mainHeader: {
     flex: 2,
-    backgroundColor: 'blue',
+    backgroundColor: headerBG,
     justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     flexDirection: 'row'
   },
   flexSpace: {
     flex: 1,
+  },
+  fontStyle: {
+    color: fontColor
   }
 });

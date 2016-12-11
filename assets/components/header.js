@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { styles } from '../styles.js';
 import { REMOVE_ITEM } from '../actions.js';
 import { Button } from 'react-native-material-design';
@@ -12,7 +12,7 @@ class Header extends Component{
   render(){
     return(
       <View style={ styles.header }>
-        <Button value="Back" text="Back" onPress={this.props.back()} />
+        <Text style={styles.fontStyle} onPress={this.props.back()}>Back</Text>
       </View>
     )
   }
