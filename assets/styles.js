@@ -76,7 +76,10 @@ export const styles = StyleSheet.create({
     backgroundColor: headerBG,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderStyle: 'solid'
   },
   mainFeed: {
     flex: 30
@@ -100,8 +103,10 @@ export const styles = StyleSheet.create({
     textAlign: 'left'
   },
   item: {
-    backgroundColor: '#C3E5E8',
-    padding: 3
+    padding: 3,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderStyle: 'solid'
   }
 });
 
