@@ -5,7 +5,7 @@ import { styles, sizes, flatten } from '../styles.js';
 import { REMOVE_ITEM, TOGGLE_MODAL, getRss } from '../actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-// <Icon name="rocket" size={30} color="#900" />
+//
 
 class MainHeader extends Component{
   constructor(props){
@@ -14,10 +14,10 @@ class MainHeader extends Component{
   render(){
     return(
       <View style={ styles.header }>
-        <Text onPress={this.props.open()} style={ flatten(styles.fontCenter, sizes.flexOne) }>
-          Items
+        <Text onPress={this.props.open()} style={ flatten(styles.fontLeft, sizes.flexOne, {padding: 5 }) }>
+          <Icon name="list" size={30} color="#080707"/>
         </Text>
-        <Text onPress={this.props.open()} style={ flatten(styles.fontCenter, sizes.flexTwo) }>Add Feed</Text>
+        <Text onPress={this.props.open()} style={ flatten(styles.fontLeft, sizes.flexTwo) }>Add Feed</Text>
       </View>
     )
   }

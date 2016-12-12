@@ -68,7 +68,7 @@ export const styles = StyleSheet.create({
     width: 385
 },
   scollWebView : {
-    flex: 25,
+    flex: 30,
     backgroundColor: 'red'
   },
   header: {
@@ -79,7 +79,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   mainFeed: {
-    flex: 25
+    flex: 30
   },
   mainHeader: {
     flex: 2,
