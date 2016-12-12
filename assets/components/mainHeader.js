@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
 import { styles, sizes, flatten } from '../styles.js';
 import { REMOVE_ITEM, TOGGLE_MODAL, getRss } from '../actions.js';
-import { Button, Toolbar } from 'react-native-material-design';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+// <Icon name="rocket" size={30} color="#900" />
 
 class MainHeader extends Component{
   constructor(props){
@@ -12,7 +14,9 @@ class MainHeader extends Component{
   render(){
     return(
       <View style={ styles.header }>
-        <Text onPress={this.props.open()} style={ flatten(styles.fontCenter, sizes.flexOne) }>Items</Text>
+        <Text onPress={this.props.open()} style={ flatten(styles.fontCenter, sizes.flexOne) }>
+          Items
+        </Text>
         <Text onPress={this.props.open()} style={ flatten(styles.fontCenter, sizes.flexTwo) }>Add Feed</Text>
       </View>
     )

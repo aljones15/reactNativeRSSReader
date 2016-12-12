@@ -9,7 +9,6 @@ import { styles, sizes, flatten, evenItemColor, oddItemColor } from '../styles.j
 export class Item extends Component {
   constructor(props){
     super(props);
-    console.log(props);
   }
   getItemStyle(colorNum){
     if(colorNum % 2 == 0){
