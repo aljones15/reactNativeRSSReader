@@ -9,7 +9,7 @@ class Modal extends Component {
     super(props)
   }
   render(){
-    
+
   }
 }
 
@@ -19,7 +19,7 @@ const mapStateToProps = (state, props) => {
 
 const dispatchToStore = (dispatch) => {
   return {
-    back: () => () => dispatch({type: TOGGLE_MODAL})
+    close: () => () => dispatch({type: TOGGLE_MODAL})
   }
 
   export default connect(mapStateToProps, dispatchToStore)(Modal)

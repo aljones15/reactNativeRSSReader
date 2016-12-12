@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
-import { Button, Subheader } from 'react-native-material-design';
-import { View, TouchableWithoutFeedback } from 'react-native';
+import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { connect } from 'react-redux';
+import { styles, sizes, flatten, evenItemColor, oddItemColor } from '../styles.js';
+
+
 
 
 export class Item extends Component {
   constructor(props){
     super(props);
+    console.log(props);
+  }
+  getItemStyle(colorNum){
+    if(colorNum % 2 == 0){
+      return flatten(styles.item, sizes.flexOne, { backgroundColor: evenItemColor });
+    }
+    else {
+      return flatten(styles.item, sizes.flexOne, { backgroundColor: oddItemColor });
+    }
   }
   makeSafeLink(){
-    console.log("make safe link");
     return null; //this.props.item.link.replace("http", "https");
   }
   ErrorFun(){
@@ -23,8 +33,8 @@ export class Item extends Component {
   render() {
       return(
         <TouchableWithoutFeedback onPress={this.props.selectItem(this.props.item)}>
-        <View>
-          <Subheader text={this.props.item.title ? this.props.item.title : ""} />
+        <View style={ this.getItemStyle(this.props.colorPicker) }>
+          <Text>{this.props.item.title ? this.props.item.title : ""}</Text>
         </View>
         </TouchableWithoutFeedback>
       )

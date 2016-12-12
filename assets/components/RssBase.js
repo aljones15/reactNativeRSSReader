@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { View, ListView, Text, WebView, ScrollView, Dimensions } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED, select_item } from '../actions.js';
 import { Item } from './item.js';
-import { styles } from '../styles.js';
+import { styles, sizes, flatten } from '../styles.js';
 import Header from './header.js';
 import MainHeader from './mainHeader.js';
 import { getRss } from '../actions';
@@ -45,7 +45,7 @@ class RssBase extends Component {
     <ListView
       style={ styles.mainFeed }
       dataSource={this.props.items}
-      renderRow={(rowData) => <Item item={rowData} selectItem={this.props.selectItem}></Item>}
+      renderRow={(rowData, sectionID, rowID, highlightRow) => <Item colorPicker={rowID} item={rowData} selectItem={this.props.selectItem}></Item>}
     />
       {this.props.children}
     </View>
