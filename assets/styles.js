@@ -5,6 +5,17 @@ export const fontColor = '#011827';
 export const evenItemColor = 'rgba(146, 230, 251, 0.78)';
 export const oddItemColor = 'rgba(146, 251, 167, 0.58)';
 
+export function growShrinkFlex(grow, shrink){
+  return {
+    flexGrow: grow,
+    flexShrink: shrink
+  }
+}
+
+export function growFlex(grow){
+  return makeFlex(grow, grow);
+}
+
 export const sizes = StyleSheet.create({
   flexOne: {
     flexGrow: 1,
