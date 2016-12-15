@@ -5,8 +5,6 @@ import { styles, growFlex, flatten } from '../styles.js';
 import { REMOVE_ITEM, TOGGLE_MODAL, getRss } from '../actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-//
-
 class MainHeader extends Component{
   constructor(props){
     super(props)
@@ -18,13 +16,14 @@ class MainHeader extends Component{
           <Icon name="list" size={30} color="#080707"/>
         </Text>
         <Text onPress={this.props.open("new_feed")} style={ flatten(styles.fontLeft, growFlex(2)) }>Add Feed</Text>
+        <Text style={ flatten(styles.fontLeft, growFlex(2)) }>{ this.props.menu ? "menu": "no_menu" }</Text>
       </View>
     )
   }
 }
 
 const mapStateToProps = (state, props) => {
-  return props;
+  return Object.assign({}, state.reduceDisplay);
 }
 
 const dispatchToStore = (dispatch) => {

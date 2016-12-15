@@ -26,25 +26,24 @@ function reduceItems(state = {item: null, network_update: false, rss: {}, errors
       state.errors = state.errors.filter((e) =>{ if(e != action.payload) return e; });
       return Object.assign({}, state);
     default:
-      console.log("state failed items reducer");
-      console.log(action);
       return state;
   }
 }
 
-function reduceDisplay(state = { menu: false, new_feed: false }, action){
+function reduceDisplay(state = { menu: false, section: "" }, action){
   if(typeof state === 'undefined') return initialState;
   switch (action.type) {
-    case Actions.OPEN_MODAL:
-      return Object.assign({}, state);
     case Actions.TOGGLE_MODAL:
-      if(action.name){
-        state[action.name] = !state[action.name];
+      if(action.name == state.section){
+        state.menu = !state.menu;
+        state.section = action.name;
+      }
+      else{
+        state.menu = true;
+        state.section = action.name;
       }
       return Object.assign({}, state);
     default:
-      console.log("state failed display reducer");
-      console.log(action);
       return state;
   }
 }
