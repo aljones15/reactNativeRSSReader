@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { View, ListView, Text, WebView, ScrollView, Dimensions } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED, select_item } from '../actions.js';
 import { Item } from './item.js';
-import { styles, sizes, flatten } from '../styles.js';
+import { styles, growFlex, flatten } from '../styles.js';
 import Header from './header.js';
 import MainHeader from './mainHeader.js';
 import { getRss } from '../actions';
@@ -55,14 +55,14 @@ class RssBase extends Component {
 
 const mapStateToProps = (state, props) => {
   function validateRss(s){
-    if(s.rss && s.rss.query && s.rss.query.results && s.rss.query.results.item){
+    if(s && s.rss && s.rss.query && s.rss.query.results && s.rss.query.results.item){
       return s;
     }
     return false;
   }
   return {
-    items: validateRss(state) ? ds.cloneWithRows(state.rss.query.results.item) : ds.cloneWithRows(["Loading"]),
-    item: state.item
+    items: validateRss(state.reduceItems) ? ds.cloneWithRows(state.reduceItems.rss.query.results.item) : ds.cloneWithRows(["Loading"]),
+    item: state.reduceItems.item
   };
 }
 

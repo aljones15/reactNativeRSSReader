@@ -1,9 +1,9 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import * as Actions from './actions.js';
 
 var initialState = {item: null, network_update: false, rss: {}, errors: []};
 
-export function reduceItems(state = initialState, action){
+function reduceItems(state = {item: null, network_update: false, rss: {}, errors: []}, action){
   if(typeof state === 'undefined') return initialState;
   switch (action.type) {
     case Actions.UPDATING_ITEMS:
@@ -26,18 +26,29 @@ export function reduceItems(state = initialState, action){
       state.errors = state.errors.filter((e) =>{ if(e != action.payload) return e; });
       return Object.assign({}, state);
     default:
-      console.log("state failed");
+      console.log("state failed items reducer");
       console.log(action);
-      return state
+      return state;
   }
 }
 
-export function reduceDisplay(state = { addModal: false }, action){
+function reduceDisplay(state = { menu: false, new_feed: false }, action){
   if(typeof state === 'undefined') return initialState;
   switch (action.type) {
     case Actions.OPEN_MODAL:
       return Object.assign({}, state);
+    case Actions.TOGGLE_MODAL:
+      if(action.name){
+        state[action.name] = !state[action.name];
+      }
+      return Object.assign({}, state);
+    default:
+      console.log("state failed display reducer");
+      console.log(action);
+      return state;
   }
 }
 
-export let store = createStore(reduceItems);
+let allReducers = combineReducers({ reduceItems, reduceDisplay })
+
+export let store = createStore(allReducers);

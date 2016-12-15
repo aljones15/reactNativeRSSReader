@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { styles, sizes, flatten, evenItemColor, oddItemColor } from '../styles.js';
+import { styles, growFlex, flatten, evenItemColor, oddItemColor } from '../styles.js';
 
 
 
@@ -12,10 +12,10 @@ export class Item extends Component {
   }
   getItemStyle(colorNum){
     if(colorNum % 2 == 0){
-      return flatten(styles.item, sizes.flexOne, { backgroundColor: evenItemColor });
+      return flatten(styles.item, growFlex(1), { backgroundColor: evenItemColor });
     }
     else {
-      return flatten(styles.item, sizes.flexOne, { backgroundColor: oddItemColor });
+      return flatten(styles.item, growFlex(1), { backgroundColor: oddItemColor });
     }
   }
   makeSafeLink(){

@@ -30,7 +30,6 @@ const mapStateToProps = (state, props) => {
 const dispatchToStore = (dispatch) => {
   return {
     open: (modal_name) => (event) => dispatch({type: TOGGLE_MODAL, name: modal_name}),
-    getItems: getRss(dispatch) //  this is for the items menu
   }
 
 }

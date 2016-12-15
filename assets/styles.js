@@ -16,49 +16,6 @@ export function growFlex(grow){
   return growShrinkFlex(grow, grow);
 }
 
-export const sizes = StyleSheet.create({
-  flexOne: {
-    flexGrow: 1,
-    flexShrink: 1
-  },
-  flexTwo: {
-    flexGrow: 2,
-    flexShrink: 2
-  },
-  flexThree: {
-    flexGrow: 3,
-    flexShrink: 3
-  },
-  flexFour: {
-    flexGrow: 4,
-    flexShrink: 4
-  },
-  flexFive: {
-    flexGrow: 5,
-    flexShrink: 5
-  },
-  flexSix: {
-    flexGrow: 6,
-    flexShrink: 6
-  },
-  flexSeven: {
-    flexGrow: 7,
-    flexShrink: 7
-  },
-  flexEight: {
-    flexGrow: 8,
-    flexShrink: 8
-  },
-  flexNine: {
-    flexGrow: 9,
-    flexShrink: 9
-  },
-  flexTen: {
-    flexGrow: 10,
-    flexShrink: 10
-  }
-});
-
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
