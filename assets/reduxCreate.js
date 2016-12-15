@@ -27,7 +27,7 @@ export function reduceItems(state = initialState, action){
       return Object.assign({}, state);
     default:
       console.log("state failed");
-      console.log(state);
+      console.log(action);
       return state
   }
 }

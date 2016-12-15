@@ -13,7 +13,7 @@ export function growShrinkFlex(grow, shrink){
 }
 
 export function growFlex(grow){
-  return makeFlex(grow, grow);
+  return growShrinkFlex(grow, grow);
 }
 
 export const sizes = StyleSheet.create({
