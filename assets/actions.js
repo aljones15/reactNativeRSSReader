@@ -40,6 +40,11 @@ export function getRss(dispatch){
         payload: r
       });
     }
-  });
+  }).catch((error) => {
+      dispatch({
+        type: UPDATE_ITEMS_FAILED,
+        payload: error
+      });
+      })
   }
 }

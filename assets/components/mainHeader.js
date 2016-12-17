@@ -34,3 +34,4 @@ const dispatchToStore = (dispatch) => {
 }
 
 export default connect(mapStateToProps, dispatchToStore)(MainHeader)
+

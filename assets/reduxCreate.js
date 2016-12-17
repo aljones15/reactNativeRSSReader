@@ -13,13 +13,13 @@ function reduceItems(state = {item: null, network_update: false, rss: {}, errors
       state.rss = action.payload;
       return Object.assign({}, state);
     case Actions.UPDATE_ITEMS_FAILED:
+      console.error(action.payload);
       state.errors.push(action.payload);
       return Object.assign({}, state);
     case Actions.REMOVE_ITEM:
       state.item = null;
       return Object.assign({}, state);
     case Actions.SHOW_ITEM:
-      console.log("show item reducer");
       state.item = action.payload;
       return Object.assign({}, state);
     case Actions.REMOVE_ERROR:
