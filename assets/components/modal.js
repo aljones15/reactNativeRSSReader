@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
 import { styles, growFlex, flatten } from '../styles.js';
 import { connect } from 'react-redux';
 import { TOGGLE_MODAL } from '../actions.js';
@@ -18,7 +18,7 @@ class ModalFeed extends Component {
   render(){
     return(
       <View style={growFlex(3)}>
-        <Text>new feed</Text>
+        <TextInput placeholder="Modal Feed" style={growFlex(1)} autoCapitalize="none" multiline={false} numberOfLines = {1} autoCorrect={false} autoFocus={true} />
       </View>)
     }
 }
