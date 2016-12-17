@@ -16,7 +16,6 @@ class MainHeader extends Component{
           <Icon name="list" size={30} color="#080707"/>
         </Text>
         <Text onPress={this.props.open("new_feed")} style={ flatten(styles.fontLeft, growFlex(2)) }>Add Feed</Text>
-        <Text style={ flatten(styles.fontLeft, growFlex(2)) }>{ this.props.menu ? "menu": "no_menu" }</Text>
       </View>
     )
   }

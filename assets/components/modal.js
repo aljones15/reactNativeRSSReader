@@ -1,25 +1,45 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { styles } from '../styles.js';
+import { styles, growFlex, flatten } from '../styles.js';
 import { connect } from 'react-redux';
 import { TOGGLE_MODAL } from '../actions.js';
+
+
+class ModalMenu extends Component {
+  render(){
+    return(
+      <View style={growFlex(6)}>
+        <Text>menu</Text>
+      </View>)
+      }
+}
+
+class ModalFeed extends Component {
+  render(){
+    return(
+      <View style={growFlex(3)}>
+        <Text>new feed</Text>
+      </View>)
+    }
+}
 
 class FeedModal extends Component {
   constructor(props){
     super(props)
   }
-  componentWillUpdate(){
+  componentDidUpdate(){
     console.log(this.props);
   }
   render(){
-    if(!this.props.menu){
+    if(!this.props.menu)
       return null;
+    switch(this.props.section){
+      case "menu":
+        return(<ModalMenu />);
+      case "new_feed":
+        return(<ModalFeed />);
     }
-    return(
-      <View>
-        <Text>Test</Text>
-      </View>
-      )
+
   }
 }
 
