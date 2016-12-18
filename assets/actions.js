@@ -6,6 +6,7 @@ export const REMOVE_ITEM = "REMOVE_ITEM";
 export const SHOW_ITEM = "SHOW_ITEM";
 export const REMOVE_ERROR = "REMOVE_ERROR";
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
+export const ADD_FEED = "ADD_FEED";
 
 export const RSS_UPDATE = (payload) => {
   return {

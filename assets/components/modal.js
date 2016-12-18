@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { styles, growFlex, flatten, makeBorder } from '../styles.js';
 import { connect } from 'react-redux';
-import { TOGGLE_MODAL } from '../actions.js';
+import { TOGGLE_MODAL, ADD_FEED, getRss } from '../actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
@@ -21,21 +21,16 @@ class ModalFeed extends Component {
     super(props);
     this.state = { input: "" };
   }
-  componentDidMount(){
-    console.log(this.props);
-  }
   componentDidUpdate(){
-    console.log(this.state);
   }
   change (e) {
-    console.log(e);
     this.setState({ input: e.nativeEvent.text });
   }
   render(){
     return(
       <View style={ flatten(growFlex(1), styles.flexCenterRow, makeBorder('black', 1, 'solid')) }>
         <TextInput
-          placeholder="Modal Feed"
+          placeholder="Add Feed"
           style={ flatten( growFlex(10), { padding: 5 } )}
           autoCapitalize="none"
           multiline={false}
@@ -44,20 +39,13 @@ class ModalFeed extends Component {
           autoFocus={true}
           keyboardType="url"
           onChange={this.change.bind(this)}
-          onEndEditing={this.props.submit}
+          onEndEditing={this.props.submit(this.state.input)}
         />
         <Icon name="check" style={ growFlex(1) } size={30} color="#080707"/>
       </View>)
     }
 }
 
-const mapModalFeedStateToProps = (state, props) => {
-  return {};
-}
-
-const dispatchModalFeedToStore = (dispatch) => {
-
-}
 
 
 class FeedModal extends Component {
@@ -84,8 +72,13 @@ const mapStateToProps = (state, props) => {
 const dispatchToStore = (dispatch) => {
   return {
     close: (modal_name) => (event) => dispatch({type: TOGGLE_MODAL}),
-    submit: (e) => { console.log("dispatch submit"); console.log(e) }
+    submit: (input) => (e) => {
+      dispatch({
+        type: ADD_FEED,
+        url: input
+      });
+      getRss(dispatch)(input);
   }
-}
+}}
 
 export default connect(mapStateToProps, dispatchToStore)(FeedModal)
