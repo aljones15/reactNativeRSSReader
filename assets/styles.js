@@ -16,6 +16,14 @@ export function growFlex(grow){
   return growShrinkFlex(grow, grow);
 }
 
+export function makeBorder(color, width, style){
+    return {
+      borderColor: color,
+      borderWidth: width,
+      borderStyle: style
+    }
+  }
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -48,6 +56,11 @@ export const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     borderStyle: 'solid'
+  },
+    flexCenterRow: {
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   mainFeed: {
     flex: 30
