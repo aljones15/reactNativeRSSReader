@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 
 
-export function setItem(key, value){
+export async function setItem(key, value){
   try {
     await AsyncStorage.setItem(key, value);
     return true;
@@ -11,7 +11,7 @@ export function setItem(key, value){
   }
 }
 
-export function getItem(key){
+export async function getItem(key){
   try {
     let result = await AsyncStorage.getItem(key);
     return result;
@@ -21,7 +21,7 @@ export function getItem(key){
   }
 }
 
-export function deleteItem(key){
+export async function deleteItem(key){
   try {
     await AsyncStorage.removeItem(key);
     return true;
@@ -31,7 +31,7 @@ export function deleteItem(key){
   }
 }
 
-export mergeItem(key, value){
+export async function mergeItem(key, value){
   try {
     await AsyncStorage.mergeItem(key, value);
     return true;
@@ -41,7 +41,7 @@ export mergeItem(key, value){
   }
 }
 
-export function delete_all(){
+export async function delete_all(){
   try {
     await AsyncStorage.clear();
     return true;
@@ -51,7 +51,7 @@ export function delete_all(){
   }
 }
 
-export function getAllKeys(){
+export async function getAllKeys(){
   try{
 
   } catch(e){
@@ -60,7 +60,7 @@ export function getAllKeys(){
   }
 }
 
-export function flushRequest(){
+export async function flushRequest(){
   try{
     await AsyncStorage.flushGetRequests();
     return true;
@@ -70,7 +70,7 @@ export function flushRequest(){
   }
 }
 
-export function getMulti(keys){
+export async function getMulti(keys){
   try{
     let results = await AsyncStorage.multiGet(keys);
     return results;
@@ -81,7 +81,7 @@ export function getMulti(keys){
   }
 }
 
-export function setMulti(keyValue){
+export async function setMulti(keyValue){
   try{
     await AsyncStorage.multiSet(keyValue);
     return true;
@@ -92,18 +92,17 @@ export function setMulti(keyValue){
   }
 }
 
-export function removeMulti(keys){
+export async function removeMulti(keys){
   try{
     await AsyncStorage.multiRemove(keys);
     return true;
-
   } catch(e){
     console.error(e);
     return false;
   }
 }
 
-export function mergeMulti(keyValue){
+export async function mergeMulti(keyValue){
   try{
     await AsyncStorage.multiMerge(keyValue);
     return true;

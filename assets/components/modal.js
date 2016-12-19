@@ -4,8 +4,7 @@ import { styles, growFlex, flatten, makeBorder } from '../styles.js';
 import { connect } from 'react-redux';
 import { TOGGLE_MODAL, ADD_FEED, getRss } from '../actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-
+import { mergeItem } from '../asyncStorage.js';
 
 class ModalMenu extends Component {
   render(){
@@ -73,11 +72,13 @@ const dispatchToStore = (dispatch) => {
   return {
     close: (modal_name) => (event) => dispatch({type: TOGGLE_MODAL}),
     submit: (input) => (e) => {
+      //mergeItem("urls", input);
       dispatch({
         type: ADD_FEED,
         url: input
       });
       getRss(dispatch)(input);
+      this.close("new_feed");
   }
 }}
 
