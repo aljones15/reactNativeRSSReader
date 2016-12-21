@@ -1,6 +1,7 @@
-package com.test3;
+package com.rsstwo;
 
 import com.facebook.react.ReactActivity;
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -10,6 +11,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "test3";
+        return "rssTwo";
     }
 }

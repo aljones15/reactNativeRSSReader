@@ -7,4 +7,4 @@
 import { AppRegistry } from 'react-native';
 import Root from './assets/components/root'
 
-AppRegistry.registerComponent('test3', () => Root);
+AppRegistry.registerComponent('rssTwo', () => Root);

@@ -44,18 +44,21 @@ export const styles = StyleSheet.create({
     width: 385
 },
   scollWebView : {
-    flex: 30,
+    flexGrow: 25,
+    flexShrink: 25,
     backgroundColor: 'red'
   },
   header: {
-    flex: 2,
+    flexGrow: 2,
+    flexShrink: 2,
     backgroundColor: headerBG,
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row',
     borderColor: 'black',
     borderWidth: 1,
-    borderStyle: 'solid'
+    borderStyle: 'solid',
+    paddingTop: 15
   },
     flexCenterRow: {
     justifyContent: 'flex-start',
@@ -63,7 +66,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   mainFeed: {
-    flex: 30
+    flexGrow: 30,
+    flexShrink: 30
   },
   mainHeader: {
     flex: 2,

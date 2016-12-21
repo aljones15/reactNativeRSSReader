@@ -21,7 +21,6 @@ class ItemView extends Component{
     let {width, height, scale} = Dimensions.get('window');
     return(
         <View style={{ flex: 1}}>
-          <View style={ styles.flexSpace }></View>
           <Header />
           <ScrollView style={styles.scollWebView}>
              <WebView source={{uri: this.secureUri(this.props.item.link) }} style={{ height: height, width: width }} />

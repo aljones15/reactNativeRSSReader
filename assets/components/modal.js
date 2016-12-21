@@ -5,46 +5,8 @@ import { connect } from 'react-redux';
 import { TOGGLE_MODAL, ADD_FEED, getRss } from '../actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { mergeItem } from '../asyncStorage.js';
-
-class ModalMenu extends Component {
-  render(){
-    return(
-      <View style={growFlex(6)}>
-        <Text>menu</Text>
-      </View>)
-      }
-}
-
-class ModalFeed extends Component {
-  constructor(props){
-    super(props);
-    this.state = { input: "" };
-  }
-  componentDidUpdate(){
-  }
-  change (e) {
-    this.setState({ input: e.nativeEvent.text });
-  }
-  render(){
-    return(
-      <View style={ flatten(growFlex(1), styles.flexCenterRow, makeBorder('black', 1, 'solid')) }>
-        <TextInput
-          placeholder="Add Feed"
-          style={ flatten( growFlex(10), { padding: 5 } )}
-          autoCapitalize="none"
-          multiline={false}
-          numberOfLines = {1}
-          autoCorrect={false}
-          autoFocus={true}
-          keyboardType="url"
-          onChange={this.change.bind(this)}
-          onEndEditing={this.props.submit(this.state.input)}
-        />
-        <Icon name="check" style={ growFlex(1) } size={30} color="#080707"/>
-      </View>)
-    }
-}
-
+import ModalMenu from './modal/modalMenu.js';
+import ModalFeed from './modal/modalFeed.js';
 
 
 class FeedModal extends Component {
@@ -60,7 +22,6 @@ class FeedModal extends Component {
       case "new_feed":
         return(<ModalFeed submit={this.props.submit} />);
     }
-
   }
 }
 

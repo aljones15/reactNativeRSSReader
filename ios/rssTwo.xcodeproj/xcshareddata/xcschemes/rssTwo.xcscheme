@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "test3.app"
-               BlueprintName = "test3"
-               ReferencedContainer = "container:test3.xcodeproj">
+               BuildableName = "rssTwo.app"
+               BlueprintName = "rssTwo"
+               ReferencedContainer = "container:rssTwo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "test3Tests.xctest"
-               BlueprintName = "test3Tests"
-               ReferencedContainer = "container:test3.xcodeproj">
+               BuildableName = "rssTwoTests.xctest"
+               BlueprintName = "rssTwoTests"
+               ReferencedContainer = "container:rssTwo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "test3Tests.xctest"
-               BlueprintName = "test3Tests"
-               ReferencedContainer = "container:test3.xcodeproj">
+               BuildableName = "rssTwoTests.xctest"
+               BlueprintName = "rssTwoTests"
+               ReferencedContainer = "container:rssTwo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "test3.app"
-            BlueprintName = "test3"
-            ReferencedContainer = "container:test3.xcodeproj">
+            BuildableName = "rssTwo.app"
+            BlueprintName = "rssTwo"
+            ReferencedContainer = "container:rssTwo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "test3.app"
-            BlueprintName = "test3"
-            ReferencedContainer = "container:test3.xcodeproj">
+            BuildableName = "rssTwo.app"
+            BlueprintName = "rssTwo"
+            ReferencedContainer = "container:rssTwo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "test3.app"
-            BlueprintName = "test3"
-            ReferencedContainer = "container:test3.xcodeproj">
+            BuildableName = "rssTwo.app"
+            BlueprintName = "rssTwo"
+            ReferencedContainer = "container:rssTwo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
