@@ -3,21 +3,25 @@ import { View, Text, TextInput, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
 import { styles, growFlex, flatten, makeBorder } from '../../styles.js';
-import { getItem } from '../../asyncStorage.js';
+import { getItem, deleteAll } from '../../asyncStorage.js';
 
 
 class ModalMenu extends Component {
   constructor(props){
     super(props);
-
   }
   componentDidMount(){
     getItem('urls').then((r) => { console.log(r); });
   }
   render(){
     return(
-      <View style={growFlex(6)}>
-        <Text>menu</Text>
+      <View style={ flatten(growFlex(6), { padding: 5, flexDirection: 'row' })}>
+        <Text onPress={() => deleteAll()} style={ flatten(styles.fontLeft, growFlex(2)) }>
+          <Icon name="eraser" size={20} color="#080707"/>
+        </Text>
+        <Text onPress={() => console.log("list feeds")} style={ flatten(styles.fontLeft, growFlex(2)) }>
+          <Icon name="list-ol" size={20} color="#080707"/>
+        </Text>
       </View>
       )
   }
