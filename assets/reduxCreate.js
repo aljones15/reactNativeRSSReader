@@ -51,6 +51,7 @@ function reduceDisplay(state = { menu: false, section: "" }, action){
 function toStorage(state = {urls: []}, action){
   switch(action.type){
     case Actions.ADD_FEED:
+      console.log(action);
       state.urls.push(action.url);
       return Object.assign({}, state);
   }

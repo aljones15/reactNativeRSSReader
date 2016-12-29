@@ -21,6 +21,8 @@ class FeedModal extends Component {
         return(<ModalMenu />);
       case "new_feed":
         return(<ModalFeed submit={this.props.submit} />);
+      default:
+        return null;
     }
   }
 }
@@ -33,13 +35,13 @@ const dispatchToStore = (dispatch) => {
   return {
     close: (modal_name) => (event) => dispatch({type: TOGGLE_MODAL}),
     submit: (input) => (e) => {
-      //mergeItem("urls", input);
+      //mergeItem("urls", [input]);
       dispatch({
         type: ADD_FEED,
         url: input
       });
       getRss(dispatch)(input);
-      this.close("new_feed");
+      dispatch({type: TOGGLE_MODAL});
   }
 }}
 

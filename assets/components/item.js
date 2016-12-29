@@ -3,9 +3,6 @@ import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { styles, growFlex, flatten, evenItemColor, oddItemColor } from '../styles.js';
 
-
-
-
 export class Item extends Component {
   constructor(props){
     super(props);
@@ -20,14 +17,6 @@ export class Item extends Component {
   }
   makeSafeLink(){
     return null; //this.props.item.link.replace("http", "https");
-  }
-  ErrorFun(){
-    return(
-      <Text>Error</Text>
-    )
-  }
-  getHtml(){
-    return '<!DOCTYPE html><html><body><h1>This is a heading!</h1></body></html>';
   }
   render() {
       return(

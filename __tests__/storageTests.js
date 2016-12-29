@@ -1,15 +1,35 @@
-import { setItem, getItem } from '../assets/asyncStorage.js';
+import { setItem, getItem, deleteItem } from '../assets/asyncStorage.js';
 
-describe('set item', () => {
- it('should add a string to local storage', async () => {
-   let result = await setItem("test", "test");
-   expect(result).toBe(true);
- });
-});
+import React, { Component } from 'react';
 
-describe('get item', () => {
- it('should get item from local storage', async () => {
-   let result = await getItem("test");
-   expect(result).toBe(true);
- });
-});
+import { View, Text } from 'react-native';
+
+import renderer from 'react-test-renderer';
+
+
+class TestSetStorage extends Component{
+  componentWillMount(){
+    setItem('test', 'test');
+  }
+  componentDidMount(){
+   getItem('test').then((r) => {
+      console.log("result! result!");
+      console.log(r);
+    });
+  }
+  render(){
+    return(
+      <View>
+        <Text>
+        </Text>
+      </View>
+
+    )
+  }
+};
+
+it('should use storage', () => {
+  const test = renderer.create(
+    <TestSetStorage />
+  );
+})

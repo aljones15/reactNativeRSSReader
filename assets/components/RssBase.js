@@ -39,12 +39,15 @@ class RssBase extends Component {
 }
 
 const mapStateToProps = (state, props) => {
+
   function validateRss(s){
     if(s && s.rss && s.rss.query && s.rss.query.results && s.rss.query.results.item){
+      console.log("valid rss");
       return s;
     }
     return false;
   }
+
   return {
     items: validateRss(state.reduceItems) ? ds.cloneWithRows(state.reduceItems.rss.query.results.item) : ds.cloneWithRows(["Loading"]),
     item: state.reduceItems.item

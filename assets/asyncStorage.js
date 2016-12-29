@@ -41,7 +41,7 @@ export async function mergeItem(key, value){
   }
 }
 
-export async function delete_all(){
+export async function deleteAll(){
   try {
     await AsyncStorage.clear();
     return true;
@@ -81,6 +81,7 @@ export async function getMulti(keys){
   }
 }
 
+
 export async function setMulti(keyValue){
   try{
     await AsyncStorage.multiSet(keyValue);
@@ -111,3 +112,4 @@ export async function mergeMulti(keyValue){
     return false;
   }
 }
+

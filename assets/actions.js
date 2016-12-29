@@ -42,6 +42,7 @@ export function getRss(dispatch){
       });
     }
   }).catch((error) => {
+      console.error("FETCH_FAILED");
       dispatch({
         type: UPDATE_ITEMS_FAILED,
         payload: error
