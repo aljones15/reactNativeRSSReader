@@ -10,11 +10,13 @@ class ItemView extends Component{
     super(props);
   }
   secureUri(uri){
+    console.log(uri);
     const isSecure = /^\s*[Hh][Tt]{2}[Pp][Ss]/;
     const notSecure = /^\s*[Hh][Tt]{2}[Pp]/;
     if(isSecure.test(uri)){
       return uri;
     }
+    console.log("returning replaced uri");
     return uri.replace(notSecure, "https");
   }
   render(){
