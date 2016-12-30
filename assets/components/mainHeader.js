@@ -13,10 +13,10 @@ class MainHeader extends Component{
     return(
       <View style={ styles.header }>
         <Text onPress={this.props.open("menu")} style={ flatten(styles.fontLeft, growFlex(1), {padding: 5 }) }>
-          <Icon name="list" size={30} color="#080707"/>
+          <Icon name="list" size={30} color="#080707"/>  Menu
         </Text>
         <Text onPress={this.props.open("new_feed")} style={ flatten(styles.fontLeft, growFlex(2)) }>
-          <Icon name="plus" size={30} color="#080707"/>
+          <Icon name="plus" size={30} color="#080707"/>  Add
         </Text>
       </View>
     )

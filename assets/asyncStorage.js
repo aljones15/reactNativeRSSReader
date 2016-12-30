@@ -3,7 +3,7 @@ import { AsyncStorage } from 'react-native';
 
 export async function setItem(key, value){
   try {
-    await AsyncStorage.setItem(key, value);
+    let result = await AsyncStorage.setItem(key, JSON.stringify(value));
     return true;
   } catch (error){
     console.error(error);
@@ -14,8 +14,36 @@ export async function setItem(key, value){
 export async function getItem(key){
   try {
     let result = await AsyncStorage.getItem(key);
-    return result;
+    return JSON.parse(result);
   } catch (e){
+    console.error(e);
+    return false;
+  }
+}
+
+function Duplicate(list, item){
+  if(!list) return false;
+  if(!item) return false;
+  if(list.length == 0){
+    return false;
+  }
+  return list.indexOf(item) < 0;
+}
+
+export async function addUrl(url){
+  try{
+    let keys = await getAllKeys();
+    if(keys.length == 0){
+      await setItem("page_1", {list: []});
+      keys = await getAllKeys();
+    }
+    let lastItem = await getItem(keys.pop());
+    if(Duplicate(lastItem.list, url)){
+      return false;
+    }
+    lastItem.list.push(url);
+    return true;
+  } catch(e){
     console.error(e);
     return false;
   }

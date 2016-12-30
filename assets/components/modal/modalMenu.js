@@ -15,12 +15,12 @@ class ModalMenu extends Component {
   }
   render(){
     return(
-      <View style={ flatten(growFlex(6), { padding: 5, flexDirection: 'row' })}>
-        <Text onPress={() => deleteAll()} style={ flatten(styles.fontLeft, growFlex(2)) }>
-          <Icon name="eraser" size={20} color="#080707"/>
+      <View style={ flatten(growFlex(6), { padding: 10, flexDirection: 'row' })}>
+        <Text onPress={() => deleteAll()} style={ flatten(styles.fontCenter, growFlex(2)) }>
+          <Icon name="eraser" size={20} color="#080707"/> Delete All
         </Text>
-        <Text onPress={() => console.log("list feeds")} style={ flatten(styles.fontLeft, growFlex(2)) }>
-          <Icon name="list-ol" size={20} color="#080707"/>
+        <Text onPress={() => console.log("list feeds")} style={ flatten(styles.fontCenter, growFlex(2)) }>
+          <Icon name="list-ol" size={20} color="#080707"/> Subscriptions
         </Text>
       </View>
       )

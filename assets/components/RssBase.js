@@ -42,7 +42,6 @@ const mapStateToProps = (state, props) => {
 
   function validateRss(s){
     if(s && s.rss && s.rss.query && s.rss.query.results && s.rss.query.results.item){
-      console.log("valid rss");
       return s;
     }
     return false;

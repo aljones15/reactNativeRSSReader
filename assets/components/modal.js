@@ -4,7 +4,7 @@ import { styles, growFlex, flatten, makeBorder } from '../styles.js';
 import { connect } from 'react-redux';
 import { TOGGLE_MODAL, ADD_FEED, getRss } from '../actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { mergeItem } from '../asyncStorage.js';
+import { addUrl } from '../asyncStorage.js';
 import ModalMenu from './modal/modalMenu.js';
 import ModalFeed from './modal/modalFeed.js';
 
@@ -35,7 +35,7 @@ const dispatchToStore = (dispatch) => {
   return {
     close: (modal_name) => (event) => dispatch({type: TOGGLE_MODAL}),
     submit: (input) => (e) => {
-      //mergeItem("urls", [input]);
+      addUrl(input);
       dispatch({
         type: ADD_FEED,
         url: input
