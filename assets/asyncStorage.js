@@ -41,20 +41,24 @@ export async function mergeItem(key, value){
   }
 }
 
-export async function deleteAll(){
-  try {
-    await AsyncStorage.clear();
-    return true;
-  } catch (e){
+export async function getAllKeys(){
+  try{
+    let keys = await AsyncStorage.getAllKeys();
+    return keys;
+  } catch(e){
     console.error(e);
     return false;
   }
 }
 
-export async function getAllKeys(){
-  try{
-
-  } catch(e){
+export async function deleteAll(){
+  try {
+    let keys = await getAllKeys();
+    if(keys && keys.length > 0){
+      await AsyncStorage.clear();
+    }
+    return true;
+  } catch (e){
     console.error(e);
     return false;
   }
