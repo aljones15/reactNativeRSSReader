@@ -34,6 +34,7 @@ function fetchYQL (uri, dispatch){
       if(r){
         r.json().then((t) => dispatch(RSS_UPDATE(t)))
     } else {
+      console.log("fetch rss FETCH_FAILED");
       dispatch({
         type: UPDATE_ITEMS_FAILED,
         payload: r
@@ -67,6 +68,7 @@ export function getRss(dispatch){
       urls = urls.join(' or ');
       let uri = encodeURI(yahooQLbase + urls);
       console.log(uri);
+      dispatch({ type: UPDATING_ITEMS });
       return fetchYQL(uri, dispatch);
     }
   }

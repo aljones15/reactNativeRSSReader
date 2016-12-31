@@ -8,6 +8,7 @@ import ItemView from './itemView.js';
 import MainHeader from './mainHeader.js';
 import { getRss, getRssFeeds } from '../actions';
 import FeedModal from './modal.js';
+import Loading from './modal/loading.js';
 import { addUrl, getAllSubs, initFeeds } from '../asyncStorage.js';
 
 
@@ -20,10 +21,22 @@ class RssBase extends Component {
   async componentWillMount(){
     this.props.init();
   }
+  componentDidMount(){
+    console.log(this.props);
+  }
   render(){
     if(this.props.item){
       return(<ItemView />);
     }
+    if(this.props.loading){
+      return(
+        <View style={ styles.container }>
+          <MainHeader />
+          <FeedModal />
+          <Loading />
+        </View>
+      );
+      }
     return(
     <View style={ styles.container }>
     <MainHeader />
@@ -48,10 +61,10 @@ const mapStateToProps = (state, props) => {
     }
     return false;
   }
-
   return {
     items: validateRss(state.reduceItems) ? ds.cloneWithRows(state.reduceItems.rss.query.results.item) : ds.cloneWithRows(["Loading"]),
-    item: state.reduceItems.item
+    item: state.reduceItems.item,
+    loading: state.reduceItems.network_update
   };
 }
 

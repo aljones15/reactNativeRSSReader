@@ -7,10 +7,13 @@ function reduceItems(state = {item: null, network_update: false, rss: {}, errors
   if(typeof state === 'undefined') return initialState;
   switch (action.type) {
     case Actions.UPDATING_ITEMS:
+      console.log("updating items");
       state.network_update = true;
       return Object.assign({}, state);
     case Actions.UPDATE_RSS:
+      console.log(action);
       state.rss = action.payload;
+      state.network_update = false;
       return Object.assign({}, state);
     case Actions.UPDATE_ITEMS_FAILED:
       console.error(action.payload);

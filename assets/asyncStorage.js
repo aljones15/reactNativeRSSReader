@@ -195,16 +195,19 @@ export async function getAllSubs(){
 
 export function initFeeds(dispatch){
   return async function(){
-    const urls = ["http://rss.slashdot.org/Slashdot/slashdotMain",
-                  "http://kotaku.com/vip.xml",
-                 "http://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-                  "http://boingboing.net/feed"
-                 ];
-    for(i = 0; i <= urls.length; i++){
-       await addUrl(urls[i]);
+    let subs = await getAllSubs();
+    if(subs.length <= 0){
+      const urls = ["http://rss.slashdot.org/Slashdot/slashdotMain",
+                    "http://kotaku.com/vip.xml",
+                    "http://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+                    "http://boingboing.net/feed"];
+      for(i = 0; i <= urls.length; i++){
+         await addUrl(urls[i]);
+      };
+      subs = await getAllSubs();
     }
-    let sub = await getAllSubs();
-    getRssFeeds(dispatch)(sub);
+    console.log(subs);
+    getRssFeeds(dispatch)(subs);
   }
 }
 
