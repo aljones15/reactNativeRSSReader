@@ -22,11 +22,9 @@ export const select_item = (item) => {
   }
 }
 
-export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where url=";
+export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where ";
 
-export function getRss(dispatch){
-  return function(url){
-      let uri = encodeURI(yahooQLbase + "'" + url + "'");
+function fetchYQL (uri, dispatch){
       return fetch(uri, {
       method: 'GET',
       headers: {
@@ -48,5 +46,28 @@ export function getRss(dispatch){
         payload: error
       });
       })
+}
+
+/*
+url%3D'http%3A%2F%2Fboingboing.net%2Ffeed'%20or%20url%3D'http%3A%2F%2Frss.slashdot.org%2FSlashdot%2FslashdotMain'&diagnostics=true
+*/
+
+export function getRss(dispatch){
+  return function(url){
+      url = 'url=' + "'" + url + "'";
+      let uri = encodeURI(yahooQLbase + url);
+      console.log(uri);
+      return fetchYQL(uri, dispatch);
   }
 }
+
+  export function getRssFeeds(dispatch){
+    return function(urls){
+      urls = urls.map( (u) => { return 'url=' + "'" + u + "'"; });
+      urls = urls.join(' or ');
+      let uri = encodeURI(yahooQLbase + urls);
+      console.log(uri);
+      return fetchYQL(uri, dispatch);
+    }
+  }
+

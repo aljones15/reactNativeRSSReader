@@ -13,6 +13,9 @@ class ItemView extends Component{
     console.log(uri);
     const isSecure = /^\s*[Hh][Tt]{2}[Pp][Ss]/;
     const notSecure = /^\s*[Hh][Tt]{2}[Pp]/;
+    if(typeof(uri) != "string"){
+      uri = uri[0];
+    }
     if(isSecure.test(uri)){
       return uri;
     }

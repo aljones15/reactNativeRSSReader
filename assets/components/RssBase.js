@@ -6,8 +6,10 @@ import { Item } from './item.js';
 import { styles, growFlex, flatten } from '../styles.js';
 import ItemView from './itemView.js';
 import MainHeader from './mainHeader.js';
-import { getRss } from '../actions';
+import { getRss, getRssFeeds } from '../actions';
 import FeedModal from './modal.js';
+import { addUrl, getAllSubs, initFeeds } from '../asyncStorage.js';
+
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
@@ -15,8 +17,8 @@ class RssBase extends Component {
   constructor(props){
     super(props);
   }
-  componentDidMount(){
-    this.props.getItems("http://boingboing.net/feed");
+  async componentWillMount(){
+    this.props.init();
   }
   render(){
     if(this.props.item){
@@ -56,7 +58,8 @@ const mapStateToProps = (state, props) => {
 const dispatchToStore = (dispatch) => {
   return {
     selectItem: (item) => { return (event) => dispatch(select_item(item)) },
-    getItems: getRss(dispatch)
+    getItem: getRss(dispatch),
+    init: initFeeds(dispatch)
   }
 }
 

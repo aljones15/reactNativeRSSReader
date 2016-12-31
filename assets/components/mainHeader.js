@@ -20,6 +20,10 @@ class MainHeader extends Component{
           <Icon name="plus" size={30} color="#080707"/>
         </Text>
         <Text onPress={this.props.open("new_feed")} style={growFlex(1)}> Add </Text>
+        <Text onPress={this.props.open("new_feed")} style={ flatten(styles.fontLeft, growFlex(2)) }>
+          <Icon name="refresh" size={30} color="#080707"/>
+        </Text>
+        <Text onPress={this.props.open("new_feed")} style={growFlex(1)}> Refresh </Text>
       </View>
     )
   }
