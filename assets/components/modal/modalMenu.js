@@ -3,7 +3,7 @@ import { View, Text, TextInput, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
 import { styles, growFlex, flatten, makeBorder } from '../../styles.js';
-import { getItem, deleteAll } from '../../asyncStorage.js';
+import { getItem, deleteAll, getAllPages } from '../../asyncStorage.js';
 
 
 class ModalMenu extends Component {
@@ -19,7 +19,7 @@ class ModalMenu extends Component {
         <Text onPress={() => deleteAll()} style={ flatten(styles.fontCenter, growFlex(2)) }>
           <Icon name="eraser" size={20} color="#080707"/> Delete All
         </Text>
-        <Text onPress={() => console.log("list feeds")} style={ flatten(styles.fontCenter, growFlex(2)) }>
+        <Text onPress={() => { getAllPages().then((r) => console.log(r)) }} style={ flatten(styles.fontCenter, growFlex(2)) }>
           <Icon name="list-ol" size={20} color="#080707"/> Subscriptions
         </Text>
       </View>

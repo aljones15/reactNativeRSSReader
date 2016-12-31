@@ -1,5 +1,6 @@
 import { AsyncStorage } from 'react-native';
 
+const isPage = /([Pp][Aa][Gg][Ee]\_)(\d+)/;
 
 export async function setItem(key, value){
   try {
@@ -30,16 +31,41 @@ function Duplicate(list, item){
   return list.indexOf(item) < 0;
 }
 
+export async function getAllPages(){
+ try {
+   let all_keys = await getAllKeys();
+   return all_keys.filter((k) => isPage.test(k)).sort(
+   (a,b) => { return isPage.exec(a)[2] - isPage.exec(b)[2]}
+   );
+
+ } catch(e){
+   console.error(e);
+   return [];
+ }
+}
+
+async function createNewPage(key){
+  let newPageNum = parseInt(isPage.exec(key)[2]) + 1;
+  let newKey = "page_" + String(newPageNum);
+  let model = {list: []};
+  await setItem(newKey, model);
+  return await getItem(newKey);
+}
+
 export async function addUrl(url){
   try{
-    let keys = await getAllKeys();
+    let keys = await getAllPages();
     if(keys.length == 0){
       await setItem("page_1", {list: []});
-      keys = await getAllKeys();
+      keys = await getAllPages();
     }
-    let lastItem = await getItem(keys.pop());
+    let lastKey = keys.pop();
+    let lastItem = await getItem(lastKey);
     if(Duplicate(lastItem.list, url)){
       return false;
+    }
+    if(lastItem.list.length >= 100){
+      lastItem = await createNewPage(lastKey);
     }
     lastItem.list.push(url);
     return true;
