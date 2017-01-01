@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from './header.js';
-import { styles, growFlex, flatten } from '../styles.js';
+import Header from '../headers/header.js';
+import { styles, growFlex, flatten } from '../../Styles/styles.js';
 import { View, WebView, ScrollView, Dimensions } from 'react-native';
 
 

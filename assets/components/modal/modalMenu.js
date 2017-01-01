@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
-import { styles, growFlex, flatten, makeBorder } from '../../styles.js';
-import { getItem, deleteAll, getAllSubs } from '../../asyncStorage.js';
+import { styles, growFlex, flatten, makeBorder } from '../../Styles/styles.js';
+import { getItem, deleteAll, getAllSubs } from '../../Services/asyncStorage.js';
 
 
 class ModalMenu extends Component {

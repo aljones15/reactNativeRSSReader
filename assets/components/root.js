@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { store } from '../reduxCreate.js';
+import { store } from '../Services/reduxCreate.js';
 import { Provider } from 'react-redux';
 import RssStore from './RssBase.js'
 

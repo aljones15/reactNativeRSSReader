@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ListView, Text  } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED, select_item } from '../actions.js';
-import { Item } from './item.js';
-import { styles, growFlex, flatten } from '../styles.js';
-import ItemView from './itemView.js';
-import MainHeader from './mainHeader.js';
+import { Item } from './items/item.js';
+import { styles, growFlex, flatten } from '../Styles/styles.js';
+import ItemView from './items/itemView.js';
+import MainHeader from './headers/mainHeader.js';
 import { getRss, getRssFeeds } from '../actions';
-import FeedModal from './modal.js';
+import FeedModal from './modal/modal.js';
 import Loading from './modal/loading.js';
-import { addUrl, getAllSubs, initFeeds } from '../asyncStorage.js';
+import { addUrl, getAllSubs, initFeeds } from '../Services/asyncStorage.js';
 
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });

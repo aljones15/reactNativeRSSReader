@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import * as Actions from './actions.js';
+import * as Actions from '../actions.js';
 
 var initialState = {item: null, network_update: false, rss: {}, errors: []};
 

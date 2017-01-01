@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { styles, growFlex, flatten, evenItemColor, oddItemColor } from '../styles.js';
+import { styles, growFlex, flatten, evenItemColor, oddItemColor } from '../../Styles/styles.js';
 
 export class Item extends Component {
   constructor(props){

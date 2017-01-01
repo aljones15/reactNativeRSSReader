@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
-import { styles, growFlex, flatten, makeBorder } from '../../styles.js';
+import { styles, growFlex, flatten, makeBorder } from '../../Styles/styles.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
