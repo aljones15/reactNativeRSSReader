@@ -199,6 +199,7 @@ export function initFeeds(dispatch){
     if(subs.length <= 0){
       const urls = ["http://rss.slashdot.org/Slashdot/slashdotMain",
                     "http://kotaku.com/vip.xml",
+                    "https://feedpress.me/techbeacon",
                     "http://rss.nytimes.com/services/xml/rss/nyt/World.xml",
                     "http://boingboing.net/feed"];
       for(i = 0; i <= urls.length; i++){
