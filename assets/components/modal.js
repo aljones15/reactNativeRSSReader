@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { styles, growFlex, flatten, makeBorder } from '../styles.js';
 import { connect } from 'react-redux';
-import { TOGGLE_MODAL, ADD_FEED, getRss } from '../actions.js';
+import { TOGGLE_MODAL, ADD_FEED, refreshFeeds } from '../actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { addUrl } from '../asyncStorage.js';
+import { addUrl, getAllSubs } from '../asyncStorage.js';
 import ModalMenu from './modal/modalMenu.js';
 import ModalFeed from './modal/modalFeed.js';
 
@@ -40,8 +40,7 @@ const dispatchToStore = (dispatch) => {
         type: ADD_FEED,
         url: input
       });
-      getRss(dispatch)(input);
-      dispatch({type: TOGGLE_MODAL});
+      refreshFeeds(dispatch, {type: TOGGLE_MODAL});
   }
 }}
 

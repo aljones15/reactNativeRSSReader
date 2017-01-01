@@ -10,7 +10,9 @@ class ItemView extends Component{
     super(props);
   }
   secureUri(uri){
-    console.log(uri);
+    if(typeof(uri) != "string"){
+      uri = uri[0];
+    }
     const isSecure = /^\s*[Hh][Tt]{2}[Pp][Ss]/;
     const notSecure = /^\s*[Hh][Tt]{2}[Pp]/;
     if(isSecure.test(uri)){
@@ -18,9 +20,6 @@ class ItemView extends Component{
     }
     if(notSecure.test(uri)){
       return uri;
-    }
-    if(typeof(uri) != "string"){
-      uri = uri[0];
     }
     return uri;
   }

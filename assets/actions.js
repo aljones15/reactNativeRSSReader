@@ -1,3 +1,5 @@
+import { getAllSubs } from './asyncStorage';
+
 export const UPDATE_RSS = "UPDATE_RSS";
 export const UPDATE_ITEMS = "UPDATE_ITEMS";
 export const UPDATE_ITEMS_FAILED = "UPDATE_ITEMS_FAILED";
@@ -69,5 +71,14 @@ export function getRss(dispatch){
       dispatch({ type: UPDATING_ITEMS });
       return fetchYQL(uri, dispatch);
     }
+  }
+
+  export function refreshFeeds(dispatch, action){
+      getAllSubs().then((urls) => {
+        getRssFeeds(dispatch)(urls);
+        if(action){
+          dispatch(action);
+        }
+      })
   }
 
