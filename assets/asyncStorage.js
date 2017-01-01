@@ -206,7 +206,6 @@ export function initFeeds(dispatch){
       };
       subs = await getAllSubs();
     }
-    console.log(subs);
     getRssFeeds(dispatch)(subs);
   }
 }

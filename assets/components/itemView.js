@@ -13,14 +13,16 @@ class ItemView extends Component{
     console.log(uri);
     const isSecure = /^\s*[Hh][Tt]{2}[Pp][Ss]/;
     const notSecure = /^\s*[Hh][Tt]{2}[Pp]/;
-    if(typeof(uri) != "string"){
-      uri = uri[0];
-    }
     if(isSecure.test(uri)){
       return uri;
     }
-    console.log("returning replaced uri");
-    return uri.replace(notSecure, "https");
+    if(notSecure.test(uri)){
+      return uri;
+    }
+    if(typeof(uri) != "string"){
+      uri = uri[0];
+    }
+    return uri;
   }
   render(){
     let {width, height, scale} = Dimensions.get('window');

@@ -9,8 +9,8 @@ export default class Loading extends Component {
   }
   render(){
     return(
-      <View style={ flatten( growFlex(100), styles.fontCenter) }>
-        <Text><Icon name="refresh" style={ growFlex(1) } size={100} color="#080707"/></Text>
+      <View style={ growFlex(100) }>
+        <Text style={styles.fontCenter}><Icon name="refresh" style={ growFlex(1) } size={100} color="#080707"/></Text>
       </View>
     )
   }

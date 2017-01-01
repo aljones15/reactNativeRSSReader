@@ -50,8 +50,7 @@ function fetchYQL (uri, dispatch){
 }
 
 /*
-url%3D'http%3A%2F%2Fboingboing.net%2Ffeed'%20or%20url%3D'http%3A%2F%2Frss.slashdot.org%2FSlashdot%2FslashdotMain'&diagnostics=true
-*/
+SELECT * FROM search.ec (1, 10) WHERE keyword='ipad' and property='shopping' and sortBy='price' and sortOrder='asc' and filters='ship_fast'*/
 
 export function getRss(dispatch){
   return function(url){
@@ -66,8 +65,7 @@ export function getRss(dispatch){
     return function(urls){
       urls = urls.map( (u) => { return 'url=' + "'" + u + "'"; });
       urls = urls.join(' or ');
-      let uri = encodeURI(yahooQLbase + urls);
-      console.log(uri);
+      let uri = encodeURI(yahooQLbase + urls + "and sortBy='pubDate' and sortOrder='asc'");
       dispatch({ type: UPDATING_ITEMS });
       return fetchYQL(uri, dispatch);
     }

@@ -21,9 +21,6 @@ class RssBase extends Component {
   async componentWillMount(){
     this.props.init();
   }
-  componentDidMount(){
-    console.log(this.props);
-  }
   render(){
     if(this.props.item){
       return(<ItemView />);
@@ -61,8 +58,21 @@ const mapStateToProps = (state, props) => {
     }
     return false;
   }
+
+  function sortByPubDate(a,b){
+    let dateA = new Date(a.pubDate);
+    let dateB = new Date(b.pubDate);
+    if(dateA > dateB){
+      return -1;
+    }
+    if(dateA < dateB){
+      return 1;
+    }
+    return 0;
+  }
+
   return {
-    items: validateRss(state.reduceItems) ? ds.cloneWithRows(state.reduceItems.rss.query.results.item) : ds.cloneWithRows(["Loading"]),
+    items: validateRss(state.reduceItems) ? ds.cloneWithRows(state.reduceItems.rss.query.results.item.sort(sortByPubDate)) : ds.cloneWithRows(["Loading"]),
     item: state.reduceItems.item,
     loading: state.reduceItems.network_update
   };
