@@ -22,7 +22,7 @@ export function makeBorder(color, width, style){
       borderWidth: width,
       borderStyle: style
     }
-  }
+}
 
 export const styles = StyleSheet.create({
   container: {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { store } from '../Services/reduxCreate.js';
 import { Provider } from 'react-redux';
-import RssStore from './RssBase.js'
+import RssStore from './rss/RssBase.js'
 
 class Root extends Component {
   constructor(props){

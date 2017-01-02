@@ -1,25 +1,28 @@
 {
-	"name": "rssTwo",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
-	},
-	"dependencies": {
-		"react": "15.4.1",
-		"react-native": "0.39.2",
-		"react-native-vector-icons": "^3.0.0",
-		"react-redux": "^5.0.1",
-		"redux": "^3.6.0"
-	},
-	"devDependencies": {
-		"babel-jest": "18.0.0",
-		"babel-preset-react-native": "1.9.1",
-		"jest": "18.0.0",
-		"react-test-renderer": "15.4.1"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+  "name": "rssTwo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "15.4.1",
+    "react-native": "0.39.2",
+    "react-native-vector-icons": "^3.0.0",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "asyncstorage-mock": "^1.0.1",
+    "babel-jest": "18.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "babel-runtime": "^6.20.0",
+    "jest": "18.0.0",
+    "jest-fetch-mock": "^1.0.6",
+    "react-test-renderer": "15.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }
