@@ -16,6 +16,7 @@ export async function setItem(key, value){
 export async function getItem(key){
   try {
     let result = await AsyncStorage.getItem(key);
+    if(!result) return false;
     return JSON.parse(result);
   } catch (e){
     console.error(e);
@@ -56,16 +57,13 @@ async function createNewPage(key){
 export async function addUrl(url){
   try{
     let keys = await getAllPages();
-    if(keys.length == 0){
-      console.log("key length was zero");
+    if(keys.length == 0){ 
       await setItem("page_1", {list: []});
       keys = await getAllPages();
     }
     let lastKey = keys.pop();
     let lastItem = await getItem(lastKey);
     if(Duplicate(lastItem.list, url)){
-      console.log("Duplicate");
-      console.log(url);
       return false;
     }
     if(lastItem.list.length >= 100){
@@ -73,7 +71,6 @@ export async function addUrl(url){
     }
     lastItem.list.push(url);
     await mergeItem(lastKey, lastItem);
-    console.log(lastItem);
     return true;
   } catch(e){
     console.error(e);
