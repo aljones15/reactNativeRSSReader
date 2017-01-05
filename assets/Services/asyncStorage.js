@@ -64,6 +64,9 @@ export async function addUrl(url){
     let lastKey = keys.pop();
     let lastItem = await getItem(lastKey);
     if(Duplicate(lastItem.list, url)){
+      console.log(lastItem.list);
+      console.log(lastKey);
+      console.log("last item list");
       return false;
     }
     if(lastItem.list.length >= 100){

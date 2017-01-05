@@ -1,4 +1,5 @@
 const mockStorage = require('mock-async-storage');
+require("babel-polyfill");
 import * as storage from '../assets/Services/asyncStorage.js';
 
 describe("should get", () => {
@@ -19,7 +20,6 @@ describe("should get", () => {
 
 describe("should add", () => {
   const baseURL = "http://www.test.org/";
-
   async function addMultipleUrls(start, end){
     for(i = start; i < end; i ++){
       let result = await storage.addUrl(baseURL + i);
@@ -46,18 +46,18 @@ describe("should add", () => {
   })
 
   it("fifty urls", async () => { 
-	 await addMultipleUrls(12, 52);
-         await testPageCount(1);
+       await addMultipleUrls(12, 52);
+       await testPageCount(1);
   })
 
   it("one hundred urls", async () => {
-	  await addMultipleUrls(52,101);
-	  await testPageCount(1);
+       await addMultipleUrls(52,101);
+       await testPageCount(1);
   })
 
   it("two hundred urls", async () => {
-    await addMultipleUrls(101,201);
-    await testPageCount(2);
+      await addMultipleUrls(101,201);
+      await testPageCount(2);
   })
 
   it("one thousand urls", async () => {
@@ -74,5 +74,7 @@ describe("should add", () => {
     await addMultipleUrls(10001, 100001);
     await testPageCount(1000);
   }) */ 
-  mockStorage.release();
+
 })
+
+
