@@ -8,7 +8,7 @@ describe("should catch a ", () => {
   it("duplicate", async () => {
     await storage.deleteAll();
     const url = "http://www.localhost.com";
-   let result = await storage.addUrl(url);
+    let result = await storage.addUrl(url);
     expect(result).toBe(true);
     let urls = await storage.getAllSubs();
     expect(urls.length).toBe(1);
