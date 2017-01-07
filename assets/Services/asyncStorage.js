@@ -190,6 +190,48 @@ export async function getAllSubs(){
   return urls;
 }
 
+function dropKeys (item, a){
+  if(a.indexOf(item) < 0 ){ return []; }	
+  return a.slice(a.indexOf(item) + 1, a.length); 
+}
+
+export async function resyncAllPages(){
+  return false;
+}
+
+export async function resyncPageNums(page){
+  let keys = await getAllPages();
+  keys = dropKeys(page, keys).map((p) => { return isPage.exec(p); });
+  if(keys.length <= 0){ return true; }
+  let urls = [];
+  for(i = 0; i < keys.length; i++){
+    var item = await getItem(keys[i][0]);
+      urls.push(item.list);
+      await deleteItem(keys[i][0]);
+  }
+  keys = keys.map((key) => { 
+	  const newNum = key[2] - 1;
+	  return "page_" + newNum; });
+  if(keys.length != urls.length){ return await resyncAllPages() }
+  for(i = 0; i < keys.length; i++){
+    await setItem(keys[i], {list: urls[i] });
+  }
+  return true;
+}
+
+export async function mergePages(pageOne, pageTwo){
+  let itemOne = await getItem(pageOne);
+  if(!itemOne){ return false };
+  let itemTwo = await getItem(pageTwo);
+  if(!itemTwo){ return false; }
+  let totalLength = itemOne.list.length + itemTwo.list.length;
+  if(totalLength > 100){ return false; }
+  let mergeResult = await mergeItem(pageOne, itemTwo);
+  await deleteItem(pageTwo);
+  await resyncPageNums(pageOne);
+  return await getItem(pageOne);
+}
+
 export function initFeeds(dispatch){
   return async function(){
     let subs = await getAllSubs();
