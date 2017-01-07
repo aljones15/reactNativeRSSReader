@@ -196,7 +196,17 @@ function dropKeys (item, a){
 }
 
 export async function resyncAllPages(){
-  return false;
+  const take = 100;
+  let skip = 0;
+  let subs = await getAllSubs();
+  await deleteAll();
+  const pages = Math.ceil(subs.length / 100);
+  for(i = 1; i <= pages; i++){
+    let pageNum = "page_" + i;
+    await setItem(pageNum, { list: subs.slice(skip,take) } );
+    skip += take;
+  }
+  return true;
 }
 
 export async function resyncPageNums(page){

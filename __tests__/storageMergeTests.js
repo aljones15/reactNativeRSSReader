@@ -27,18 +27,29 @@ describe("should merge", () =>{
     return urls;
   }
 
+  async function setUpPage(num, count){
+    let urls = fakeUrls("http://www." + num + ".com/", count);
+    let m = {list: urls};
+    let pageNum = "page_" + num;
+    let result = await storage.setItem(pageNum, m);
+    expect(result).toBeTruthy();
+    return pageNum;
+  }
+
+  async function testKeys(len, start, end){
+    let keys = await storage.getAllKeys();
+    expect(keys).toBeInstanceOf(Object);
+    expect(keys).toHaveLength(len);
+    expect(keys[0]).toBe(start);
+    expect(keys.pop()).toBe(end);
+  }
+
   /* if we merge 2 pages does one get deleted? */
   it("2 pages", async () => {
     await storage.deleteAll();
-    let l1 = fakeUrls("http://www.one.com/", 40);
-    let m1 = {list: l1};
-    let m1Result = await storage.setItem("page_1", m1);
-    expect(m1Result).toBeTruthy();
-    let l2  = fakeUrls("http://www.two.com/", 50);
-    let m2 = {list: l2}; 
-    let m2Result = await storage.setItem("page_2", m2);
-    expect(m2Result).toBeTruthy();
-    let result = await storage.mergePages("page_1", "page_2");
+    let one = await setUpPage(1, 40); 
+    let two  = await setUpPage(2,50);
+    let result = await storage.mergePages(one, two);
     expect(result).toBeInstanceOf(Object);
     expect(result.list).toHaveLength(90);
     let keys = await storage.getAllKeys();
@@ -47,29 +58,27 @@ describe("should merge", () =>{
 
   it("3 pages", async () => {
     await storage.deleteAll();
-    let l1 = fakeUrls("http://www.one.com/", 50);
-    let m1 = {list: l1};
-    let m1Result = await storage.setItem("page_1", m1);
-    expect(m1Result).toBeTruthy();
-    let l2  = fakeUrls("http://www.two.com/", 50);
-    let m2 = {list: l2}; 
-    let m2Result = await storage.setItem("page_2", m2);
-    expect(m2Result).toBeTruthy();
-    let l3 = fakeUrls("http://www.three.com/", 50);
-    let m3 = {list: l3}; 
-    let m3Result = await storage.setItem("page_3", m2);
-    expect(m3Result).toBeTruthy();
+    let one = await setUpPage(1, 50);
+    let two  = await setUpPage(2, 50);
+    let three = await setUpPage(3, 50);
     let firstResult = await storage.mergePages("page_1", "page_2");
     expect(firstResult).toBeTruthy();
-    let keys = await storage.getAllKeys();
-    expect(keys).toHaveLength(2);
-    expect(keys[0]).toBe("page_1");
-    expect(keys.pop()).toBe("page_2");
+    expect(firstResult.list).toHaveLength(100);
+    await testKeys(2, "page_1", "page_2");
     let secondResult = await storage.mergePages("page_1", "page_2");
     expect(secondResult).toBe(false);
-    keys = await storage.getAllKeys();
-    expect(keys).toHaveLength(2);
-    expect(keys[0]).toBe("page_1");
-    expect(keys.pop()).toBe("page_2");
+    await testKeys(2, "page_1", "page_2");
+  })
+
+  it("all pages", async () => {
+   await storage.deleteAll();
+   let one = await setUpPage(1, 50),
+   two = await setUpPage(2, 20),
+   three = await setUpPage(3, 15),
+   four = await setUpPage(4, 50),
+   five = await setUpPage(5, 20); 
+   await testKeys(5, "page_1", "page_5");
+   let result = await storage.resyncAllPages();
+   await testKeys(2, "page_1", "page_2");
   })
 })
