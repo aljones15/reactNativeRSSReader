@@ -46,7 +46,7 @@ export async function getAllPages(){
  }
 }
 
-async function createNewPage(key){
+export async function createNewPage(key){
   let newPageNum = parseInt(isPage.exec(key)[2]) + 1;
   let newKey = "page_" + String(newPageNum);
   let model = {list: []};
