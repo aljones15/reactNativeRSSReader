@@ -198,12 +198,13 @@ function dropKeys (item, a){
 export async function resyncAllPages(){
   const take = 100;
   let skip = 0;
-  let subs = await getAllSubs();
+  let subs = await getAllSubs(); 
   await deleteAll();
   const pages = Math.ceil(subs.length / 100);
   for(i = 1; i <= pages; i++){
     let pageNum = "page_" + i;
-    await setItem(pageNum, { list: subs.slice(skip,take) } );
+    let subList = subs.slice(skip, skip + take);
+    await setItem(pageNum, { list: subList } );
     skip += take;
   }
   return true;

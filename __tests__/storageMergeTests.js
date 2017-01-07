@@ -76,9 +76,15 @@ describe("should merge", () =>{
    two = await setUpPage(2, 20),
    three = await setUpPage(3, 15),
    four = await setUpPage(4, 50),
-   five = await setUpPage(5, 20); 
+   five = await setUpPage(5, 20);
+   let subs = await storage.getAllSubs();
+   expect(subs).toBeInstanceOf(Array);
+   expect(subs).toHaveLength(155); 
    await testKeys(5, "page_1", "page_5");
    let result = await storage.resyncAllPages();
    await testKeys(2, "page_1", "page_2");
+   subs = await storage.getAllSubs();
+   expect(subs).toBeInstanceOf(Array);
+   expect(subs).toHaveLength(155); 
   })
 })
