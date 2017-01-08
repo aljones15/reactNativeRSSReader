@@ -7,7 +7,9 @@ import ItemView from '../items/itemView.js';
 import MainHeader from '../headers/mainHeader.js';
 import FeedModal from '../modal/modal.js';
 import Loading from '../modal/loading.js';
-import { addUrl, getAllSubs, initFeeds } from '../../Services/asyncStorage.js';
+import { addUrl, 
+	getAllSubs, 
+	initFeeds } from '../../Services/asyncStorage.js';
 import RssList from './RssList.js';
 
 
@@ -27,7 +29,7 @@ class RssBase extends Component {
         <View style={ styles.container }>
           <MainHeader />
           <FeedModal />
-          <Loading />
+          <Loading loading={this.props.loading} />
         </View>
       );
       }
