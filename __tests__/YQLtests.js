@@ -28,7 +28,6 @@ describe("should build a query ", () => {
   })
   it("with sort and order", () => {
     yql = yql.sortBy("pubDate").sortOrder("asc");
-    testGet(yql, "sortBy", "pubDate", "sortOrder", "asc");
-  
+    testGet(yql, "sortBy", "pubDate", "sortOrder", "asc"); 
   })
 })

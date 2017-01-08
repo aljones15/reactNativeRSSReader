@@ -32,13 +32,13 @@ export default class YQL {
     urls = urls.join(' or ');
     return urls;
   }
-  Get(){
+  formatQuery(){
     const YQLBase = "https://query.yahooapis.com/v1/public/yql?q=";
     let query = YQLBase + "select " + this._select;
     if(this._from){
       query += " from " + this._from;
     }
-    if(String(this._skip) && this._take){
+    if(this._skip >= 0 && this._take > 0){
       query += " (" + String(this._skip) 
 	      + "," + String(this._take) + ")"; 
     }
@@ -50,5 +50,9 @@ export default class YQL {
 	      + " and " + "sortOrder=" + this._order;
     }
     return query;
+  }
+  Get(){
+    let url = encodeURI(this.formatQuery());
+    return url;
   }
 }
