@@ -67,11 +67,16 @@ export function getRss(dispatch){
 
   export function getRssFeeds(dispatch){
     return function(urls){
-      urls = urls.map( (u) => { return 'url=' + "'" + u + "'"; });
-      urls = urls.join(' or ');
-      let uri = encodeURI(yahooQLbase + urls + "and sortBy='pubDate' and sortOrder='asc'");
+      let yql = new YQL().
+	      Select("*").
+	      From("rss").
+	      Skip(0).
+	      Take(10).
+	      Where(urls).
+	      sortBy("pubDate").
+	      sortOrder("asc");
       dispatch({ type: UPDATING_ITEMS });
-      return fetchYQL(uri, dispatch);
+      return fetchYQL(yql.Get(), dispatch);
     }
   }
 

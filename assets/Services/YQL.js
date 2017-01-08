@@ -43,11 +43,11 @@ export default class YQL {
 	      + "," + String(this._take) + ")"; 
     }
     if(this._urls){
-      query += this.formatUrls();
+      query += " where " + this.formatUrls();
     }
     if(this._sort && this._order){
-      query += " sortBy=" + this._sort 
-	      + " and " + "sortOrder=" + this._order;
+      query += " and sortBy='" + this._sort + "'"
+	      + " and " + "sortOrder='" + this._order + "'";
     }
     return query;
   }
