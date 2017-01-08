@@ -1,5 +1,5 @@
 import { getAllSubs } from './Services/asyncStorage';
-
+import YQL from './Services/YQL.js';
 export const UPDATE_RSS = "UPDATE_RSS";
 export const UPDATE_ITEMS = "UPDATE_ITEMS";
 export const UPDATE_ITEMS_FAILED = "UPDATE_ITEMS_FAILED";
@@ -24,7 +24,9 @@ export const select_item = (item) => {
   }
 }
 
-export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss where ";
+const take = 10;
+
+export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss (1,10) where ";
 
 function fetchYQL (uri, dispatch){
       return fetch(uri, {

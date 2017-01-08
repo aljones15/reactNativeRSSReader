@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Animated } from 'react-native';
 import { styles, 
-	growFlex, 
-	flatten, 
+	growFlex,  
 	makeBorder } from '../../Styles/styles.js';
 import { rotate } from '../../Styles/animations.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -31,12 +30,12 @@ export default class Loading extends Component {
   }
   render(){
     let interpolatedRotateAnimation = 
-	    this._animatedValue.interpolate({
-	        inputRange: [0, 100],
-	      outputRange: ['0deg', '360deg']
-	    });
+	  this._animatedValue.interpolate({
+	    inputRange: [0, 100],
+	    outputRange: ['0deg', '360deg']
+	  });
     return(
-      <View style={[growFlex(100)]}>
+      <View style={[growFlex(100), {paddingTop: 50}]}>
         <Animated.Text 
 	style={[ styles.fontCenter,
                 {backgroundColor: 'rgba(0,0,0,0)'},
