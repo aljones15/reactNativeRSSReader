@@ -3,9 +3,12 @@ import * as Actions from '../actions.js';
 
 var initialState = {item: null, network_update: false, rss: {}, errors: []};
 
-function reduceItems(state = {item: null, network_update: false, rss: {}, errors: []}, action){
+function reduceItems(state = {item: null, network_update: false, rss: {}, errors: []}, action, skip: 0){
   if(typeof state === 'undefined') return initialState;
   switch (action.type) {
+    case Actions.UPDATE_SKIP:
+      state.skip += 10;
+      return Object.assign({}, state);
     case Actions.UPDATING_ITEMS:
       state.network_update = true;
       return Object.assign({}, state);

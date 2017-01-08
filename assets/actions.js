@@ -9,6 +9,7 @@ export const SHOW_ITEM = "SHOW_ITEM";
 export const REMOVE_ERROR = "REMOVE_ERROR";
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
 export const ADD_FEED = "ADD_FEED";
+export const UPDATE_SKIP = "UPDATE_SKIP";
 
 export const RSS_UPDATE = (payload) => {
   return {
@@ -66,12 +67,12 @@ export function getRss(dispatch){
 }
 
   export function getRssFeeds(dispatch){
-    return function(urls){
-      let yql = new YQL().
+    return function(urls, skip){
+           let yql = new YQL().
 	      Select("*").
 	      From("rss").
-	      Skip(0).
-	      Take(10).
+	      Skip(skip).
+	      Take(take).
 	      Where(urls).
 	      sortBy("pubDate").
 	      sortOrder("asc");

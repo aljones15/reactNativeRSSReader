@@ -257,7 +257,7 @@ export function initFeeds(dispatch){
       };
       subs = await getAllSubs();
     }
-    getRssFeeds(dispatch)(subs);
+    getRssFeeds(dispatch)(subs, 0);
   }
 }
 
