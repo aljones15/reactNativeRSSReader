@@ -96,7 +96,7 @@ const response = {
 }
 
 
-it('renders boing boing correctly', () => {
+it('renders slashdot correctly', () => {
   mockStorage.mock();
   mockResponse(JSON.stringify(response));
   const tree = renderer.create(
