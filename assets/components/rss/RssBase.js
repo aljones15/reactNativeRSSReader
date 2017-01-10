@@ -20,6 +20,9 @@ class RssBase extends Component {
   async componentWillMount(){
     this.props.init();
   }
+  componentDidUpdate(){
+
+  }
   render(){
     if(this.props.item){
       return(<ItemView />);

@@ -15,18 +15,22 @@ export default class Loading extends Component {
      * http://browniefed.com/react-native-animation-book/basic/ROTATE.html
      */
     this._animatedValue = new Animated.Value(0);
+    this._stop = false;
   }
-  cycleAnimation(){
-    /*
-     * http://stackoverflow.com/questions/31578069/repeat-animation-with-new-animated-api
-     */
-    Animated.timing(this._animatedValue, {
+  cycleAnimation(){ 
+    if(this._stop){ return false; }
+    this._animatedValue.setValue(0); 
+    let aTime = Animated.timing(this._animatedValue, {
       toValue: 100,
       duration: 2000
-      }).start(() => this.cycleAnimation());
+      }).
+    start((event) => { this.cycleAnimation() });
   }
   componentDidMount(){
    this.cycleAnimation(); 
+  }
+  componentWillUnmount(){
+    this._stop = true;
   }
   render(){
     let interpolatedRotateAnimation = 
