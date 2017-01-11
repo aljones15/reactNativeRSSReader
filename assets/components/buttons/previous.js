@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
-import { styles, growFlex, flatten } from '../../Styles/styles.js';
 
-class Previous extends Component {
+export default class Previous extends Component {
   render(){
-    <View>
+    <View style={this.props.styles}>
       <Text>
         Previous
       </Text>

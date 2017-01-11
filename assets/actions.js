@@ -10,6 +10,8 @@ export const REMOVE_ERROR = "REMOVE_ERROR";
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
 export const ADD_FEED = "ADD_FEED";
 export const UPDATE_SKIP = "UPDATE_SKIP";
+export const INCREMENT_SKIP = "INCREMENT_SKIP";
+export const DECREMENT_SKIP = "DECREMENT_SKIP";
 
 export const RSS_UPDATE = (payload) => {
   return {
