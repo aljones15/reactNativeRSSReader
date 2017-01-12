@@ -1,3 +1,4 @@
+"use strict";
 require("babel-polyfill");
 const mockStorage = require('mock-async-storage');
 import * as storage from '../assets/Services/asyncStorage.js';
@@ -21,7 +22,7 @@ describe("should merge", () =>{
   
   function fakeUrls(baseUrl, count){
     let urls = [];
-    for(i = 0; i < count; i++){
+    for(var i = 0; i < count; i++){
       urls.push(baseUrl + String(i));
     }
     return urls;

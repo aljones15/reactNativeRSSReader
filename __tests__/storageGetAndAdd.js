@@ -1,3 +1,4 @@
+"use strict";
 const mockStorage = require('mock-async-storage');
 require("babel-polyfill");
 import * as storage from '../assets/Services/asyncStorage.js';
@@ -21,7 +22,7 @@ describe("should get", () => {
 describe("should add", () => {
   const baseURL = "http://www.test.org/";
   async function addMultipleUrls(start, end){
-    for(i = start; i < end; i ++){
+    for(var i = start; i < end; i ++){
       let result = await storage.addUrl(baseURL + i);
       expect(result).toBe(true);
     }

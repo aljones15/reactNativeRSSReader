@@ -1,3 +1,4 @@
+"use strict";
 import 'react-native';
 import React from 'react';
 import Root from '../assets/components/root.js';

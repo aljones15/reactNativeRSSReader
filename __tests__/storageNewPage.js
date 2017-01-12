@@ -1,3 +1,5 @@
+
+"use strict";
 require("babel-polyfill");
 const mockStorage = require('mock-async-storage');
 import * as storage from '../assets/Services/asyncStorage.js';

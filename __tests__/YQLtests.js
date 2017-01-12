@@ -1,3 +1,4 @@
+"use strict";
 import YQL from '../assets/Services/YQL.js';
 
 describe("should build a query ", () => {

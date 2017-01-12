@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../headers/header.js';
 import { styles, growFlex, flatten } from '../../Styles/styles.js';
-import { View, WebView, ScrollView, Dimensions } from 'react-native';
-
+import { Text, View, WebView, ScrollView, Dimensions } from 'react-native';
+import Loading from '../modal/loading.js';
 
 class ItemView extends Component{
   constructor(props){
     super(props);
+    this.state = {loading: false }
   }
   secureUri(uri){
     if(typeof(uri) != "string"){
@@ -23,16 +24,29 @@ class ItemView extends Component{
     }
     return uri;
   }
+  loading(bool){
+    this.setState({loading: bool});
+  }
+  showLoading(){
+   if(this.state.loading){
+      return(<Loading />);
+    }
+    return null;
+  } 
   render(){
-    let {width, height, scale} = Dimensions.get('window');
+    let {width, height, scale} = Dimensions.get('window'); 
     return(
         <View style={{ flex: 1}}>
           <Header />
           <ScrollView style={styles.scollWebView}>
-             <WebView source={{uri: this.secureUri(this.props.item.link) }} style={{ height: height, width: width }} />
-          </ScrollView>
+  	    <WebView
+   	     onLoadStart={() => this.loading(true)} 
+	     onLoad={() => this.loading(false)} 
+	     source={{uri: this.secureUri(this.props.item.link) }} 
+	     style={{ height: height, width: width }} />
+	  </ScrollView>	 
         </View>
-        )
+        ) 
   }
 };
 
@@ -45,6 +59,3 @@ const dispatchToStore = (dispatch) => {
 }
 
 export default connect(mapStateToProps, dispatchToStore)(ItemView);
-
-
-
