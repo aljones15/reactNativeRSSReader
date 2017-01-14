@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ListView, RefreshControl, Text } from 'react-native';
-import { select_item, refreshFeeds } from '../../actions.js';
+import { select_item } from '../../actions.js';
 import { styles, growFlex, flatten } from '../../Styles/styles.js';
 import MainHeader from '../headers/mainHeader.js';
 import FeedModal from '../modal/modal.js';
 import PaginateView from '../buttons/paginateView.js';
 import { Item } from '../items/item.js';
+import { refreshFeeds } from '../../Services/rssService.js';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
