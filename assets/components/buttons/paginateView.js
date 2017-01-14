@@ -4,7 +4,10 @@ import { View, Text } from 'react-native';
 import { styles, growFlex } from '../../Styles/styles.js';
 import Next from './next.js';
 import Previous from './previous.js';
-import { INCREMENT_SKIP, DECREMENT_SKIP } from '../../actions.js';
+import { INCREMENT_SKIP, 
+	DECREMENT_SKIP, 
+	getRssFeeds } from '../../actions.js';
+import { getAllSubs } from '../../Services/asyncStorage.js';
 
 class Paginate extends Component {
   constructor(props){
@@ -21,8 +24,8 @@ class Paginate extends Component {
   }
 }
 
-const MapStateToProps = (state) => { 
-  return {
+const MapStateToProps = (state) => {
+    return {
     skip: state.reduceItems.skip 
   };
 }
@@ -30,10 +33,18 @@ const MapStateToProps = (state) => {
 const DispatchToStore = (dispatch) => {
   return {
     next: (skip) => () => {
-            dispatch({ type: INCREMENT_SKIP, payload: skip + 1 }) 
+	    let s = skip + 10;
+            dispatch({ type: INCREMENT_SKIP, payload: s });
+	    getAllSubs().then((subs)=> 
+              getRssFeeds(dispatch)(subs, s));
+	     
     },
     previous: (skip) => () => {
-            dispatch({ type: DECREMENT_SKIP, payload: skip - 1 }) 
+	    let s = skip - 10 >= 0 ? skip - 10 : skip;
+	    dispatch({ type: DECREMENT_SKIP, payload: s })
+	    if(s != skip){ 
+            getAllSubs().then((subs)=> 
+              getRssFeeds(dispatch)(subs, s));}
     }
   }
 }
