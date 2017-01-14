@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, ListView, RefreshControl } from 'react-native';
+import { View, ListView, RefreshControl, Text } from 'react-native';
 import { select_item, refreshFeeds, getRssFeeds } from '../../actions.js';
 import { styles, growFlex, flatten } from '../../Styles/styles.js';
 import MainHeader from '../headers/mainHeader.js';
@@ -18,6 +18,16 @@ componentWillUpdate(next){
   console.log(next);
 }
 render(){
+  if(!this.props.valid){
+    return(
+	<View style={styles.container}>
+          <MainHeader />
+          <FeedModal />
+	  <View style={ styles.mainFeed }>
+	    <Text>No Items</Text>
+	  </View> 
+        </View>);
+  }
   return(
   <View style={ styles.container }>
     <MainHeader />
@@ -40,7 +50,7 @@ render(){
 
 function validateRss(s){
     if(s && s.rss && s.rss.query && s.rss.query.results && s.rss.query.results.item){
-      return s;
+      return s.rss.query.results.item.length;
     }
     return false;
 }
@@ -60,16 +70,17 @@ function sortByPubDate(a,b){
 
 const mapStateToProps = (state, props) => {
 
-  
+  const validRss = validateRss(state.reduceItems);
   return {
-    items: validateRss(state.reduceItems) ? 
+    items: validRss ? 
 	    ds.cloneWithRows(state.
 			    reduceItems.
 			    rss.query.
 			    results.item.
 			    sort(sortByPubDate)) : 
 	    ds.cloneWithRows(["Loading"]),
-    loading: state.reduceItems.network_update
+    loading: state.reduceItems.network_update,
+    valid: validRss
   };
 }
 
