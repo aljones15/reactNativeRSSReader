@@ -12,11 +12,11 @@ function reduceItems(state = {
   if(typeof state === 'undefined') return initialState;
   switch (action.type) {
     case Actions.INCREMENT_SKIP:
-      state.skip += 10;
+      state.skip = action.payload;
       return Object.assign({}, state);
     case Actions.DECREMENT_SKIP:
-      if(state.skip - 10 >= 0){
-        state.skip -= 10;
+      if(state.skip != action.payload){
+        state.skip = action.payload;
         return Object.assign({}, state);
       }
       return state;

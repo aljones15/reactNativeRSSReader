@@ -11,7 +11,12 @@ import { Item } from '../items/item.js';
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
 class RssList extends Component{ 
-
+componentDidUpdate(){
+  console.log(this.props.items);
+}
+componentWillUpdate(next){
+  console.log(next);
+}
 render(){
   return(
   <View style={ styles.container }>
@@ -58,7 +63,11 @@ const mapStateToProps = (state, props) => {
   
   return {
     items: validateRss(state.reduceItems) ? 
-	    ds.cloneWithRows(state.reduceItems.rss.query.results.item.sort(sortByPubDate)) : 
+	    ds.cloneWithRows(state.
+			    reduceItems.
+			    rss.query.
+			    results.item.
+			    sort(sortByPubDate)) : 
 	    ds.cloneWithRows(["Loading"]),
     loading: state.reduceItems.network_update
   };

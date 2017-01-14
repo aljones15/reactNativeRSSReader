@@ -14,7 +14,7 @@ class Paginate extends Component {
     super(props);
   }
   render() {
-    const btn = [growFlex(1)];
+    const btn = [growFlex(1), {backgroundColor: "#FFFF"}];
     const skip = this.props.skip;
     return(
     <View style={[growFlex(5), styles.flexCenterRow ]}>
@@ -36,8 +36,7 @@ const DispatchToStore = (dispatch) => {
 	    let s = skip + 10;
             dispatch({ type: INCREMENT_SKIP, payload: s });
 	    getAllSubs().then((subs)=> 
-              getRssFeeds(dispatch)(subs, s));
-	     
+              getRssFeeds(dispatch)(subs, s)); 
     },
     previous: (skip) => () => {
 	    let s = skip - 10 >= 0 ? skip - 10 : skip;
