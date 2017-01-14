@@ -14,7 +14,7 @@ class Paginate extends Component {
     const btn = [growFlex(1)];
     const skip = this.props.skip;
     return(
-    <View style={[growFlex(5)]}>
+    <View style={[growFlex(5), styles.flexCenterRow ]}>
       <Next styles={btn} action={this.props.next(skip)} />
       <Previous styles={btn} action={this.props.previous(skip)} />
     </View>);
@@ -23,16 +23,16 @@ class Paginate extends Component {
 
 const MapStateToProps = (state) => {
   return {
-    skip: 0 
+    skip: state.reduceItems.skip 
   };
 }
 
 const DispatchToStore = (dispatch) => {
   return {
-    next: (skip) => return () => {
+    next: (skip) => () => {
       dispatch({ type: INCREMENT_SKIP, payload: skip + 1 }) 
     },
-    previous: (skip) => return () => {
+    previous: (skip) => () => {
       dispatch({ type: DECREMENT_SKIP, payload: skip - 1 }) 
     }
   }

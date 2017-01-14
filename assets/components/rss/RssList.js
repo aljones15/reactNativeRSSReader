@@ -5,6 +5,7 @@ import { select_item, refreshFeeds, getRssFeeds } from '../../actions.js';
 import { styles, growFlex, flatten } from '../../Styles/styles.js';
 import MainHeader from '../headers/mainHeader.js';
 import FeedModal from '../modal/modal.js';
+import PaginateView from '../buttons/paginateView.js';
 import { Item } from '../items/item.js';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
@@ -27,6 +28,7 @@ render(){
     <Item colorPicker={rowID} item={rowData} selectItem={this.props.selectItem}></Item>}
     />
     {this.props.children}
+    <PaginateView />
   </View>);
   }
 }

@@ -3,10 +3,11 @@ import { View, Text } from 'react-native';
 
 export default class Next extends Component {
   render(){
-    <View style={this.props.styles} >
+    return(
+    <View style={[this.props.styles]} >
       <Text>
-        Previous
+        Next
       </Text>
-    </View>
+    </View>)
   }
 }
