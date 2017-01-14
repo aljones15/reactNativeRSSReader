@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ListView, RefreshControl, Text } from 'react-native';
-import { select_item, refreshFeeds, getRssFeeds } from '../../actions.js';
+import { select_item, refreshFeeds } from '../../actions.js';
 import { styles, growFlex, flatten } from '../../Styles/styles.js';
 import MainHeader from '../headers/mainHeader.js';
 import FeedModal from '../modal/modal.js';
@@ -12,10 +12,10 @@ const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
 class RssList extends Component{ 
 componentDidUpdate(){
-  console.log(this.props.items);
+
 }
 componentWillUpdate(next){
-  console.log(next);
+
 }
 render(){
   if(!this.props.valid){

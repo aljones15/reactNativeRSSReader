@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text  } from 'react-native';
-import { RSS_UPDATE, UPDATE_ITEMS_FAILED, getRssFeeds } from '../../actions.js';
+import { RSS_UPDATE, UPDATE_ITEMS_FAILED } from '../../actions.js';
 import { styles, growFlex, flatten } from '../../Styles/styles.js';
 import ItemView from '../items/itemView.js';
 import MainHeader from '../headers/mainHeader.js';

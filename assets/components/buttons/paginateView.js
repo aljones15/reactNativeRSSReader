@@ -4,9 +4,8 @@ import { View, Text } from 'react-native';
 import { styles, growFlex } from '../../Styles/styles.js';
 import Next from './next.js';
 import Previous from './previous.js';
-import { INCREMENT_SKIP, 
-	DECREMENT_SKIP, 
-	getRssFeeds } from '../../actions.js';
+import { INCREMENT_SKIP, DECREMENT_SKIP } from '../../actions.js';
+import { getRssFeeds } from '../../Services/rssService.js';
 import { getAllSubs } from '../../Services/asyncStorage.js';
 
 class Paginate extends Component {
