@@ -24,5 +24,3 @@ export const select_item = (item) => {
     payload: item
   }
 }
-
-
