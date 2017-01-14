@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { getRssFeeds } from '../actions';
+import { getRssFeeds } from './rssService.js';
 
 const isPage = /([Pp][Aa][Gg][Ee]\_)(\d+)/;
 
