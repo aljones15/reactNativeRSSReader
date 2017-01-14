@@ -1,3 +1,7 @@
+import { UPDATE_ITEMS_FAILED, 
+	UPDATING_ITEMS, 
+	RSS_UPDATE } from '../actions.js';
+
 export default class YQL {
   Where(where){
     this._urls = where;
@@ -54,5 +58,30 @@ export default class YQL {
   Get(){
     let url = encodeURI(this.formatQuery());
     return url;
+  }
+
+  Fetch(dispatch){
+      return fetch(this.Get(), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then((r) => {
+      if(r){
+        r.json().then((t) => dispatch(RSS_UPDATE(t)))
+    } else {
+      console.log("fetch rss FETCH_FAILED");
+      dispatch({
+        type: UPDATE_ITEMS_FAILED,
+        payload: r
+      });
+    }
+  }).catch((error) => {
+      console.error("FETCH_FAILED");
+      dispatch({
+        type: UPDATE_ITEMS_FAILED,
+        payload: error
+      });
+      })
   }
 }

@@ -1,36 +1,12 @@
 import { getAllSubs } from './asyncStorage';
 import YQL from './YQL.js';
-import { UPDATE_ITEMS_FAILED, UPDATING_ITEMS, RSS_UPDATE } from '../actions.js';
+import { UPDATE_ITEMS_FAILED, 
+	UPDATING_ITEMS, 
+	RSS_UPDATE } from '../actions.js';
 
 export const epoch = new Date("01-01-1970");
 export const take = 10;
 
-export let yahooQLbase = "https://query.yahooapis.com/v1/public/yql?q=select * from rss (1,10) where ";
-
-function fetchYQL (uri, dispatch){
-      return fetch(uri, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then((r) => {
-      if(r){
-        r.json().then((t) => dispatch(RSS_UPDATE(t)))
-    } else {
-      console.log("fetch rss FETCH_FAILED");
-      dispatch({
-        type: UPDATE_ITEMS_FAILED,
-        payload: r
-      });
-    }
-  }).catch((error) => {
-      console.error("FETCH_FAILED");
-      dispatch({
-        type: UPDATE_ITEMS_FAILED,
-        payload: error
-      });
-      })
-}
 
 /*
 SELECT * FROM search.ec (1, 10) WHERE keyword='ipad' and property='shopping' and sortBy='price' and sortOrder='asc' and filters='ship_fast'*/
@@ -55,7 +31,7 @@ export function getRss(dispatch){
 	      sortBy("pubDate").
 	      sortOrder("asc");
       dispatch({ type: UPDATING_ITEMS });
-      return fetchYQL(yql.Get(), dispatch);
+      return yql.Fetch(dispatch);
     }
   }
 
