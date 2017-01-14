@@ -21,7 +21,7 @@ class Paginate extends Component {
   }
 }
 
-const MapStateToProps = (state) => {
+const MapStateToProps = (state) => { 
   return {
     skip: state.reduceItems.skip 
   };
@@ -30,10 +30,10 @@ const MapStateToProps = (state) => {
 const DispatchToStore = (dispatch) => {
   return {
     next: (skip) => () => {
-      dispatch({ type: INCREMENT_SKIP, payload: skip + 1 }) 
+            dispatch({ type: INCREMENT_SKIP, payload: skip + 1 }) 
     },
     previous: (skip) => () => {
-      dispatch({ type: DECREMENT_SKIP, payload: skip - 1 }) 
+            dispatch({ type: DECREMENT_SKIP, payload: skip - 1 }) 
     }
   }
 }

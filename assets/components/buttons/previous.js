@@ -5,7 +5,7 @@ export default class Previous extends Component {
   render(){
     return(
     <View style={this.props.styles}>
-      <Text>
+      <Text onPress={() => this.props.action()}>
         Previous
       </Text>
     </View>)
