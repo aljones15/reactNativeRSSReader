@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 
-const headerBG = '#F0F0F0';
-export const fontColor = '#011827';
-export const evenItemColor = '#FBF0F0'; 
-export const oddItemColor = '#F0F0FB';
+const headerBG = '#F0F0F0FF';
+export const fontColor = '#011827FF';
+export const evenItemColor = '#F1F1FF10'; 
+export const oddItemColor = '#F1F1FF90';
 
 export function growShrinkFlex(grow, shrink){
   return {
