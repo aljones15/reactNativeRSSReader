@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Header from '../headers/header.js';
 import { styles, growFlex, flatten } from '../../Styles/styles.js';
 import { Text, View, WebView, ScrollView, Dimensions } from 'react-native';
-import Loading from '../modal/loading.js';
+import Activity from '../modal/activity.js';
 
 class ItemView extends Component{
   constructor(props){
@@ -24,15 +24,6 @@ class ItemView extends Component{
     }
     return uri;
   }
-  loading(bool){
-    this.setState({loading: bool});
-  }
-  showLoading(){
-   if(this.state.loading){
-      return(<Loading />);
-    }
-    return null;
-  } 
   render(){
     let {width, height, scale} = Dimensions.get('window'); 
     return(
@@ -40,9 +31,9 @@ class ItemView extends Component{
           <Header />
           <ScrollView style={styles.scollWebView}>
   	    <WebView
-   	     onLoadStart={() => this.loading(true)} 
-	     onLoad={() => this.loading(false)} 
-	     source={{uri: this.secureUri(this.props.item.link) }} 
+	     startInLoadingState={true}
+	     renderLoading={() => {return(<Activity />)}}
+   	     source={{uri: this.secureUri(this.props.item.link) }} 
 	     style={{ height: height, width: width }} />
 	  </ScrollView>	 
         </View>

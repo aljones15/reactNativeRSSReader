@@ -32,7 +32,7 @@ class RssBase extends Component {
         <View style={ styles.container }>
           <MainHeader />
           <FeedModal />
-          <Loading loading={this.props.loading} />
+	  <Loading />
         </View>
       );
       }

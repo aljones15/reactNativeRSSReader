@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
   scollWebView : {
     flexGrow: 25,
     flexShrink: 25,
-    backgroundColor: 'red'
+    backgroundColor: '#F5F5F5FF'
   },
   header: {
     flexGrow: 2,
