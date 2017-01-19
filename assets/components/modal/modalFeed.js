@@ -17,12 +17,21 @@ export default class ModalFeed extends Component {
   }
   checkBorder(){
    if(this.state.input.length < 5){
-     return makeBorder('green', 1, 'solid');
+     return makeBorder('black', 1, 'solid');
    }
    if(this.state.valid){
-     return makeBorder('black', 1, 'solid'); 
+     return makeBorder('green', 1, 'solid'); 
    }
    return makeBorder('red', 1, 'solid');
+  }
+  checkColor(){
+    if(this.state.input.length < 5){
+       return 'black';
+     }
+     if(this.state.valid){
+       return 'green'; 
+     }
+     return 'red';
   }
   render(){
     return(
@@ -41,7 +50,10 @@ export default class ModalFeed extends Component {
           onChange={this.change.bind(this)}
           onEndEditing={this.props.submit(this.state.input)}
         />
-        <Icon name="check" style={ growFlex(1) } size={30} color="#080707"/>
+        <Icon name="check" 
+	style={ growFlex(1) } 
+	size={30} 
+	color={this.checkColor()}/>
       </View>
       )
   }
