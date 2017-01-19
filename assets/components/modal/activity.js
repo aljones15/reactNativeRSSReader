@@ -12,11 +12,6 @@ const centering = {
   padding: 8
 };
 
-const horizontal = {
-  flexDirection: 'row',
-  justifyContent: 'space-around',
-  padding: 8
-};
 
 export default class 
 ToggleAnimatingActivityIndicator extends Component{
