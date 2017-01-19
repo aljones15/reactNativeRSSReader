@@ -16,7 +16,7 @@ export default class ModalFeed extends Component {
 	    valid: isUrl.test(e.nativeEvent.text) });
   }
   checkBorder(){
-   if(this.state.input.length < 5){
+   if(this.state.input.length < 1){
      return makeBorder('black', 1, 'solid');
    }
    if(this.state.valid){
@@ -25,7 +25,7 @@ export default class ModalFeed extends Component {
    return makeBorder('red', 1, 'solid');
   }
   checkColor(){
-    if(this.state.input.length < 5){
+    if(this.state.input.length < 1){
        return 'black';
      }
      if(this.state.valid){

@@ -12,7 +12,7 @@ class MainHeader extends Component{
   render(){
     return(
       <View style={styles.header}>
-        <Text onPress={this.props.open("menu")} style={ flatten(styles.fontLeft, growFlex(1), {padding: 5 }) }>
+        <Text onPress={this.props.open("menu")} style={[styles.fontLeft, growFlex(1), {padding: 5 }]}>
           <Icon name="list" size={30} color="#080707"/>
         </Text>
         <Text onPress={this.props.open("menu")} style={ growFlex(1)}> Menu </Text>
