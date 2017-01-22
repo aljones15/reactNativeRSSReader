@@ -3,39 +3,75 @@ import { UPDATE_ITEMS_FAILED,
 	RSS_UPDATE } from '../actions.js';
 
 export default class YQL {
+  /**
+   * Adds the urls to the request
+   * @param {[String]} where
+   */
   Where(where){
     this._urls = where;
     return this;
   }
+  /**
+   * What to select from the items in the feed
+   * @param {String} "item1, item2"
+   */
   Select(item){
     this._select = item;
     return this;
   }
+  /** 
+   * the number ef items from each feed to select from
+   * @param {Number} take
+   */
   Take(take){
     this._take = take;
     return this;
   }
+  /**
+   * the offset of items to skip
+   * basic pagination method
+   * @param {Number} skip
+   */
   Skip(skip){
     this._skip = skip;
     return this;
   }
+  /**
+   * the objech in the query to select from
+   * @param {String} from
+   */
   From(from){
     this._from = from;
     return this;
   }
+  /**
+   * The sort method to use
+   * @param {String} field to sort on
+   * @param {Boolan} descending true / false
+   */
   Sort(field, d){
     this._sort = field;
     this._order = d;
     return this;
   }
+  /**
+   * converts Date object to unix time stapm
+   * @param {Date}
+   */
   unixTime(d){
     return Math.floor(d.getTime() / 1000);
   }
+  /**
+   * formats the urls passed in by where to a string
+   */
   formatUrls(){
     urls = this._urls.map( (u) => { return 'url=' + "'" + u + "'"; });
     urls = urls.join(' or ');
     return urls;
   }
+  /**
+   * formats the entire query to a string
+   */
   formatQuery(){
     const YQLBase = "https://query.yahooapis.com/v1/public/yql?q=";
     let query = YQLBase + "select " + this._select;
@@ -56,11 +92,16 @@ export default class YQL {
     }
     return query;
   }
+  /**
+   * terns the query into a uri
+   */
   Get(){
     let url = encodeURI(this.formatQuery());
     return url;
   }
-
+  /**
+   * fetches the query
+   */
   Fetch(dispatch){
       return fetch(this.Get(), {
       method: 'GET',

@@ -1,8 +1,15 @@
 import { AsyncStorage } from 'react-native';
 import { getRssFeeds } from './rssService.js';
-
+/**
+ * isPage is a regex that determines 
+ * if a key in local storage is a page key
+ */
 const isPage = /([Pp][Aa][Gg][Ee]\_)(\d+)/;
-
+/**
+ * setItem adds an item to localStorage
+ * @param {String} key
+ * @param {Json Object} value
+ */
 export async function setItem(key, value){
   try {
     let result = await AsyncStorage.setItem(key, JSON.stringify(value));
