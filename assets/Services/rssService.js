@@ -15,10 +15,7 @@ export function getRssFeeds(dispatch){
 	      Skip(skip).
 	      Take(take).
 	      Where(urls).
-	      sortBy("pubDate").
-	      sortOrder("asc").
-	      startDate(epoch).
-	      endDate(new Date())
+	      Sort("pubDate", "true");
       dispatch({ type: UPDATING_ITEMS });
       return yql.Fetch(dispatch);
     }

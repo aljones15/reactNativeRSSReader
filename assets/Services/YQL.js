@@ -23,12 +23,9 @@ export default class YQL {
     this._from = from;
     return this;
   }
-  sortBy(s){
-    this._sort = s;
-    return this;
-  }
-  sortOrder(o){
-    this._order = o;
+  Sort(field, d){
+    this._sort = field;
+    this._order = d;
     return this;
   }
   unixTime(d){
@@ -62,12 +59,9 @@ export default class YQL {
       query += " where " + this.formatUrls();
     }
     if(this._sort && this._order){
-      query += " and sortBy='" + this._sort + "'"
-	      + " and " + "sortOrder='" + this._order + "'";
-    }
-    if(this._startDate >= 0 && this._endDate > 0){
-      query += " and startDate='" + this._startDate + 
-	      "' and endDate='" + this._endDate + "'";
+      query += " | sort(field='" + this._sort + 
+	      "' , descending='" + this._order + "')";
+	      
     }
     return query;
   }
@@ -101,3 +95,7 @@ export default class YQL {
       })
   }
 }
+
+// select * from rss where url in (select title from atom where url='http://spreadsheets.google.com/feeds/list/pg_T0Mv3iBwIJoc82J1G8aQ/od6/public/basic')
+//
+// https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss(0%2C10)%20where%20url%3D%22http%3A%2F%2Frss.news.yahoo.com%2Frss%2Ftopstories%22%20or%20url%3D%22http%3A%2F%2Fboingboing.com%2Frss%22%20or%20url%3D%22https%3A%2F%2Fnews.ycombinator.com%2Frss%22%20%7C%20sort(field%3D%22pubDate%22%2C%20descending%3D%22true%22)&diagnostics=true
