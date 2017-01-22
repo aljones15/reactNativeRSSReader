@@ -37,7 +37,7 @@ ToggleAnimatingActivityIndicator extends Component{
     this._timer = setTimeout(() => {
       this.setState({ animating: !this.state.animating});
       this.setToggleTimeOut();
-    }, 2000)
+    }, 5000)
   }
 
   render(){

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
-import { styles, growFlex, flatten, makeBorder } from '../../Styles/styles.js';
+import { styles, growFlex, makeBorder } from '../../Styles/styles.js';
 import { connect } from 'react-redux';
-import { TOGGLE_MODAL, ADD_FEED, refreshFeeds } from '../../actions.js';
+import { TOGGLE_MODAL, ADD_FEED } from '../../actions.js';
+import { refreshFeeds } from '../../Services/rssService.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { addUrl, getAllSubs } from '../../Services/asyncStorage.js';
 import ModalMenu from './modalMenu.js';
