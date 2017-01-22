@@ -31,15 +31,6 @@ export default class YQL {
   unixTime(d){
     return Math.floor(d.getTime() / 1000);
   }
-  startDate(day){
-    console.log(day.getTime() / 1000);
-    this._startDate = this.unixTime(day);
-    return this;
-  }
-  endDate(day){
-    this._endDate = this.unixTime(day);
-    return this;
-  }
   formatUrls(){
     urls = this._urls.map( (u) => { return 'url=' + "'" + u + "'"; });
     urls = urls.join(' or ');
@@ -96,6 +87,4 @@ export default class YQL {
   }
 }
 
-// select * from rss where url in (select title from atom where url='http://spreadsheets.google.com/feeds/list/pg_T0Mv3iBwIJoc82J1G8aQ/od6/public/basic')
-//
 // https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss(0%2C10)%20where%20url%3D%22http%3A%2F%2Frss.news.yahoo.com%2Frss%2Ftopstories%22%20or%20url%3D%22http%3A%2F%2Fboingboing.com%2Frss%22%20or%20url%3D%22https%3A%2F%2Fnews.ycombinator.com%2Frss%22%20%7C%20sort(field%3D%22pubDate%22%2C%20descending%3D%22true%22)&diagnostics=true

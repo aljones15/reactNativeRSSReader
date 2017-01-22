@@ -1,4 +1,3 @@
-
 "use strict";
 require("babel-polyfill");
 const mockStorage = require('mock-async-storage');
