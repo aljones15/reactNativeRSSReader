@@ -12,7 +12,6 @@ import { addUrl,
 	initFeeds } from '../../Services/asyncStorage.js';
 import RssList from './RssList.js';
 
-
 class RssBase extends Component {
   constructor(props){
     super(props);

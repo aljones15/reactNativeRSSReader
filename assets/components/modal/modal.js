@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import { styles, growFlex, makeBorder } from '../../Styles/styles.js';
 import { connect } from 'react-redux';
 import { TOGGLE_MODAL, ADD_FEED } from '../../actions.js';

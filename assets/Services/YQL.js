@@ -31,6 +31,18 @@ export default class YQL {
     this._order = o;
     return this;
   }
+  unixTime(d){
+    return Math.floor(d.getTime() / 1000);
+  }
+  startDate(day){
+    console.log(day.getTime() / 1000);
+    this._startDate = this.unixTime(day);
+    return this;
+  }
+  endDate(day){
+    this._endDate = this.unixTime(day);
+    return this;
+  }
   formatUrls(){
     urls = this._urls.map( (u) => { return 'url=' + "'" + u + "'"; });
     urls = urls.join(' or ');
@@ -52,6 +64,10 @@ export default class YQL {
     if(this._sort && this._order){
       query += " and sortBy='" + this._sort + "'"
 	      + " and " + "sortOrder='" + this._order + "'";
+    }
+    if(this._startDate >= 0 && this._endDate > 0){
+      query += " and startDate='" + this._startDate + 
+	      "' and endDate='" + this._endDate + "'";
     }
     return query;
   }

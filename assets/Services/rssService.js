@@ -4,7 +4,7 @@ import { UPDATE_ITEMS_FAILED,
 	UPDATING_ITEMS, 
 	RSS_UPDATE } from '../actions.js';
 
-export const epoch = new Date("01-01-1970");
+export const epoch = new Date("1970-01-01");
 export const take = 10;
 
 export function getRssFeeds(dispatch){
@@ -16,7 +16,9 @@ export function getRssFeeds(dispatch){
 	      Take(take).
 	      Where(urls).
 	      sortBy("pubDate").
-	      sortOrder("asc");
+	      sortOrder("asc").
+	      startDate(epoch).
+	      endDate(new Date())
       dispatch({ type: UPDATING_ITEMS });
       return yql.Fetch(dispatch);
     }
