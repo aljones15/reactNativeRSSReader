@@ -19,7 +19,10 @@ export async function setItem(key, value){
     return false;
   }
 }
-
+/**
+ * getItem return an item as a Json Object
+ * param {String} key
+ */
 export async function getItem(key){
   try {
     let result = await AsyncStorage.getItem(key);
@@ -30,16 +33,23 @@ export async function getItem(key){
     return false;
   }
 }
-
+/**
+ * Duplicate return a bool to determine 
+ * if the item already exists in the array
+ * @param {Array} list
+ * @param item Json Object
+ */
 function Duplicate(list, item){
   if(!list) return true;
   if(!item) return true;
   if(list.length == 0){
     return false;
   }
-  return list.indexOf(item) > -1;
+  return list.includes(item);
 }
-
+/**
+ * returns all page keys from local storage
+ */
 export async function getAllPages(){
  try {
    let all_keys = await getAllKeys();
@@ -52,7 +62,10 @@ export async function getAllPages(){
    return [];
  }
 }
-
+/**
+ * creates a new page
+ * @param {String} key
+ */
 export async function createNewPage(key){
   let newPageNum = parseInt(isPage.exec(key)[2]) + 1;
   let newKey = "page_" + String(newPageNum);
@@ -61,6 +74,10 @@ export async function createNewPage(key){
   return await getItem(newKey);
 }
 
+/**
+ * adds a url to first page with less than 100 entries
+ * @param {String} url
+ */
 export async function addUrl(url){
   try{
     let keys = await getAllPages();
@@ -85,6 +102,11 @@ export async function addUrl(url){
   }
 }
 
+/**
+ * deletes an item by kef from local storage
+ * return a bool representing success
+ * @param {String} key
+ */
 export async function deleteItem(key){
   try {
     await AsyncStorage.removeItem(key);
@@ -94,6 +116,12 @@ export async function deleteItem(key){
     return false;
   }
 }
+
+/**
+ * merges two json objects in local storage
+ * @param {String} key
+ * @param {Json Object} value
+ */
 
 export async function mergeItem(key, value){
   try {
@@ -105,6 +133,9 @@ export async function mergeItem(key, value){
   }
 }
 
+/**
+ * returns an array of strings with key names
+ */
 export async function getAllKeys(){
   try{
     let keys = await AsyncStorage.getAllKeys();
@@ -115,6 +146,9 @@ export async function getAllKeys(){
   }
 }
 
+/**
+ * useful for debug deletes everything in local storage
+ */
 export async function deleteAll(){
   try {
     let keys = await getAllKeys();
@@ -201,7 +235,9 @@ function dropKeys (item, a){
   if(a.indexOf(item) < 0 ){ return []; }	
   return a.slice(a.indexOf(item) + 1, a.length); 
 }
-
+/**
+ * resyncs all pages in local storage
+ */
 export async function resyncAllPages(){
   const take = 100;
   let skip = 0;
@@ -216,7 +252,11 @@ export async function resyncAllPages(){
   }
   return true;
 }
-
+/**
+ * called by merge pages
+ * resyncs all pages above the merged page
+ * @param {String} page
+ */
 export async function resyncPageNums(page){
   let keys = await getAllPages();
   keys = dropKeys(page, keys).map((p) => { return isPage.exec(p); });
