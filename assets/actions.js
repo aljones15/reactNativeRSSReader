@@ -11,6 +11,10 @@ export const UPDATE_SKIP = "UPDATE_SKIP";
 export const INCREMENT_SKIP = "INCREMENT_SKIP";
 export const DECREMENT_SKIP = "DECREMENT_SKIP";
 
+/**
+ * creates an RSS update object for the dispatcher
+ * @param {JSON} payload
+ */
 export const RSS_UPDATE = (payload) => {
   return {
     type: UPDATE_RSS,
@@ -18,6 +22,10 @@ export const RSS_UPDATE = (payload) => {
   }
 }
 
+/**
+ * selects an item from the list of latest news stories
+ * @param {Object} item
+ */
 export const select_item = (item) => {
   return {
     type: SHOW_ITEM,

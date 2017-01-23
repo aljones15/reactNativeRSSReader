@@ -7,7 +7,7 @@ export default class YQL {
    * Adds the urls to the request
    * @param {[String]} where
    */
-  Where(where){
+  Where(where: string[]){
     this._urls = where;
     return this;
   }
@@ -15,7 +15,7 @@ export default class YQL {
    * What to select from the items in the feed
    * @param {String} "item1, item2"
    */
-  Select(item){
+  Select(item: string){
     this._select = item;
     return this;
   }
@@ -23,7 +23,7 @@ export default class YQL {
    * the number ef items from each feed to select from
    * @param {Number} take
    */
-  Take(take){
+  Take(take: number){
     this._take = take;
     return this;
   }
@@ -32,7 +32,7 @@ export default class YQL {
    * basic pagination method
    * @param {Number} skip
    */
-  Skip(skip){
+  Skip(skip: number){
     this._skip = skip;
     return this;
   }
@@ -40,7 +40,7 @@ export default class YQL {
    * the objech in the query to select from
    * @param {String} from
    */
-  From(from){
+  From(from: string){
     this._from = from;
     return this;
   }
@@ -49,16 +49,16 @@ export default class YQL {
    * @param {String} field to sort on
    * @param {Boolan} descending true / false
    */
-  Sort(field, d){
+  Sort(field: string, d: boolean){
     this._sort = field;
-    this._order = d;
+    this._order = String(d);
     return this;
   }
   /**
    * converts Date object to unix time stapm
    * @param {Date}
    */
-  unixTime(d){
+  unixTime(d: date){
     return Math.floor(d.getTime() / 1000);
   }
   /**

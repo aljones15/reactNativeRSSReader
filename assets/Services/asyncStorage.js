@@ -10,7 +10,7 @@ const isPage = /([Pp][Aa][Gg][Ee]\_)(\d+)/;
  * @param {String} key
  * @param {Json Object} value
  */
-export async function setItem(key, value){
+export async function setItem(key: string, value: object){
   try {
     let result = await AsyncStorage.setItem(key, JSON.stringify(value));
     return true;
@@ -23,7 +23,7 @@ export async function setItem(key, value){
  * getItem return an item as a Json Object
  * param {String} key
  */
-export async function getItem(key){
+export async function getItem(key: string){
   try {
     let result = await AsyncStorage.getItem(key);
     if(!result) return false;
@@ -66,7 +66,7 @@ export async function getAllPages(){
  * creates a new page
  * @param {String} key
  */
-export async function createNewPage(key){
+export async function createNewPage(key: string){
   let newPageNum = parseInt(isPage.exec(key)[2]) + 1;
   let newKey = "page_" + String(newPageNum);
   let model = {list: []};
@@ -78,7 +78,7 @@ export async function createNewPage(key){
  * adds a url to first page with less than 100 entries
  * @param {String} url
  */
-export async function addUrl(url){
+export async function addUrl(url: string){
   try{
     let keys = await getAllPages();
     if(keys.length == 0){ 
@@ -107,7 +107,7 @@ export async function addUrl(url){
  * return a bool representing success
  * @param {String} key
  */
-export async function deleteItem(key){
+export async function deleteItem(key: string){
   try {
     await AsyncStorage.removeItem(key);
     return true;
@@ -123,7 +123,7 @@ export async function deleteItem(key){
  * @param {Json Object} value
  */
 
-export async function mergeItem(key, value){
+export async function mergeItem(key: string, value: object){
   try {
     await AsyncStorage.mergeItem(key, JSON.stringify(value));
     return true;
@@ -161,7 +161,9 @@ export async function deleteAll(){
     return false;
   }
 }
-
+/**
+ * executes the current requests
+ */
 export async function flushRequest(){
   try{
     await AsyncStorage.flushGetRequests();
@@ -172,7 +174,12 @@ export async function flushRequest(){
   }
 }
 
-export async function getMulti(keys){
+/**
+ * gets multiple keys
+ * @param {[String]} keys
+ */
+
+export async function getMulti(keys: [string]){
   try{
     let results = await AsyncStorage.multiGet(keys);
     return results;
@@ -183,9 +190,13 @@ export async function getMulti(keys){
   }
 }
 
-
+/**
+ * sets multiple objects
+ * @param {KeyValue Object}
+ */
 export async function setMulti(keyValue){
   try{
+    // note this is untested might require json stringfiy
     await AsyncStorage.multiSet(keyValue);
     return true;
 
@@ -194,8 +205,11 @@ export async function setMulti(keyValue){
     return false;
   }
 }
-
-export async function removeMulti(keys){
+/**
+ * removes muliple objects in local storage
+ * @param {[String]} keys
+ */
+export async function removeMulti(keys: [string]){
   try{
     await AsyncStorage.multiRemove(keys);
     return true;
@@ -204,7 +218,10 @@ export async function removeMulti(keys){
     return false;
   }
 }
-
+/**
+ * merges multiple objects
+ * @param {KeyValue Object} keyValue
+ */
 export async function mergeMulti(keyValue){
   try{
     await AsyncStorage.multiMerge(keyValue);
@@ -214,12 +231,17 @@ export async function mergeMulti(keyValue){
     return false;
   }
 }
-
-async function mapUrls(key){
+/** 
+ * used in for loops to get urls
+ */
+async function mapUrls(key: string){
   let result = await getItem(key);
   return result;
 }
-
+/**
+ * gets all subscriptions then returns them as
+ * one large array of urls
+ */
 export async function getAllSubs(){
   let pages = await getAllPages();
   let urls = [];
@@ -230,8 +252,13 @@ export async function getAllSubs(){
   urls = [].concat.apply([], urls);
   return urls;
 }
-
-function dropKeys (item, a){
+/**
+ * drops a key from a string array of keys
+ * used with page merges to resync page numbers
+ * @param {string} item
+ * @param {Array} a
+ */ 
+function dropKeys (item: string, a: [string]){
   if(a.indexOf(item) < 0 ){ return []; }	
   return a.slice(a.indexOf(item) + 1, a.length); 
 }
@@ -257,7 +284,7 @@ export async function resyncAllPages(){
  * resyncs all pages above the merged page
  * @param {String} page
  */
-export async function resyncPageNums(page){
+export async function resyncPageNums(page: string){
   let keys = await getAllPages();
   keys = dropKeys(page, keys).map((p) => { return isPage.exec(p); });
   if(keys.length <= 0){ return true; }
@@ -276,8 +303,13 @@ export async function resyncPageNums(page){
   }
   return true;
 }
-
-export async function mergePages(pageOne, pageTwo){
+/**
+ * merges two pages into one if both pages
+ * have less than 50 items in them
+ * @param {String} pageOne
+ * @param {String} pageTwo
+ */
+export async function mergePages(pageOne: string, pageTwo: string){
   let itemOne = await getItem(pageOne);
   if(!itemOne){ return false };
   let itemTwo = await getItem(pageTwo);
@@ -289,8 +321,13 @@ export async function mergePages(pageOne, pageTwo){
   await resyncPageNums(pageOne);
   return await getItem(pageOne);
 }
-
-export function initFeeds(dispatch){
+/**
+ * init function called on start up that
+ * concats all the urls into one list and then
+ * calls on YQL to fetch them
+ * @param {Dedux Dispatcher} dispatch
+ */
+export function initFeeds(dispatch: Function){
   return async function(){
     let subs = await getAllSubs();
     if(subs.length <= 0){
