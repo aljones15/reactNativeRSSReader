@@ -8,7 +8,11 @@ export class Item extends Component {
   constructor(props){
     super(props);
   }
-  getItemStyle(colorNum){
+  /***
+   * modulates the color of an item by odd or even
+   * @param {int} the item index
+   */
+  getItemStyle(colorNum: number){
     if(colorNum % 2 == 0){
       return [styles.item, growFlex(1), { backgroundColor: evenItemColor }];
     }

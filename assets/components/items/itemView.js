@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../headers/header.js';
-import { styles, growFlex, flatten } from '../../Styles/styles.js';
+import { styles, growFlex } from '../../Styles/styles.js';
 import { Text, View, WebView, ScrollView, Dimensions } from 'react-native';
 import Activity from '../modal/activity.js';
 
@@ -10,6 +10,10 @@ class ItemView extends Component{
     super(props);
     this.state = {loading: false }
   }
+  /***
+   * changes an insecure uri to a secure uri
+   * @param {uri} a url as string or object
+   */
   secureUri(uri){
     if(typeof(uri) != "string"){
       uri = uri[0];
