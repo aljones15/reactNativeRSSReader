@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
-import { styles, growFlex} from '../../Styles/styles.js';
+import { styles, growFlex } from '../../Styles/styles.js';
 import { REMOVE_ITEM, TOGGLE_MODAL } from '../../actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -11,7 +11,10 @@ class MainHeader extends Component{
   }
   render(){
     return(
-      <View style={styles.header}>
+      <View 
+      style={styles.header}
+      testID="main_header"
+      >
         <Text 
 	onPress={this.props.open("menu")} 
 	style={[styles.fontLeft, growFlex(1), {padding: 5 }]}>

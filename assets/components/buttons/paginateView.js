@@ -16,7 +16,10 @@ class Paginate extends Component {
     const btn = [growFlex(1), {backgroundColor: "#FFFF"}];
     const skip = this.props.skip;
     return(
-    <View style={[growFlex(5), styles.flexCenterRow ]}>
+    <View 
+    style={[growFlex(5), styles.flexCenterRow ]}
+    testID="paginate_view"
+    >
       <Next styles={btn} action={this.props.next(skip)} />
       <Previous styles={btn} action={this.props.previous(skip)} />
     </View>);

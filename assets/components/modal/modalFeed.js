@@ -37,7 +37,9 @@ export default class ModalFeed extends Component {
     return(
       <View style={[ growFlex(1), 
 	      styles.flexCenterRow, 
-	    this.checkBorder()  ]}>
+	    this.checkBorder()  ]}
+	    testID="modal_feed"
+	    >
         <TextInput
           placeholder="Add Feed"
           style={[growFlex(10), { padding: 5 } ]}

@@ -9,9 +9,10 @@ exports.ios92 = {
 
 exports.ios93 = {
   browserName: '',
-  'appium-version': '1.3',
+  'appium-version': '1.6',
   platformName: 'iOS',
   platformVersion: '9.3',
+  waitForAppScript: 'true',
   deviceName: 'iPhone 6',
   app: undefined // will be set later
 };

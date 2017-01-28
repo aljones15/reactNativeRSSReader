@@ -10,8 +10,10 @@ class Header extends Component{
   }
   render(){
     return(
-      <View style={ styles.header }>
-        <Text style={[styles.fontCenter, growFlex(1)]} onPress={this.props.back()}>Back</Text>
+      <View testID="header" style={ styles.header }>
+        <Text 
+	style={[styles.fontCenter, growFlex(1)]} 
+	onPress={this.props.back()}>Back</Text>
       </View>
     )
   }

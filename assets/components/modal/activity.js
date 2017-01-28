@@ -42,7 +42,7 @@ ToggleAnimatingActivityIndicator extends Component{
 
   render(){
     return (
-      <View>
+      <View testID="activity_timer">
         <ActivityIndicator
           animating={this.state.animating}
           style={centering, [{height: 80}]}	

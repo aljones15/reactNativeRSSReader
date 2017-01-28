@@ -21,7 +21,7 @@ componentWillUpdate(next){
 render(){
   if(!this.props.valid){
     return(
-	<View style={styles.container}>
+	<View style={styles.container} testID="rss_list">
           <MainHeader />
           <FeedModal />
 	  <View style={ styles.mainFeed }>

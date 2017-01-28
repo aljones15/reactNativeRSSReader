@@ -39,7 +39,10 @@ export default class Loading extends Component {
 	    outputRange: ['0deg', '360deg']
 	  });
     return(
-      <View style={[growFlex(100), {paddingTop: 50}]}>
+      <View 
+      style={[growFlex(100), {paddingTop: 50}]}
+      testID="load_screen"
+      >
         <Animated.Text 
 	style={[ styles.fontCenter,
                 {backgroundColor: 'rgba(0,0,0,0)'},

@@ -31,7 +31,7 @@ class ItemView extends Component{
   render(){
     let {width, height, scale} = Dimensions.get('window'); 
     return(
-        <View style={{ flex: 1}}>
+        <View testID="item_view" style={{ flex: 1}}>
           <Header />
           <ScrollView style={styles.scollWebView}>
   	    <WebView

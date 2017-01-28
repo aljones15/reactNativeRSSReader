@@ -4,7 +4,10 @@ import { View, Text } from 'react-native';
 export default class Next extends Component {
   render(){
     return(
-    <View style={[this.props.styles]} >
+    <View 
+    style={[this.props.styles]} 
+    testID="next_btn"
+    >
       <Text onPress={() => this.props.action()}>
         Next
       </Text>
