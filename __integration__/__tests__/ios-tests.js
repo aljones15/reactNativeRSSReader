@@ -48,11 +48,14 @@ describe("ios basic tests", function () {
   *XCUIElementTypeButton
   */ 
  
-  it("should see a loading screen", function () { 
-    return driver.waitForElementByXPath("XCUIElementTypeWindow", 10000).
+  it("should see a loading screen", function () {
+	  return driver.
+		  waitForElementByXPath("//XCUIElementTypeWindow", 50000).
 	    then((el) => {
-	    console.log(Object.getOwnPropertyNames(browser));
-	    chai.expect(el).to.not.be(null);
+	      	console.log("el below \n")
+		console.log(el);
+		console.log(Object.getOwnPropertyNames(el));
+                chai.expect(el).to.not.be.null;
             });
   });
 
