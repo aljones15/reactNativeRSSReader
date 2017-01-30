@@ -1,5 +1,5 @@
 exports.ios92 = {
-  browserName: '',
+  browserName: 'iPhone',
   'appium-version': '1.3',
   platformName: 'iOS',
   platformVersion: '9.2',
@@ -8,7 +8,7 @@ exports.ios92 = {
 };
 
 exports.ios93 = {
-  browserName: '',
+  browserName: 'iPhone',
   'appium-version': '1.6',
   platformName: 'iOS',
   platformVersion: '10.2',

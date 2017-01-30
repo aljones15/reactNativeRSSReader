@@ -42,11 +42,16 @@ describe("ios basic tests", function () {
   afterEach(function () {
     allPassed = allPassed && this.currentTest.state === 'passed';
   });
+
+ /***
+  * element types XCUIElementTypeWindow
+  *XCUIElementTypeButton
+  */ 
  
-  it("should see a loading screen", function () {
-    return driver.waitForElementByName("load_screen", 10000).
+  it("should see a loading screen", function () { 
+    return driver.waitForElementByXPath("XCUIElementTypeWindow", 10000).
 	    then((el) => {
-	    console.log(Object.getOwnPropertyNames(chai.expect));
+	    console.log(Object.getOwnPropertyNames(browser));
 	    chai.expect(el).to.not.be(null);
             });
   });

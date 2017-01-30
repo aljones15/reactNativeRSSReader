@@ -28,7 +28,8 @@ class RssBase extends Component {
     }
     if(this.props.loading){
       return(
-        <View style={ styles.container } testID="rss_base">
+        <View style={ styles.container } 
+	testID="rss_base">
           <MainHeader />
           <FeedModal />
 	  <Loading />
