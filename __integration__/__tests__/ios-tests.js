@@ -46,17 +46,52 @@ describe("ios basic tests", function () {
  /***
   * element types XCUIElementTypeWindow
   *XCUIElementTypeButton
+  * XCUIElementTypeStaticText
+  * XCUIElementTypeScrollView
+  * XCUIElementTypeOther
+  * XCUIElementTypeApplication
   */ 
- 
+
+  function TypeOther(by){
+    return "//XCUIElementTypeOther" + by;
+  }
+
+  function byName(name){
+    return "[name=*'" + name + "']"; 
+  }
+  
+
+  const main_header = "//XCUIElementTypeOther[name*='main_header']";
+  const paginate_view = TypeOther(byName("paginate_view"));
+
+  /*
+  it("should see the app", () => {
+    return driver.
+	    waitForElementByXPath("//XCUIElementTypeApplication", 10000).
+	    then((el) => {
+	      chai.expect(el).to.not.be.null;
+	    })
+  }) */
+
   it("should see a loading screen", function () {
 	  return driver.
 		  waitForElementByXPath("//XCUIElementTypeWindow", 50000).
 	    then((el) => {
-	      	console.log("el below \n")
-		console.log(el);
-		console.log(Object.getOwnPropertyNames(el));
-                chai.expect(el).to.not.be.null;
+	      	chai.expect(el).to.not.be.null;
+				
             });
-  });
+  })
+
+  it("should see a header", () => {
+    console.log(main_header);
+    var mainHeader = driver.elementByXPath(main_header);
+    chai.expect(mainHeader).to.not.be.null;
+    
+  })
+
+  it("should see a paginate footer", () => {
+    var paginateView = driver.elementByXPath(paginate_view);
+    chai.expect(paginateView).to.not.be.null;
+  })
 
 });
