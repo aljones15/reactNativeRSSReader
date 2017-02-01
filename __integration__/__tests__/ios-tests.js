@@ -94,4 +94,9 @@ describe("ios basic tests", function () {
     chai.expect(paginateView).to.not.be.null;
   })
 
+  it("should see a scroll view", () => {
+    var scrollview = driver.elementByXPath("//XCUIElementTypeScrollView");
+    chai.expect(scrollview).to.not.be.null;
+  })
+
 });
