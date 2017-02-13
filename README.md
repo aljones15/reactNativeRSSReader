@@ -7,8 +7,6 @@ git clone
 
 npm install
 
-rnpm link (if that fails use instructions here: https://github.com/oblador/react-native-vector-icons)
-
 npm test for jest tests
 
 finally

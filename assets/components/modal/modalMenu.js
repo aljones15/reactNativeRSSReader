@@ -21,7 +21,7 @@ class ModalMenu extends Component {
       style={[growFlex(6), { padding: 10, flexDirection: 'row' }]}
       testID="modal_menu"
       >
-        <Text onPress={() => deleteAll()} style={ flatten(styles.fontCenter, growFlex(2)) }>
+        <Text onPress={() => deleteAll()} style={[styles.fontCenter, growFlex(2)]}>
           <Icon name="eraser" size={20} color="#080707"/> Delete All
         </Text>
         <Text 
