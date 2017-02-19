@@ -60,7 +60,7 @@ export const styles = StyleSheet.create({
     borderStyle: 'solid',
     paddingTop: 15
   },
-    flexCenterRow: {
+  flexCenterRow: {
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row',

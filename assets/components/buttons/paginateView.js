@@ -7,21 +7,22 @@ import Previous from './previous.js';
 import { INCREMENT_SKIP, DECREMENT_SKIP } from '../../actions.js';
 import { getRssFeeds } from '../../Services/rssService.js';
 import { getAllSubs } from '../../Services/asyncStorage.js';
+import { PaginateProps } from '../../Types/types.js';
 
 class Paginate extends Component {
+  props: PaginateProps;
   constructor(props){
     super(props);
   }
   render() {
-    const btn = [growFlex(1), {backgroundColor: "#FFFF"}];
     const skip = this.props.skip;
     return(
     <View 
     style={[growFlex(5), styles.flexCenterRow ]}
     testID="paginate_view"
     >
-      <Next styles={btn} action={this.props.next(skip)} />
-      <Previous styles={btn} action={this.props.previous(skip)} />
+      <Previous skip={skip} action={this.props.previous(skip)} />
+      <Next skip={skip} action={this.props.next(skip)} />
     </View>);
   }
 }
@@ -34,18 +35,27 @@ const MapStateToProps = (state) => {
 
 const DispatchToStore = (dispatch) => {
   return {
-    next: (skip) => () => {
-	    let s = skip + 10;
-            dispatch({ type: INCREMENT_SKIP, payload: s });
-	    getAllSubs().then((subs)=> 
-              getRssFeeds(dispatch)(subs, s)); 
-    },
-    previous: (skip) => () => {
+    /**
+    * if skip minus 10 is greater than or equal to 0 then we allow the user to move back
+    * if skip is less than 10 then we just use 0
+    * @param {number} the number of items to skip
+    */
+    previous: (skip: number) => () => {
 	    let s = skip - 10 >= 0 ? skip - 10 : skip;
 	    dispatch({ type: DECREMENT_SKIP, payload: s })
 	    if(s != skip){ 
             getAllSubs().then((subs)=> 
               getRssFeeds(dispatch)(subs, s));}
+    },
+    /**
+    * next simply increments skip by 10 then dispatches the action
+    * @param {number} the number of items to skip
+    */
+    next: (skip: number) => () => {
+	    let s = skip + 10;
+            dispatch({ type: INCREMENT_SKIP, payload: s });
+	    getAllSubs().then((subs)=> 
+              getRssFeeds(dispatch)(subs, s)); 
     }
   }
 }

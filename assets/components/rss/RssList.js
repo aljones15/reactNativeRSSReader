@@ -2,26 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ListView, RefreshControl, Text } from 'react-native';
 import { select_item } from '../../actions.js';
-import { styles, growFlex, flatten } from '../../Styles/styles.js';
+import { styles, growFlex } from '../../Styles/styles.js';
 import MainHeader from '../headers/mainHeader.js';
 import FeedModal from '../modal/modal.js';
 import PaginateView from '../buttons/paginateView.js';
 import { Item } from '../items/item.js';
 import { refreshFeeds } from '../../Services/rssService.js';
+import { RssListProps } from '../../Types/types.js';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
-class RssList extends Component{ 
-componentDidUpdate(){
+class RssList extends Component{
+  props: RssListProps; 
+  componentDidUpdate(){
 
-}
-componentWillUpdate(next){
+  }
+  componentWillUpdate(next){
 
-}
-render(){
-  if(!this.props.valid){
-    return(
-	<View style={styles.container} testID="rss_list">
+  }
+  render(){
+    if(!this.props.valid){
+      return(
+  	<View style={styles.container} testID="rss_list">
           <MainHeader />
           <FeedModal />
 	  <View style={ styles.mainFeed }>
@@ -30,22 +32,22 @@ render(){
         </View>);
   }
   return(
-  <View style={ styles.container }>
-    <MainHeader />
-    <FeedModal />
-    <ListView 
-    style={ styles.mainFeed }
-    refreshControl={ <RefreshControl 
+    <View style={ styles.container }>
+      <MainHeader />
+      <FeedModal />
+      <ListView 
+      style={ styles.mainFeed }
+      refreshControl={ <RefreshControl 
 	    refreshing={this.props.loading} 
 	    onRefresh={this.props.refresh} 
 	    />  }
-    dataSource={this.props.items}
-    renderRow={(rowData, sectionID, rowID, highlightRow) =>
-    <Item colorPicker={rowID} item={rowData} selectItem={this.props.selectItem}></Item>}
-    />
-    {this.props.children}
-    <PaginateView />
-  </View>);
+      dataSource={this.props.items}
+      renderRow={(rowData, sectionID, rowID, highlightRow) =>
+      <Item colorPicker={rowID} item={rowData} selectItem={this.props.selectItem}></Item>}
+      />
+      {this.props.children}
+      <PaginateView />
+    </View>);
   }
 }
 

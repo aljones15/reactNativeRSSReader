@@ -1,3 +1,7 @@
+/**
+* const strings to use for dispatch types
+*/
+
 export const UPDATE_RSS = "UPDATE_RSS";
 export const UPDATE_ITEMS = "UPDATE_ITEMS";
 export const UPDATE_ITEMS_FAILED = "UPDATE_ITEMS_FAILED";

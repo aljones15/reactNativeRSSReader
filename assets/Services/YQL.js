@@ -37,7 +37,7 @@ export default class YQL {
     return this;
   }
   /**
-   * the objech in the query to select from
+   * the object in the query to select from
    * @param {String} from
    */
   From(from: string){
