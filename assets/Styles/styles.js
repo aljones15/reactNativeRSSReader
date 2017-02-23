@@ -65,6 +65,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
+  flexCenterCol: {
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
   mainFeed: {
     flexGrow: 30,
     flexShrink: 30

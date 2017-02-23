@@ -9,26 +9,27 @@ import PaginateView from '../buttons/paginateView.js';
 import { Item } from '../items/item.js';
 import { refreshFeeds } from '../../Services/rssService.js';
 import { RssListProps } from '../../Types/types.js';
+import Icon from 'react-native-vector-icons/EvilIcons';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
 class RssList extends Component{
   props: RssListProps; 
-  componentDidUpdate(){
-
-  }
-  componentWillUpdate(next){
-
-  }
   render(){
+    /**
+    * not valid means there are no rss items to display so we let the user refresh
+    */
     if(!this.props.valid){
       return(
   	<View style={styles.container} testID="rss_list">
           <MainHeader />
           <FeedModal />
-	  <View style={ styles.mainFeed }>
+          <View />
+	  <View style={[styles.mainFeed, styles.flexCenterCol]}>
 	    <Text>No Items</Text>
-	  </View> 
+            <Icon name="undo" size={90} color="#080707" onPress={this.props.refresh} />
+	    <Text>Refresh</Text> 
+          </View> 
         </View>);
   }
   return(
