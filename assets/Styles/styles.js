@@ -56,7 +56,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row',
-    borderColor: 'black',
+    borderColor: headerBG,
+    borderBottomColor: 'black',
     borderWidth: 1,
     borderStyle: 'solid',
     paddingTop: 15

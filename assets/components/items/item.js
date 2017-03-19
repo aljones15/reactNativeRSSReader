@@ -10,6 +10,8 @@ export class Item extends Component {
   }
   /***
   * returns an object so each item has an even color
+  * and takes up the entire width of the screen
+  * @param {string} color
   */
   setItemColor(color){ 
     return { 

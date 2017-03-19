@@ -5,9 +5,6 @@ import { styles, growFlex, headerBG } from '../../Styles/styles.js';
 import { REMOVE_ITEM, TOGGLE_MODAL } from '../../actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const tempStyle = { 
-  borderColor: headerBG
-};
 
 class MainHeader extends Component{
   constructor(props){
@@ -16,7 +13,7 @@ class MainHeader extends Component{
   render(){
     return(
       <View 
-      style={[styles.header, tempStyle]}
+      style={[styles.header]}
       testID="main_header"
       >
         <Text 
