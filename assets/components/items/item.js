@@ -9,16 +9,24 @@ export class Item extends Component {
     super(props);
   }
   /***
+  * returns an object so each item has an even color
+  */
+  setItemColor(color){ 
+    return { 
+      backgroundColor: color,
+      borderRightColor: color,
+      borderLeftColor: color 
+    }
+  }
+  /***
    * modulates the color of an item by odd or even
    * @param {int} the item index
    */
   getItemStyle(colorNum: number){
     if(colorNum % 2 == 0){
-      return [styles.item, growFlex(1), { backgroundColor: evenItemColor }];
-    }
-    else {
-      return [styles.item, growFlex(1), { backgroundColor: oddItemColor }];
-    }
+      return [styles.item, growFlex(1), this.setItemColor(evenItemColor)];
+    }  
+    return [styles.item, growFlex(1), this.setItemColor(oddItemColor) ];
   }
   render() {
       return(

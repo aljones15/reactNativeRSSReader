@@ -4,6 +4,7 @@ const headerBG = '#F0F0F0FF';
 export const fontColor = '#011827FF';
 export const evenItemColor = '#F1F1FF10'; 
 export const oddItemColor = '#F1F1FF90';
+export const containerBG = '#F5FCFF';
 
 export function growShrinkFlex(grow, shrink){
   return {
@@ -27,7 +28,7 @@ export function makeBorder(color, width, style){
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: containerBG,
   },
   welcome: {
     fontSize: 20,
