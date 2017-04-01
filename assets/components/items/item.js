@@ -35,7 +35,7 @@ export class Item extends Component {
         <TouchableWithoutFeedback 
 	onPress={this.props.selectItem(this.props.item)}>
         <View style={ this.getItemStyle(this.props.colorPicker) }>
-          <Text>{this.props.item.title ? 
+          <Text style={styles.itemText}>{this.props.item.title ? 
 		  this.props.item.title.trim() : "no title"}</Text>
         </View>
         </TouchableWithoutFeedback>

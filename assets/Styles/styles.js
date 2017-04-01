@@ -1,11 +1,5 @@
 import { StyleSheet } from 'react-native';
-
-const headerBG = '#F0F0F0FF';
-export const fontColor = '#011827FF';
-export const evenItemColor = '#F1F1FF10'; 
-export const oddItemColor = '#F1F1FF90';
-export const containerBG = '#F5FCFF';
-export const itemGray = '#0F0F0F44';
+import * as colors from './colors';
 
 export function growShrinkFlex(grow, shrink){
   return {
@@ -29,7 +23,7 @@ export function makeBorder(color, width, style){
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: containerBG,
+    backgroundColor: colors.containerBG,
   },
   welcome: {
     fontSize: 20,
@@ -53,11 +47,11 @@ export const styles = StyleSheet.create({
   header: {
     flexGrow: 2,
     flexShrink: 2,
-    backgroundColor: headerBG,
+    backgroundColor: colors.headerBG,
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row',
-    borderColor: headerBG,
+    borderColor: colors.headerBG,
     borderBottomColor: 'black',
     borderWidth: 1,
     borderStyle: 'solid',
@@ -79,7 +73,7 @@ export const styles = StyleSheet.create({
   },
   mainHeader: {
     flex: 2,
-    backgroundColor: headerBG,
+    backgroundColor: colors.headerBG,
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row'
@@ -88,22 +82,23 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   fontCenter: {
-    color: fontColor,
+    color: colors.fontColor,
     textAlign: 'center'
   },
   fontLeft: {
-    color: fontColor,
+    color: colors.fontColor,
     textAlign: 'left'
   },
   item: {
     marginBottom: 0.5,
     padding: 2.5,
-    borderColor: itemGray,
+    borderColor: colors.itemGray,
     borderWidth: 0.5,
     borderStyle: 'solid'
+  },
+  itemText: {
+    color: colors.fontColor,
+    textAlign: 'center',
+    padding: 5
   }
 });
-
-export function flatten(...flexies) {
-  return StyleSheet.flatten(flexies);
-}
