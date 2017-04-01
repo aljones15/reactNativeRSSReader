@@ -5,6 +5,7 @@ export const fontColor = '#011827FF';
 export const evenItemColor = '#F1F1FF10'; 
 export const oddItemColor = '#F1F1FF90';
 export const containerBG = '#F5FCFF';
+export const itemGray = '#0F0F0F44';
 
 export function growShrinkFlex(grow, shrink){
   return {
@@ -95,9 +96,10 @@ export const styles = StyleSheet.create({
     textAlign: 'left'
   },
   item: {
-    padding: 3,
-    borderColor: 'black',
-    borderWidth: 1,
+    marginBottom: 0.5,
+    padding: 2.5,
+    borderColor: itemGray,
+    borderWidth: 0.5,
     borderStyle: 'solid'
   }
 });
