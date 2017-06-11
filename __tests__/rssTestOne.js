@@ -1,9 +1,10 @@
 "use strict";
+require("babel-polyfill");
+
 import 'react-native';
 import React from 'react';
 import Root from '../assets/components/root.js';
 import { mockResponse } from 'jest-fetch-mock';
-require("babel-polyfill");
 const mockStorage = require('mock-async-storage');
 import renderer from 'react-test-renderer';
 
