@@ -33,7 +33,8 @@
     "wd": "^1.1.1"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "testPathIgnorePatterns": ["/e2e/", "/node_modules/", "<rootDir>/build/", "<rootDir>/node_modules/", "<rootDir>/e2e/>"]
   },
   "detox": {
     "configurations": {
