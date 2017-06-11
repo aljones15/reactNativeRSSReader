@@ -22,9 +22,11 @@
     "babel-polyfill": "^6.20.0",
     "babel-preset-react-native": "1.9.1",
     "babel-runtime": "^6.20.0",
+    "detox": "^5.0.12",
     "jest": "18.0.0",
     "jest-fetch-mock": "^1.0.6",
     "jsverify": "^0.7.4",
+    "mocha": "^3.4.2",
     "mock-async-storage": "^1.0.1",
     "react-test-renderer": "15.4.1",
     "underscore": "^1.8.3",
@@ -32,5 +34,15 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+      "  binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/rssTwo.app",
+        "build": "xcodebuild -project ios/example.xcodeproj -scheme example -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone 7"
+      }
+    } 
   }
 }
