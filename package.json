@@ -42,7 +42,7 @@
       "  binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/rssTwo.app",
         "build": "xcodebuild -project ios/example.xcodeproj -scheme example -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
-        "name": "iPhone 7"
+        "name": "iPhone 6"
       }
     } 
   }

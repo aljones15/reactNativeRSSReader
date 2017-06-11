@@ -3,14 +3,12 @@ import * as Actions from '../actions.js';
 
 var initialState = {item: null, network_update: false, rss: {}, errors: []};
 
-function reduceItems(state = {
-	item: null, 
-	network_update: false, 
-	skip: 0, 
-	rss: {}, 
-	errors: []}, action){
+function reduceSkip(state = {skip: 0}, action){
   if(typeof state === 'undefined') return initialState;
-  switch (action.type) {
+  switch(action.type){
+    case Actions.RESET_SKIP:
+      state.skip = 0;
+      return Object.assign({}, state);
     case Actions.INCREMENT_SKIP:
       state.skip = action.payload;
       return Object.assign({}, state);
@@ -18,8 +16,21 @@ function reduceItems(state = {
       if(state.skip != action.payload){
         state.skip = action.payload;
         return Object.assign({}, state);
+      } else {
+        return state;
       }
+    default:
       return state;
+  }
+}
+
+function reduceItems(state = {
+	item: null, 
+	network_update: false, 
+	rss: {}, 
+	errors: []}, action){
+  if(typeof state === 'undefined') return initialState;
+  switch (action.type) {
     case Actions.UPDATING_ITEMS:
       state.network_update = true;
       return Object.assign({}, state);
@@ -71,6 +82,6 @@ function toStorage(state = {urls: []}, action){
   }
 }
 
-let allReducers = combineReducers({ reduceItems, reduceDisplay })
+let allReducers = combineReducers({ reduceSkip, reduceItems, reduceDisplay })
 
-export let store = createStore(allReducers);
+export const store = createStore(allReducers);

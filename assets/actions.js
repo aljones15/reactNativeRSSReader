@@ -14,6 +14,7 @@ export const ADD_FEED = "ADD_FEED";
 export const UPDATE_SKIP = "UPDATE_SKIP";
 export const INCREMENT_SKIP = "INCREMENT_SKIP";
 export const DECREMENT_SKIP = "DECREMENT_SKIP";
+export const RESET_SKIP = "RESET_SKIP";
 
 /**
  * creates an RSS update object for the dispatcher

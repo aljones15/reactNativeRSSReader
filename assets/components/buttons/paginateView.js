@@ -29,7 +29,7 @@ class Paginate extends Component {
 
 const MapStateToProps = (state) => {
     return {
-    skip: state.reduceItems.skip 
+    skip: state.reduceSkip.skip 
   };
 }
 
@@ -42,6 +42,7 @@ const DispatchToStore = (dispatch) => {
     */
     previous: (skip: number) => () => {
 	    let s = skip - 10 >= 0 ? skip - 10 : skip;
+            console.log("previous skip: " + s);
 	    dispatch({ type: DECREMENT_SKIP, payload: s })
 	    if(s != skip){ 
             getAllSubs().then((subs)=> 
@@ -53,6 +54,7 @@ const DispatchToStore = (dispatch) => {
     */
     next: (skip: number) => () => {
 	    let s = skip + 10;
+            console.log("next skip: " + s);
             dispatch({ type: INCREMENT_SKIP, payload: s });
 	    getAllSubs().then((subs)=> 
               getRssFeeds(dispatch)(subs, s)); 

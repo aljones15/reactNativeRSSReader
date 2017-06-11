@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ListView, RefreshControl, Text } from 'react-native';
-import { select_item } from '../../actions.js';
+import { select_item, RESET_SKIP } from '../../actions.js';
 import { styles, growFlex } from '../../Styles/styles.js';
 import MainHeader from '../headers/mainHeader.js';
 import FeedModal from '../modal/modal.js';
@@ -91,7 +91,7 @@ const mapStateToProps = (state, props) => {
 const dispatchToStore = (dispatch) => {
   return {
     selectItem: (item) => { return (event) => dispatch(select_item(item)) },
-    refresh: () => { return refreshFeeds(dispatch) }
+    refresh: () => { return refreshFeeds(dispatch, {type: RESET_SKIP}) }
   }
 }
 
