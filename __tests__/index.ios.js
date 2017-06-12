@@ -7,13 +7,16 @@ require("babel-polyfill");
 const mockStorage = require('mock-async-storage');
 
 // Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+
+import ShallowRenderer from 'react-test-renderer/shallow';
+const renderer = new ShallowRenderer();
 
 it('renders correctly', () => {
   mockStorage.mock();
   mockResponse(JSON.stringify([]));
-  const tree = renderer.create(
+  const tree = renderer.render(
     <Root />
   );
+  expect(renderer.getRenderOutput()).not.toBe(null);
 
 });

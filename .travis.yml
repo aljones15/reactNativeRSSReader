@@ -3,4 +3,4 @@ node_js:
   - "7"
 install:
   - npm install
-  - npm install react@16.0.0-alpha.12 -save
+  - npm install react@16.0.0-alpha.12 --save

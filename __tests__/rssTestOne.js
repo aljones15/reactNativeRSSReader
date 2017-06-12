@@ -6,7 +6,9 @@ import React from 'react';
 import Root from '../assets/components/root.js';
 import { mockResponse } from 'jest-fetch-mock';
 const mockStorage = require('mock-async-storage');
-import renderer from 'react-test-renderer';
+
+import ShallowRenderer from 'react-test-renderer/shallow';
+const renderer = new ShallowRenderer();
 
 const boingBoingresponse = {
  "query": {
@@ -189,8 +191,9 @@ const boingBoingresponse = {
 it('renders boing boing correctly', () => {
   mockStorage.mock();
   mockResponse(JSON.stringify(boingBoingresponse));
-  const tree = renderer.create(
+  const tree = renderer.render(
     <Root />
   );
+  expect(renderer.getRenderOutput()).not.toBe(null);
 
 });

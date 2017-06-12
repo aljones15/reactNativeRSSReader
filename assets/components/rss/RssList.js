@@ -8,13 +8,12 @@ import FeedModal from '../modal/modal.js';
 import PaginateView from '../buttons/paginateView.js';
 import { Item } from '../items/item.js';
 import { refreshFeeds } from '../../Services/rssService.js';
-import { RssListProps } from '../../Types/types.js';
+//import { RssListProps } from '../../Types/types.js'; propTypes are out
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
-class RssList extends Component{
-  props: RssListProps; 
+class RssList extends Component{ 
   render(){
     /**
     * not valid means there are no rss items to display so we let the user refresh

@@ -5,7 +5,9 @@ import Root from '../assets/components/root.js';
 import { mockResponse } from 'jest-fetch-mock';
 require("babel-polyfill");
 const mockStorage = require('mock-async-storage');
-import renderer from 'react-test-renderer';
+import ShallowRenderer from 'react-test-renderer/shallow';
+const renderer = new ShallowRenderer();
+
 
 const response = {
  "query": {
@@ -100,8 +102,9 @@ const response = {
 it('renders slashdot correctly', () => {
   mockStorage.mock();
   mockResponse(JSON.stringify(response));
-  const tree = renderer.create(
+  const tree = renderer.render(
     <Root />
   );
+  expect(renderer.getRenderOutput()).not.toBe(null);
 
 });
