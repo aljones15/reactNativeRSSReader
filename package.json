@@ -8,6 +8,8 @@
     "start-app": "./node_modules/.bin/appium --default-capabilities '{\"launchTimeout\": 720000}'"
   },
   "dependencies": {
+    "create-react-class": "^15.5.3",
+    "prop-types": "^15.5.10",
     "react": "^16.0.0-alpha.12",
     "react-native": "^0.45.1",
     "react-native-orientation": "^1.17.0",
