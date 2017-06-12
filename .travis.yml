@@ -1,7 +1,3 @@
 language: node_js
 node_js:
   - "7"
-install:
-  - rm -R node_modules
-  - npm install
-  - npm install react@16.0.0-alpha.12 --save
