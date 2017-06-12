@@ -1,128 +1,0 @@
-
-> rssTwo@0.0.1 test /Users/andrewjones/Documents/codePen/reactNative/rssReader/rssTwo
-> jest
-
-
- RUNS  ...storageAddUrl.js
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.ios.js
-
-Test Suites: 0 of 4 total
-Tests:       0 total
-Snapshots:   0 total
-Time:        0s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageAddUrl.js
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.ios.js
-
-Test Suites: 0 of 4 total
-Tests:       0 total
-Snapshots:   0 total
-Time:        1s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageAddUrl.js
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.ios.js
-
-Test Suites: 0 of 4 total
-Tests:       0 total
-Snapshots:   0 total
-Time:        1s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageAddUrl.js
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.ios.js
-
-Test Suites: 0 of 4 total
-Tests:       0 total
-Snapshots:   0 total
-Time:        1s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageAddUrl.js
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.ios.js
-
-Test Suites: 0 of 4 total
-Tests:       0 total
-Snapshots:   0 total
-Time:        1s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.ios.js
- RUNS  ...index.android.js
-
-Test Suites: 1 failed, 1 of 4 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        1s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.ios.js
- RUNS  ...index.android.js
-
-Test Suites: 1 failed, 1 of 4 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        2s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.ios.js
- RUNS  ...index.android.js
-
-Test Suites: 1 failed, 1 of 4 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        2s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.ios.js
- RUNS  ...index.android.js
-
-Test Suites: 1 failed, 1 of 4 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        2s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.android.js
-
-Test Suites: 1 failed, 1 passed, 2 of 4 total
-Tests:       1 failed, 1 passed, 2 total
-Snapshots:   0 total
-Time:        2s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.android.js
-
-Test Suites: 1 failed, 1 passed, 2 of 4 total
-Tests:       1 failed, 1 passed, 2 total
-Snapshots:   0 total
-Time:        2s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
- RUNS  ...index.android.js
-
-Test Suites: 1 failed, 1 passed, 2 of 4 total
-Tests:       1 failed, 1 passed, 2 total
-Snapshots:   0 total
-Time:        2s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
-
-Test Suites: 1 failed, 2 passed, 3 of 4 total
-Tests:       1 failed, 2 passed, 3 total
-Snapshots:   0 total
-Time:        2s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
-
-Test Suites: 1 failed, 2 passed, 3 of 4 total
-Tests:       1 failed, 2 passed, 3 total
-Snapshots:   0 total
-Time:        3s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
-
-Test Suites: 1 failed, 2 passed, 3 of 4 total
-Tests:       1 failed, 2 passed, 3 total
-Snapshots:   0 total
-Time:        4s, estimated 5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
-
-Test Suites: 1 failed, 2 passed, 3 of 4 total
-Tests:       1 failed, 2 passed, 3 total
-Snapshots:   0 total
-Time:        5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
- RUNS  ...storageGetAndAdd.js
-
-Test Suites: 1 failed, 2 passed, 3 of 4 total
-Tests:       1 failed, 2 passed, 3 total
-Snapshots:   0 total
-Time:        5s[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A
