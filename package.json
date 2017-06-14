@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
+    "test:watch": "jest --watch",
     "start-app": "./node_modules/.bin/appium --default-capabilities '{\"launchTimeout\": 720000}'"
   },
   "dependencies": {
