@@ -1,7 +1,13 @@
 # reactNativeRSSReader
 ![alt travis cli](https://travis-ci.org/aljones15/reactNativeRSSReader.svg?branch=master)
 
-student project to get familiar with react-native
+## Stack
+- React Native
+- React
+- Redux
+- Redux Thunk
+- Jest
+- Shallow Renderers
 
 ```
 git clone
