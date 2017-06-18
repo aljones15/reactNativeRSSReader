@@ -8,6 +8,7 @@
 - Redux Thunk
 - Jest
 - Shallow Renderers
+- Detox
 
 ### Install
 ```
