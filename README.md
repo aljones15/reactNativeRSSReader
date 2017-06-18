@@ -10,6 +10,12 @@
 - Shallow Renderers
 - Detox
 
+## To Do
+- [] Implement Redux-Thunk
+- [] Write a Detox test
+- [] Organize the Reducers
+- [] Make Folders for each Component with jest test and query
+
 ### Install
 ```
 npm install -g react-native-cli

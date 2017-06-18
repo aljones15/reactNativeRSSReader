@@ -3,6 +3,10 @@ import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { styles, growFlex } from '../../Styles/styles.js';
 
+/**
+* This is the Next Button
+* in increments by 10
+*/
 export default class Next extends Component {
   render(){
     return(

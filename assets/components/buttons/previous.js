@@ -4,6 +4,11 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import { fadedBlack, solidBlack } from '../../Styles/colors.js';
 import { styles, growFlex } from '../../Styles/styles.js';
 
+/**
+* This is the Previous button
+* It goes back 10 unless that would take us to less than 0 then it just returns 0
+*/
+
 export default class Previous extends Component {
   disabled(): string {
     if(this.props.skip <= 0){

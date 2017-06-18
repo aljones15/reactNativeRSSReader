@@ -9,6 +9,10 @@ import { getRssFeeds } from '../../Services/rssService.js';
 import { getAllSubs } from '../../Services/asyncStorage.js';
 import { PaginateProps } from '../../Types/types.js';
 
+/**
+* Paginate button appears at the bottom af the App
+* Controls where in the results we are
+*/
 class Paginate extends Component {
   props: PaginateProps;
   constructor(props){
@@ -55,9 +59,9 @@ const DispatchToStore = (dispatch) => {
     next: (skip: number) => () => {
 	    let s = skip + 10;
             console.log("next skip: " + s);
-            dispatch({ type: INCREMENT_SKIP, payload: s });
+            dispatch({ type: INCREMENT_SKIP, payload: s })
 	    getAllSubs().then((subs)=> 
-              getRssFeeds(dispatch)(subs, s)); 
+              getRssFeeds(dispatch)(subs, s)) 
     }
   }
 }

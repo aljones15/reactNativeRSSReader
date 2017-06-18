@@ -95,5 +95,5 @@ function toStorage(state = {urls: []}, action){
 }
 
 let allReducers = combineReducers({ reduceSkip, reduceItems, reduceDisplay })
-const middleWare = applyMiddleware(promise(), thunk);
+const middleWare = applyMiddleware(thunk);
 export const store = createStore(allReducers, middleWare);

@@ -127,5 +127,3 @@ export default class YQL {
       })
   }
 }
-
-// https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss(0%2C10)%20where%20url%3D%22http%3A%2F%2Frss.news.yahoo.com%2Frss%2Ftopstories%22%20or%20url%3D%22http%3A%2F%2Fboingboing.com%2Frss%22%20or%20url%3D%22https%3A%2F%2Fnews.ycombinator.com%2Frss%22%20%7C%20sort(field%3D%22pubDate%22%2C%20descending%3D%22true%22)&diagnostics=true
