@@ -9,9 +9,8 @@
 - Jest
 - Shallow Renderers
 
+### Install
 ```
-git clone
-
 npm install -g react-native-cli
 
 npm install
