@@ -45,8 +45,8 @@ class ItemView extends Component{
   }
 };
 
-const mapStateToProps = (state, props) => {
-  return { item: state.reduceItems.item };
+const mapStateToProps = ({items}, props) => {
+  return { item: items.item };
 }
 
 const dispatchToStore = (dispatch) => {

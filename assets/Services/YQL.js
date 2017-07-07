@@ -1,6 +1,6 @@
 import { UPDATE_ITEMS_FAILED, 
 	UPDATING_ITEMS, 
-	RSS_UPDATE } from '../actions.js';
+	RSS_UPDATE } from './redux/actions.js';
 
 export default class YQL {
   /**
@@ -110,16 +110,17 @@ export default class YQL {
       }
     }).then((r) => {
       if(r){
+        console.log('YQL -> dispatching Rss Update');
         r.json().then((t) => dispatch(RSS_UPDATE(t)))
     } else {
-      console.log("fetch rss FETCH_FAILED");
+      console.log("YQL -> fetch rss FETCH_FAILED");
       dispatch({
         type: UPDATE_ITEMS_FAILED,
         payload: r
       });
     }
   }).catch((error) => {
-      console.error("FETCH_FAILED");
+      console.error("YQL -> FETCH_FAILED");
       dispatch({
         type: UPDATE_ITEMS_FAILED,
         payload: error

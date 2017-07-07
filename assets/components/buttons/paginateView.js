@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import { styles, growFlex } from '../../Styles/styles.js';
 import Next from './next.js';
 import Previous from './previous.js';
-import { INCREMENT_SKIP, DECREMENT_SKIP } from '../../actions.js';
+import { INCREMENT_SKIP, DECREMENT_SKIP } from '../../Services/redux/actions.js';
 import { getRssFeeds } from '../../Services/rssService.js';
 import { getAllSubs } from '../../Services/asyncStorage.js';
 import { PaginateProps } from '../../Types/types.js';
@@ -31,9 +31,9 @@ class Paginate extends Component {
   }
 }
 
-const MapStateToProps = (state) => {
+const MapStateToProps = ({skip}) => {
     return {
-    skip: state.reduceSkip.skip 
+      ...skip
   };
 }
 
@@ -47,7 +47,7 @@ const DispatchToStore = (dispatch) => {
     previous: (skip: number) => () => {
 	    let s = skip - 10 >= 0 ? skip - 10 : skip;
             console.log("previous skip: " + s);
-	    dispatch({ type: DECREMENT_SKIP, payload: s })
+	    dispatch({ type: DECREMENT_SKIP, payload: s });
 	    if(s != skip){ 
             getAllSubs().then((subs)=> 
               getRssFeeds(dispatch)(subs, s));}
@@ -59,9 +59,9 @@ const DispatchToStore = (dispatch) => {
     next: (skip: number) => () => {
 	    let s = skip + 10;
             console.log("next skip: " + s);
-            dispatch({ type: INCREMENT_SKIP, payload: s })
-	    getAllSubs().then((subs)=> 
-              getRssFeeds(dispatch)(subs, s)) 
+            dispatch({ type: INCREMENT_SKIP, payload: s });
+	    getAllSubs().then((subs) => { 
+              getRssFeeds(dispatch)(subs, s)} ) 
     }
   }
 }

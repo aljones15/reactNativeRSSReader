@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text  } from 'react-native';
-import { RSS_UPDATE, UPDATE_ITEMS_FAILED } from '../../actions.js';
+import { RSS_UPDATE, UPDATE_ITEMS_FAILED } from '../../Services/redux/actions.js';
 import { styles, growFlex, flatten } from '../../Styles/styles.js';
 import ItemView from '../items/itemView.js';
 import MainHeader from '../headers/mainHeader.js';
@@ -12,6 +12,9 @@ import { addUrl,
 	initFeeds } from '../../Services/asyncStorage.js';
 import RssList from './RssList.js';
 
+/**
+*  RssBase is the main component for displaying the RSS feeds
+*/
 class RssBase extends Component {
   constructor(props){
     super(props);
@@ -40,11 +43,10 @@ class RssBase extends Component {
  }
 }
 
-const mapStateToProps = (state, props) => {
-
+// all we need are the items
+const mapStateToProps = ({items}, props) => {
   return {
-    item: state.reduceItems.item,
-    loading: state.reduceItems.network_update
+    ...items
   };
 }
 

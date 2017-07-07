@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ListView, RefreshControl, Text } from 'react-native';
-import { select_item, RESET_SKIP } from '../../actions.js';
+import { select_item, RESET_SKIP } from '../../Services/redux/actions.js';
 import { styles, growFlex } from '../../Styles/styles.js';
 import MainHeader from '../headers/mainHeader.js';
 import FeedModal from '../modal/modal.js';
@@ -73,16 +73,16 @@ function sortByPubDate(a,b){
 
 const mapStateToProps = (state, props) => {
 
-  const validRss = validateRss(state.reduceItems);
+  const validRss = validateRss(state.items);
   return {
     items: validRss ? 
 	    ds.cloneWithRows(state.
-			    reduceItems.
+			    items.
 			    rss.query.
 			    results.item.
 			    sort(sortByPubDate)) : 
 	    ds.cloneWithRows(["Loading"]),
-    loading: state.reduceItems.network_update,
+    loading: state.items.network_update,
     valid: validRss
   };
 }

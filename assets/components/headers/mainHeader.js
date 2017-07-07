@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
 import { styles, growFlex, headerBG } from '../../Styles/styles.js';
-import { REMOVE_ITEM, TOGGLE_MODAL } from '../../actions.js';
+import { REMOVE_ITEM, TOGGLE_MODAL } from '../../Services/redux/actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
@@ -36,8 +36,8 @@ class MainHeader extends Component{
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return Object.assign({}, state.reduceDisplay);
+const mapStateToProps = ({display}, props) => {
+  return { ...display };
 }
 
 const dispatchToStore = (dispatch) => {
@@ -47,5 +47,4 @@ const dispatchToStore = (dispatch) => {
 
 }
 
-export default connect(mapStateToProps, dispatchToStore)(MainHeader)
-
+export default connect(mapStateToProps, dispatchToStore)(MainHeader);

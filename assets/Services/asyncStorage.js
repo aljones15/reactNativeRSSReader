@@ -243,13 +243,16 @@ async function mapUrls(key: string){
  * one large array of urls
  */
 export async function getAllSubs(){
+  console.log('getAllSubs -> getting all subs');
   let pages = await getAllPages();
+  console.log('getAllSubs -> got all pages');
   let urls = [];
   for(i = 0; i < pages.length; i++){
     urls.push(await getItem(pages[i]))
   }
   urls = urls.map( (i) => { return i.list; });
   urls = [].concat.apply([], urls);
+  console.log('getAllSubs -> made the url list');
   return urls;
 }
 /**

@@ -35,8 +35,7 @@ class ModalMenu extends Component {
 }
 
 const mapStateToProps = (state,props) => {
-
-  return {};
+  return props;
 }
 
 const DispatchToStore = (dispatch) => {
