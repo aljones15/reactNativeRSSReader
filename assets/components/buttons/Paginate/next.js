@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
-import { styles, growFlex } from '../../Styles/styles.js';
+import { nextStyle } from './style.js';
 
 /**
 * This is the Next Button
@@ -11,11 +11,7 @@ import { styles, growFlex } from '../../Styles/styles.js';
 
 const Next = ({action}) =>
   <View 
-    style={[growFlex(1), 
-      {backgroundColor: "#FFFFFF", 
-       flexDirection: "row",
-       justifyContent: "flex-end",
-       alignItems: "center"}]} 
+    style={ nextStyle } 
     testID="next_btn"
     >
       <Text onPress={action}>

@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
-import { fadedBlack, solidBlack } from '../../Styles/colors.js';
-import { styles, growFlex } from '../../Styles/styles.js';
-
-
-// if skip is less than or equal to 0 disable previous we can't go back
-const disabled = (skip: number) => skip <= 0 ? fadedBlack : solidBlack;
+import { disabled, previousStyle } from './style.js';
 
 /**
 * This is the Previous button
 * It goes back 10 unless that would take us to less than 0 then it just returns 0
+* @param {number} skip the current amount to skip
+* @param {function} action the action to take on click
 */
 
 const Previous = ({skip, action}) =>
   <View 
-    style={[growFlex(1), 
-      {backgroundColor: "#FFFFFF"}, 
-      styles.flexCenterRow]}
+    style={ previousStyle }
     testID="previous_btn"
     >
       <Icon name="arrow-left" size={30} color={disabled(skip)}/>

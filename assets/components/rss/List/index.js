@@ -5,7 +5,7 @@ import { select_item, RESET_SKIP } from '../../../Services/redux/actions.js';
 import { styles, growFlex } from '../../../Styles/styles.js';
 import MainHeader from '../../headers/mainHeader.js';
 import FeedModal from '../../modal/modal.js';
-import PaginateView from '../../buttons/paginateView.js';
+import PaginateView from '../../buttons/Paginate/';
 import { Item } from '../../items/item.js';
 import { refreshFeeds } from '../../../Services/rssService.js';
 //import { RssListProps } from '../../Types/types.js'; propTypes are out

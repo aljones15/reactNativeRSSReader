@@ -1,31 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
-import { styles, growFlex } from '../../Styles/styles.js';
 import Next from './next.js';
 import Previous from './previous.js';
-import { INCREMENT_SKIP, DECREMENT_SKIP } from '../../Services/redux/actions.js';
-import { getRssFeeds } from '../../Services/rssService.js';
-import { getAllSubs } from '../../Services/asyncStorage.js';
-import { PaginateProps } from '../../Types/types.js';
+import { incrementThunk, decrementThunk } from './thunk.js';
+import { PaginateProps } from '../../../Types/types.js';
+import { indexStyle } from './style.js';
 
 /**
-* Paginate button appears at the bottom of the App
+ *Paginate button appears at the bottom of the App
 * Controls where in the results we are
-* @ param (number) skip how many items we are skipping
-* @ param (function) previous the previous function
-* @ param (function) next function
+* @ param {number} skip how many items we are skipping
+* @ param {function} previous the previous function
+* @ param {function} next function
 */
 
 const Paginate = ({skip, previous, next}) =>
   <View 
-    style={[growFlex(5), styles.flexCenterRow ]}
+    style={indexStyle}
     testID="paginate_view"
     >
       <Previous skip={skip} action={previous(skip)} />
       <Next skip={skip} action={next(skip)} />
   </View>
 
+// just spread skip and take all the paginatoin related props
 const MapStateToProps = ({skip}) => {
     return {
       ...skip
@@ -41,11 +40,8 @@ const DispatchToStore = (dispatch) => {
     */
     previous: (skip: number) => () => {
 	    let s = skip - 10 >= 0 ? skip - 10 : skip;
-            console.log("previous skip: " + s);
-	    dispatch({ type: DECREMENT_SKIP, payload: s });
-	    if(s != skip){ 
-            getAllSubs().then((subs)=> 
-              getRssFeeds(dispatch)(subs, s));}
+            console.log("Paginate Index -> previous skip: " + s);
+	    dispatch(decrementThunk(skip, s));
     },
     /**
     * next simply increments skip by 10 then dispatches the action
@@ -53,10 +49,8 @@ const DispatchToStore = (dispatch) => {
     */
     next: (skip: number) => () => {
 	    let s = skip + 10;
-            console.log("next skip: " + s);
-            dispatch({ type: INCREMENT_SKIP, payload: s });
-	    getAllSubs().then((subs) => { 
-              getRssFeeds(dispatch)(subs, s)} ) 
+            console.log("Paginate Index -> next skip: " + s);
+            dispatch(incrementThunk(s));
     }
   }
 }
