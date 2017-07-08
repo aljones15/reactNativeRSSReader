@@ -10,26 +10,21 @@ import { getAllSubs } from '../../Services/asyncStorage.js';
 import { PaginateProps } from '../../Types/types.js';
 
 /**
-* Paginate button appears at the bottom af the App
+* Paginate button appears at the bottom of the App
 * Controls where in the results we are
+* @ param (number) skip how many items we are skipping
+* @ param (function) previous the previous function
+* @ param (function) next function
 */
-class Paginate extends Component {
-  props: PaginateProps;
-  constructor(props){
-    super(props);
-  }
-  render() {
-    const skip = this.props.skip;
-    return(
-    <View 
+
+const Paginate = ({skip, previous, next}) =>
+  <View 
     style={[growFlex(5), styles.flexCenterRow ]}
     testID="paginate_view"
     >
-      <Previous skip={skip} action={this.props.previous(skip)} />
-      <Next skip={skip} action={this.props.next(skip)} />
-    </View>);
-  }
-}
+      <Previous skip={skip} action={previous(skip)} />
+      <Next skip={skip} action={next(skip)} />
+  </View>
 
 const MapStateToProps = ({skip}) => {
     return {

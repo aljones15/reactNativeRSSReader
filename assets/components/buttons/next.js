@@ -5,12 +5,12 @@ import { styles, growFlex } from '../../Styles/styles.js';
 
 /**
 * This is the Next Button
-* in increments by 10
+* it increments by 10
+* @ param Object takes a prop object with an increment action
 */
-export default class Next extends Component {
-  render(){
-    return(
-    <View 
+
+const Next = ({action}) =>
+  <View 
     style={[growFlex(1), 
       {backgroundColor: "#FFFFFF", 
        flexDirection: "row",
@@ -18,10 +18,10 @@ export default class Next extends Component {
        alignItems: "center"}]} 
     testID="next_btn"
     >
-      <Text onPress={this.props.action}>
+      <Text onPress={action}>
         Next
       </Text>
       <Icon name="arrow-right" size={30} color="#080707"/>
-    </View>)
-  }
-}
+  </View>
+
+export default Next;
