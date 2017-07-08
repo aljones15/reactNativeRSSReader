@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
-import { styles, growFlex } from '../../Styles/styles.js';
-import { REMOVE_ITEM } from '../../Services/redux/actions.js';
+import { styles, growFlex } from '../../../Styles/styles.js';
+import { REMOVE_ITEM } from '../../../Services/redux/actions.js';
 
 class Header extends Component{
   constructor(props){

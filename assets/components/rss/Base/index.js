@@ -4,7 +4,7 @@ import { View, Text  } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED } from '../../../Services/redux/actions.js';
 import { styles, growFlex, flatten } from '../../../Styles/styles.js';
 import ItemView from '../../items/itemView.js';
-import MainHeader from '../../headers/mainHeader.js';
+import MainHeader from '../../headers/Base/';
 import FeedModal from '../../modal/modal.js';
 import Loading from '../../modal/loading.js';
 import { addUrl, 
