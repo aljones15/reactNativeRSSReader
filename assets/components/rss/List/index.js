@@ -34,7 +34,7 @@ class RssList extends Component{
   }
   return(
     <View style={ styles.container }>
-      <ListView 
+      <ListView
       style={ styles.mainFeed }
       refreshControl={ <RefreshControl 
 	    refreshing={this.props.loading} 
@@ -42,8 +42,14 @@ class RssList extends Component{
 	    />  }
       dataSource={this.props.items}
       renderHeader={() => <MainHeader />}
-      renderRow={(rowData, sectionID, rowID, highlightRow) =>
-      <Item colorPicker={rowID} item={rowData} selectItem={this.props.selectItem}></Item>}
+      renderRow={
+        (rowData, sectionID, rowID, highlightRow) =>
+          <Item 
+            colorPicker={rowID} 
+            item={rowData} 
+            selectItem={this.props.selectItem} 
+          />
+      }
       renderFooter={() => <PaginateView />}
       />
       {this.props.children} 

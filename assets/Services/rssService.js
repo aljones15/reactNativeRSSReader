@@ -3,10 +3,13 @@ import YQL from './YQL.js';
 import { UPDATE_ITEMS_FAILED, 
 	UPDATING_ITEMS, 
 	RSS_UPDATE } from './redux/actions.js';
+
 // generic unix epoch date for date queries
 export const epoch = new Date("1970-01-01");
+
 // take is always 10 might make it mutable in the future
 export const take: number = 10;
+
 /**
  * gets all the Rss feeds
  * @param {Redux Dispatch} dispatch
