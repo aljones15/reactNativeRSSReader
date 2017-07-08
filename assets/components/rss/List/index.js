@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ListView, RefreshControl, Text } from 'react-native';
-import { select_item, RESET_SKIP } from '../../Services/redux/actions.js';
-import { styles, growFlex } from '../../Styles/styles.js';
-import MainHeader from '../headers/mainHeader.js';
-import FeedModal from '../modal/modal.js';
-import PaginateView from '../buttons/paginateView.js';
-import { Item } from '../items/item.js';
-import { refreshFeeds } from '../../Services/rssService.js';
+import { select_item, RESET_SKIP } from '../../../Services/redux/actions.js';
+import { styles, growFlex } from '../../../Styles/styles.js';
+import MainHeader from '../../headers/mainHeader.js';
+import FeedModal from '../../modal/modal.js';
+import PaginateView from '../../buttons/paginateView.js';
+import { Item } from '../../items/item.js';
+import { refreshFeeds } from '../../../Services/rssService.js';
 //import { RssListProps } from '../../Types/types.js'; propTypes are out
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
-class RssList extends Component{ 
+class RssList extends Component{
+  componentDidUpdate(){
+    console.log('RssList -> componentDidUpdate');
+    console.log(this.props);
+  } 
   render(){
     /**
     * not valid means there are no rss items to display so we let the user refresh
@@ -72,7 +76,8 @@ function sortByPubDate(a,b){
 
 
 const mapStateToProps = (state, props) => {
-
+  console.log('RssList -> mapToProps');
+  console.log(state);
   const validRss = validateRss(state.items);
   return {
     items: validRss ? 
