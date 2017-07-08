@@ -4,7 +4,6 @@ import { View, ListView, RefreshControl, Text } from 'react-native';
 import { select_item, RESET_SKIP } from '../../../Services/redux/actions.js';
 import { styles, growFlex } from '../../../Styles/styles.js';
 import MainHeader from '../../headers/Base/';
-import FeedModal from '../../modal/modal.js';
 import PaginateView from '../../buttons/Paginate/';
 import { Item } from '../../items/item.js';
 import { refreshFeeds } from '../../../Services/rssService.js';
@@ -25,9 +24,7 @@ class RssList extends Component{
     if(!this.props.valid){
       return(
   	<View style={styles.container} testID="rss_list">
-          <MainHeader />
-          <FeedModal />
-          <View />
+          <View style={{marginTop: 35}} />
 	  <View style={[styles.mainFeed, styles.flexCenterCol]}>
 	    <Text>No Items</Text>
             <Icon name="undo" size={90} color="#080707" onPress={this.props.refresh} />
@@ -37,8 +34,6 @@ class RssList extends Component{
   }
   return(
     <View style={ styles.container }>
-      <MainHeader />
-      <FeedModal />
       <ListView 
       style={ styles.mainFeed }
       refreshControl={ <RefreshControl 
@@ -46,11 +41,12 @@ class RssList extends Component{
 	    onRefresh={this.props.refresh} 
 	    />  }
       dataSource={this.props.items}
+      renderHeader={() => <MainHeader />}
       renderRow={(rowData, sectionID, rowID, highlightRow) =>
       <Item colorPicker={rowID} item={rowData} selectItem={this.props.selectItem}></Item>}
+      renderFooter={() => <PaginateView />}
       />
-      {this.props.children}
-      <PaginateView />
+      {this.props.children} 
     </View>);
   }
 }

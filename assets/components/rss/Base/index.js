@@ -34,9 +34,7 @@ class RssBase extends Component {
       return(
         <View style={ styles.container } 
 	testID="rss_base">
-          <MainHeader />
-          <FeedModal />
-	  <Loading />
+          <Loading />
         </View>
       );
       }
