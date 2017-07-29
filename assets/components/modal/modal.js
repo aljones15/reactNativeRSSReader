@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { styles, growFlex, makeBorder } from 'Styles/styles.js';
 import { connect } from 'react-redux';
@@ -10,7 +10,7 @@ import ModalMenu from './modalMenu.js';
 import ModalFeed from './modalFeed.js';
 
 
-class FeedModal extends Component {
+class FeedModal extends React.PureComponent {
   constructor(props){
     super(props)
   }

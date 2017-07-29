@@ -1,6 +1,5 @@
 'use strict';
-
-import React, { Component } from 'react';
+import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
 
 type State = { animating: boolean; };
@@ -14,7 +13,7 @@ const centering = {
 
 
 export default class 
-ToggleAnimatingActivityIndicator extends Component{
+ToggleAnimatingActivityIndicator extends React.PureComponent{
   state: State;
   _timer: Timer;
   

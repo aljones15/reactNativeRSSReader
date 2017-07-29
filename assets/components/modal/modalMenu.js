@@ -8,7 +8,7 @@ import { getItem,
 	getAllSubs } from 'Services/asyncStorage.js';
 
 
-class ModalMenu extends Component {
+class ModalMenu extends React.PureComponent {
   constructor(props){
     super(props);
   }
@@ -35,11 +35,10 @@ class ModalMenu extends Component {
 }
 
 const mapStateToProps = (state,props) => {
-  return props;
+  return {};
 }
 
 const DispatchToStore = (dispatch) => {
-
   return {};
 }
 

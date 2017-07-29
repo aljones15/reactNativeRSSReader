@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
 import { styles, growFlex, headerBG } from 'Styles/styles.js';
 import { REMOVE_ITEM, TOGGLE_MODAL } from 'Services/redux/actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FeedModal from 'Components/modal/modal.js';
-
-class MainHeader extends Component{
+/**
+* This is the Mani Page's Header
+* it contains the Menu and Add Feed Buttons
+* @ params {Object} props a one dimensional object (no nested structs)
+* @param {Object} state not using any state right now
+*/
+class MainHeader extends React.PureComponent{
   constructor(props){
     super(props)
   }

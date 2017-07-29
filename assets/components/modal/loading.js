@@ -6,7 +6,7 @@ import { styles,
 import { rotate } from 'Styles/animations.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class Loading extends Component {
+export default class Loading extends React.PureComponent {
   constructor(props){
     super(props);
   }

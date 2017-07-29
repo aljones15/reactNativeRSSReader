@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { styles, growFlex, 
 	evenItemColor, oddItemColor } from 'Styles/styles.js';
 
-export class Item extends Component {
+export class Item extends React.PureComponent {
   constructor(props){
     super(props);
   }
@@ -42,5 +42,3 @@ export class Item extends Component {
       )
   }
 }
-
-

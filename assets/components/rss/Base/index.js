@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text  } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED } from 'Services/redux/actions.js';
@@ -15,7 +15,7 @@ import RssList from '../List/';
 /**
 *  RssBase is the main component for displaying the RSS feeds
 */
-class RssBase extends Component {
+class RssBase extends React.PureComponent {
   constructor(props){
     super(props);
   }

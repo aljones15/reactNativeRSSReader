@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { styles, growFlex, makeBorder} from 'Styles/styles.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { isUrl } from 'Services/validation.js';
 
-export default class ModalFeed extends Component {
+export default class ModalFeed extends React.PureComponent {
   constructor(props){
     super(props);
     this.state = { input: "", valid: true };
