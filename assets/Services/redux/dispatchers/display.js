@@ -1,7 +1,7 @@
 import * as Actions from '../actions.js';
 
 export default function reduceDisplay(
-  state = { menu: false, section: "" }, action){
+  state = { menu: false, section: "", main: "RssFeed" }, action){
   if(typeof state === 'undefined') return initialState;
   switch (action.type) {
     case Actions.TOGGLE_MODAL:
@@ -14,8 +14,10 @@ export default function reduceDisplay(
         state.section = action.name;
       }
       return Object.assign({}, state);
+    case Actions.SWITCH_MAIN:
+      state.main = action.payload;
+      return Object.assign({}, state);
     default:
       return state;
   }
 }
-
