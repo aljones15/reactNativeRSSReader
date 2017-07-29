@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { styles, growFlex, 
-	evenItemColor, oddItemColor } from '../../Styles/styles.js';
+	evenItemColor, oddItemColor } from 'Styles/styles.js';
 
 export class Item extends Component {
   constructor(props){

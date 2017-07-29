@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ListView, RefreshControl, Text } from 'react-native';
-import { select_item, RESET_SKIP } from '../../../Services/redux/actions.js';
-import { styles, growFlex } from '../../../Styles/styles.js';
-import MainHeader from '../../headers/Base/';
-import PaginateView from '../../buttons/Paginate/';
-import { Item } from '../../items/item.js';
-import { refreshFeeds } from '../../../Services/rssService.js';
+import { select_item, RESET_SKIP } from 'Services/redux/actions.js';
+import { styles, growFlex } from 'Styles/styles.js';
+import MainHeader from 'Components/headers/Base/';
+import PaginateView from 'Components/buttons/Paginate/';
+import { Item } from 'Components/items/item.js';
+import { refreshFeeds } from 'Services/rssService.js';
 //import { RssListProps } from '../../Types/types.js'; propTypes are out
 import Icon from 'react-native-vector-icons/EvilIcons';
 

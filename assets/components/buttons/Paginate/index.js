@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
 import { incrementThunk, decrementThunk } from './thunk.js';
-import { PaginateProps } from '../../../Types/types.js';
 import { indexStyle } from './style.js';
 import Next from './next.js';
 import Previous from './previous.js';

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../headers/Item/';
-import { styles, growFlex } from '../../Styles/styles.js';
+import Header from 'Components/headers/Item/';
+import { styles, growFlex } from 'Styles/styles.js';
 import { Text, View, WebView, ScrollView, Dimensions } from 'react-native';
-import Activity from '../modal/activity.js';
+import Activity from 'Components/modal/activity.js';
 
 class ItemView extends Component{
   constructor(props){

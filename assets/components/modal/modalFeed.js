@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
-import { styles, growFlex, makeBorder} from '../../Styles/styles.js';
+import { styles, growFlex, makeBorder} from 'Styles/styles.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { isUrl } from '../../Services/validation.js';
+import { isUrl } from 'Services/validation.js';
 
 export default class ModalFeed extends Component {
   constructor(props){

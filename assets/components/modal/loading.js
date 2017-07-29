@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, Animated } from 'react-native';
 import { styles, 
 	growFlex,  
-	makeBorder } from '../../Styles/styles.js';
-import { rotate } from '../../Styles/animations.js';
+	makeBorder } from 'Styles/styles.js';
+import { rotate } from 'Styles/animations.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Loading extends Component {

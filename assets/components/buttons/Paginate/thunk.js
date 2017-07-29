@@ -1,6 +1,6 @@
-import { INCREMENT_SKIP, DECREMENT_SKIP } from '../../../Services/redux/actions.js';
-import { getRssFeeds } from '../../../Services/rssService.js';
-import { getAllSubs } from '../../../Services/asyncStorage.js';
+import { INCREMENT_SKIP, DECREMENT_SKIP } from 'Services/redux/actions.js';
+import { getRssFeeds } from 'Services/rssService.js';
+import { getAllSubs } from 'Services/asyncStorage.js';
 
 export const incrementThunk = (skip) => (dispatch) => {
   dispatch({ type: INCREMENT_SKIP, payload: skip });

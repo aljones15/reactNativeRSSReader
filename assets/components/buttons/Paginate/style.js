@@ -1,5 +1,5 @@
-import { styles, growFlex } from '../../../Styles/styles.js';
-import { fadedBlack, solidBlack } from '../../../Styles/colors.js';
+import { styles, growFlex } from 'Styles/styles.js';
+import { fadedBlack, solidBlack } from 'Styles/colors.js';
 
 export const indexStyle = [growFlex(5), styles.flexCenterRow, {marginTop: 5} ];
 
