@@ -110,17 +110,14 @@ export default class YQL {
       }
     }).then((r) => {
       if(r){
-        console.log('YQL -> dispatching Rss Update');
         r.json().then((t) => dispatch(RSS_UPDATE(t)))
     } else {
-      console.log("YQL -> fetch rss FETCH_FAILED");
       dispatch({
         type: UPDATE_ITEMS_FAILED,
         payload: r
       });
     }
   }).catch((error) => {
-      console.error("YQL -> FETCH_FAILED");
       dispatch({
         type: UPDATE_ITEMS_FAILED,
         payload: error

@@ -23,8 +23,6 @@ class RssBase extends React.PureComponent {
     this.props.init();
   }
   componentDidUpdate(){
-    console.log('RssBase -> componentDidUpdate');
-    console.log(this.props);
   }
   render(){
     if(this.props.item){

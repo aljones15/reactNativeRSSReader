@@ -6,11 +6,15 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:end": "detox",
     "devtools": "./node_modules/.bin/react-devtools",
     "start-app": "./node_modules/.bin/appium --default-capabilities '{\"launchTimeout\": 720000}'"
   },
   "dependencies": {
     "create-react-class": "^15.5.3",
+    "fathom-web": "^2.1.0",
+    "install": "^0.10.1",
+    "npm": "^5.3.0",
     "prop-types": "^15.5.10",
     "react": "^16.0.0-alpha.12",
     "react-native": "^0.45.1",
@@ -19,7 +23,8 @@
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",
     "redux-promise-middleware": "^4.3.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "rita": "^1.2.12"
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",

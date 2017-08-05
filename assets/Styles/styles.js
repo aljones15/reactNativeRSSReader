@@ -8,6 +8,16 @@ export function growShrinkFlex(grow, shrink){
   }
 }
 
+export function setFont(size, weight, style, color){
+  return {
+    fontFamily: 'Frutiger',
+    fontSize: size || 20,
+    fontWeight: weight || 'normal',
+    color: color || 'black',
+    fontStyle: style || 'normal'
+  }
+}
+
 export function growFlex(grow){
   return growShrinkFlex(grow, grow);
 }
@@ -100,5 +110,12 @@ export const styles = StyleSheet.create({
     color: colors.fontColor,
     textAlign: 'center',
     padding: 5
+  },
+  defaultFont: {
+    fontFamily: 'Frutiger',
+    fontSize: 20,
+    fontWeight: 'normal',
+    color: 'black',
+    fontStyle: 'normal'
   }
 });
