@@ -11,10 +11,10 @@
 - Detox
 
 ## Todo
-- [] Implement Redux-Thunk
-- [] Write a Detox test
-- [] Organize the Reducers
-- [] Make Folders for each Component with jest test and query
+- [ ] Implement Redux-Thunk
+- [ ] Write a Detox test
+- [ ] Organize the Reducers
+- [ ] Make Folders for each Component with jest test and query
 
 ### Install
 ```
