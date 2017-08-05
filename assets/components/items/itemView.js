@@ -4,6 +4,7 @@ import Header from 'Components/headers/Item/';
 import { styles, growFlex } from 'Styles/styles.js';
 import { Text, View, WebView, ScrollView, Dimensions } from 'react-native';
 import Activity from 'Components/modal/activity.js';
+//import Rita from 'rita';
 
 //https://github.com/facebook/react-native/issues/10865
 
