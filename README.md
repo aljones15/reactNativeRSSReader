@@ -10,7 +10,7 @@
 - Shallow Renderers
 - Detox
 
-## Todo
+## To Do
 - [x] Implement Redux-Thunk
 - [ ] Write a Detox test
 - [x] Organize the Reducers
