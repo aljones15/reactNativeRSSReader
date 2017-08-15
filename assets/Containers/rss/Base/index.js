@@ -18,6 +18,7 @@ import RssList from '../List/';
 class RssBase extends React.PureComponent {
   constructor(props){
     super(props);
+    this.state = {feeds: []}
   }
   async componentWillMount(){
     this.props.init();

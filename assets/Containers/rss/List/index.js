@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { View, ListView, RefreshControl, Text } from 'react-native';
 import { select_item, RESET_SKIP } from 'Services/redux/actions.js';
@@ -12,7 +12,8 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
-class RssList extends Component{
+class RssList extends React.PureComponent{
+  
   componentDidUpdate(){
     console.log('RssList -> componentDidUpdate');
     console.log(this.props);
