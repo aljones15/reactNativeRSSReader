@@ -33,7 +33,11 @@ export class Item extends React.PureComponent {
   render() {
       return(
         <TouchableWithoutFeedback 
-	onPress={this.props.selectItem(this.props.item)}>
+	onPress={() => {
+          const {item} = this.props;
+          console.log(item);
+          this.props.selectItem({item: item})
+        }}>
         <View style={ this.getItemStyle(this.props.colorPicker) }>
           <Text style={styles.itemText}>{this.props.item.title ? 
 		  this.props.item.title.trim() : "no title"}</Text>

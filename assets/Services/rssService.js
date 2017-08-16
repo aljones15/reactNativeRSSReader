@@ -16,7 +16,7 @@ export const take: number = 10;
  * @param {[Url]} urls
  * @param {Int} skip
  */ 
-export function getRssFeeds(dispatch: Function){
+export function getRssFeeds(cb: Function){
     return function(urls: [string], skip: number){
       console.log('getRssFeeds -> making yql');
            let yql = new YQL().
@@ -27,8 +27,8 @@ export function getRssFeeds(dispatch: Function){
 	      Where(urls).
 	      Sort("pubDate", "true");
       console.log('getRssFeeds -> dispatching updating items');
-      dispatch({ type: UPDATING_ITEMS });
-      return yql.Fetch(dispatch);
+      cb({ loading: true });
+      return yql.Fetch(cb);
     }
   }
 /**

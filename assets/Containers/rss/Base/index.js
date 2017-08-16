@@ -11,6 +11,15 @@ import { addUrl,
 	getAllSubs, 
 	initFeeds } from 'Services/asyncStorage.js';
 import RssList from '../List/';
+import { refreshFeeds } from 'Services/rssService.js';
+
+function validateRss(s){
+    if(s && s.rss && s.rss.query && s.rss.query.results && s.rss.query.results.item){
+      return s.rss.query.results.item.length;
+    }
+    return false;
+}
+
 
 /**
 *  RssBase is the main component for displaying the RSS feeds
@@ -18,16 +27,28 @@ import RssList from '../List/';
 class RssBase extends React.PureComponent {
   constructor(props){
     super(props);
-    this.state = {feeds: []}
+    this.state = {loading: false, item: null, feeds: []}
   }
-  async componentWillMount(){
-    this.props.init();
+  async componentDidMount(){
+    await initFeeds(this.callBack.bind(this))
+  }
+  back(){
+    this.setState({item: null});
+  }
+  callBack(action){
+    console.log('callBack Base ->');
+    console.log(action);
+    this.setState(action);
   }
   componentDidUpdate(){
   }
   render(){
-    if(this.props.item){
-      return(<ItemView />);
+    if(this.state.item){
+      return(
+        <ItemView 
+          item={this.state.item} 
+          back={this.back.bind(this)} 
+      />);
     }
     if(this.props.network_update){
       return(
@@ -37,7 +58,13 @@ class RssBase extends React.PureComponent {
         </View>
       );
       }
-    return(<RssList />)
+    return(
+      <RssList 
+        loading={this.state.loading} 
+        feeds={this.state.feeds} 
+        refresh={() => refreshFeeds(this.callBack.bind(this))}
+        updateParent={this.callBack.bind(this)}
+      />)
  }
 }
 
@@ -49,9 +76,7 @@ const mapStateToProps = ({items}, props) => {
 }
 
 const dispatchToStore = (dispatch) => {
-  return { 
-    init: initFeeds(dispatch) 
-  }
+  return { }
 }
 
 export default connect(mapStateToProps, dispatchToStore)(RssBase);

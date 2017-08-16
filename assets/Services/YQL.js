@@ -102,25 +102,30 @@ export default class YQL {
   /**
    * fetches the query
    */
-  Fetch(dispatch){
+  Fetch(cb: Function){
       return fetch(this.Get(), {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
       }
     }).then((r) => {
+      console.log('Fetch');
       if(r){
-        r.json().then((t) => dispatch(RSS_UPDATE(t)))
+        r.json().then((t) => {
+          console.log(t);
+          const feeds = t.query.results.item || [];
+          cb({loading: false, feeds: feeds});
+        })
     } else {
-      dispatch({
-        type: UPDATE_ITEMS_FAILED,
-        payload: r
+      cb({
+        loading: false,
+        error: 'parse_error'
       });
     }
   }).catch((error) => {
-      dispatch({
-        type: UPDATE_ITEMS_FAILED,
-        payload: error
+      cb({
+        loading: false,
+        error: error
       });
       })
   }

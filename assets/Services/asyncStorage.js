@@ -328,10 +328,9 @@ export async function mergePages(pageOne: string, pageTwo: string){
  * init function called on start up that
  * concats all the urls into one list and then
  * calls on YQL to fetch them
- * @param {Dedux Dispatcher} dispatch
+ * @param {Function} a callback
  */
-export function initFeeds(dispatch: Function){
-  return async function(){
+export async function initFeeds(cb: Function){
     let subs = await getAllSubs();
     if(subs.length <= 0){
       const urls = ["http://rss.slashdot.org/Slashdot/slashdotMain",
@@ -344,7 +343,6 @@ export function initFeeds(dispatch: Function){
       };
       subs = await getAllSubs();
     }
-    getRssFeeds(dispatch)(subs, 0);
-  }
+    getRssFeeds(cb)(subs, 0);
 }
 

@@ -6,64 +6,9 @@ import { styles, growFlex } from 'Styles/styles.js';
 import MainHeader from 'Components/headers/Base/';
 import PaginateView from 'Components/buttons/Paginate/';
 import { Item } from 'Components/items/item.js';
-import { refreshFeeds } from 'Services/rssService.js';
-//import { RssListProps } from '../../Types/types.js'; propTypes are out
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
-
-class RssList extends React.PureComponent{
-  
-  componentDidUpdate(){
-    console.log('RssList -> componentDidUpdate');
-    console.log(this.props);
-  } 
-  render(){
-    /**
-    * not valid means there are no rss items to display so we let the user refresh
-    */
-    if(!this.props.valid){
-      return(
-  	<View style={styles.container} testID="rss_list">
-          <View style={{marginTop: 35}} />
-	  <View style={[styles.mainFeed, styles.flexCenterCol]}>
-	    <Text>No Items</Text>
-            <Icon name="undo" size={90} color="#080707" onPress={this.props.refresh} />
-	    <Text>Refresh</Text> 
-          </View> 
-        </View>);
-  }
-  return(
-    <View style={ styles.container }>
-      <ListView
-      style={ styles.mainFeed }
-      refreshControl={ <RefreshControl 
-	    refreshing={this.props.loading} 
-	    onRefresh={this.props.refresh} 
-	    />  }
-      dataSource={this.props.items}
-      renderHeader={() => <MainHeader />}
-      renderRow={
-        (rowData, sectionID, rowID, highlightRow) =>
-          <Item 
-            colorPicker={rowID} 
-            item={rowData} 
-            selectItem={this.props.selectItem} 
-          />
-      }
-      renderFooter={() => <PaginateView />}
-      />
-      {this.props.children} 
-    </View>);
-  }
-}
-
-function validateRss(s){
-    if(s && s.rss && s.rss.query && s.rss.query.results && s.rss.query.results.item){
-      return s.rss.query.results.item.length;
-    }
-    return false;
-}
 
 function sortByPubDate(a,b){
     let dateA = new Date(a.pubDate);
@@ -77,29 +22,69 @@ function sortByPubDate(a,b){
     return 0;
 }
 
+class RssList extends React.PureComponent{
+  constructor(props){
+    super(props);
+  }  
+  componentDidUpdate(){
+    console.log('RssList -> componentDidUpdate');
+    console.log(this.props);
+  } 
+  render(){
+    /**
+    * not valid means there are no rss items to display so we let the user refresh
+    */
+    /*
+    if(!this.props.valid){
+      return(
+  	<View style={styles.container} testID="rss_list">
+          <View style={{marginTop: 35}} />
+	  <View style={[styles.mainFeed, styles.flexCenterCol]}>
+	    <Text>No Items</Text>
+            <Icon name="undo" size={90} color="#080707" onPress={this.props.refresh} />
+	    <Text>Refresh</Text> 
+          </View> 
+        </View>);
+  } */
+  return(
+    <View style={ styles.container }>
+      <ListView
+      enableEmptySections={true}
+      style={ styles.mainFeed }
+      refreshControl={ <RefreshControl 
+	    refreshing={this.props.loading} 
+	    onRefresh={this.props.refresh} 
+	    />  }
+      dataSource={this.props.items}
+      renderHeader={() => <MainHeader />}
+      renderRow={
+        (rowData, sectionID, rowID, highlightRow) =>
+          <Item 
+            colorPicker={rowID} 
+            item={rowData} 
+            selectItem={this.props.updateParent} 
+          />
+      }
+      renderFooter={() => <PaginateView />}
+      />
+      {this.props.children} 
+    </View>);
+  }
+}
+
 
 const mapStateToProps = (state, props) => {
   console.log('RssList -> mapToProps');
-  console.log(state);
-  const validRss = validateRss(state.items);
+  console.log(props);
+  //const validRss = validateRss(state.items);
   return {
-    items: validRss ? 
-	    ds.cloneWithRows(state.
-			    items.
-			    rss.query.
-			    results.item.
-			    sort(sortByPubDate)) : 
-	    ds.cloneWithRows(["Loading"]),
-    loading: state.items.network_update,
-    valid: validRss
+    items: ds.cloneWithRows(props.feeds.sort(sortByPubDate)),
+    loading: props.loading
   };
 }
 
 const dispatchToStore = (dispatch) => {
-  return {
-    selectItem: (item) => { return (event) => dispatch(select_item(item)) },
-    refresh: () => { return refreshFeeds(dispatch, {type: RESET_SKIP}) }
-  }
+  return { }
 }
 
 export default connect(mapStateToProps, dispatchToStore)(RssList);

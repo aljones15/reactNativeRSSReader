@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Header from 'Components/headers/Item/';
 import { styles, growFlex } from 'Styles/styles.js';
@@ -28,7 +28,7 @@ const patchPostMessageFunction = function() {
 
 const patchPostMessageJsCode = '(' + String(patchPostMessageFunction) + ')();';
 
-class ItemView extends Component{
+class ItemView extends React.PureComponent{
   constructor(props){
     super(props);
     this.state = {loading: false, html: ''}
@@ -65,7 +65,7 @@ class ItemView extends Component{
     let {width, height, scale} = Dimensions.get('window'); 
     return(
         <View testID="item_view" style={{ flex: 1}}>
-          <Header />
+          <Header back={this.props.back} />
           <ScrollView style={styles.scollWebView}>
   	    <WebView
 	     startInLoadingState={true}
@@ -82,7 +82,7 @@ class ItemView extends Component{
 };
 
 const mapStateToProps = ({items}, props) => {
-  return { item: items.item };
+  return props;
 }
 
 const dispatchToStore = (dispatch) => {
