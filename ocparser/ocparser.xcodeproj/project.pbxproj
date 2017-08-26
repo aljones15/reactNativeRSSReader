@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE56FA991F49CAFB005CA245 /* OcParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE56FA981F49CAFB005CA245 /* OcParser.m */; };
+		BEA0E1061F49720100F38096 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E0F31F4971F300F38096 /* libReact.a */; };
+		BEA0E1071F49723A00F38096 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E0FB1F4971F300F38096 /* libcxxreact.a */; };
+		BEA0E10C1F4972EF00F38096 /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E0FF1F4971F300F38096 /* libjschelpers.a */; };
+		BEA0E10D1F4972F600F38096 /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E0F71F4971F300F38096 /* libyoga.a */; };
+		BEA0E10E1F4972FB00F38096 /* libdouble-conversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E1051F4971F300F38096 /* libdouble-conversion.a */; };
+		BECE9DFC1F496FBC003B566F /* OcParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BECE9DF91F496FBC003B566F /* OcParser.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEA0E0F21F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
+			remoteInfo = React;
+		};
+		BEA0E0F41F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A28131D9B038B00D4039D;
+			remoteInfo = "React-tvOS";
+		};
+		BEA0E0F61F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3C059A1DE3340900C268FA;
+			remoteInfo = yoga;
+		};
+		BEA0E0F81F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3C06751DE3340C00C268FA;
+			remoteInfo = "yoga-tvOS";
+		};
+		BEA0E0FA1F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3CD9251DE5FBEC00167DC4;
+			remoteInfo = cxxreact;
+		};
+		BEA0E0FC1F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
+			remoteInfo = "cxxreact-tvOS";
+		};
+		BEA0E0FE1F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3CD90B1DE5FBD600167DC4;
+			remoteInfo = jschelpers;
+		};
+		BEA0E1001F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
+			remoteInfo = "jschelpers-tvOS";
+		};
+		BEA0E1021F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 139D7ECE1E25DB7D00323FB7;
+			remoteInfo = "third-party";
+		};
+		BEA0E1041F4971F300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 139D7E881E25C6D100323FB7;
+			remoteInfo = "double-conversion";
+		};
+		BEA0E1081F4972D300F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
+			remoteInfo = React;
+		};
+		BEA0E10A1F4972D800F38096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D3CD9191DE5FBEC00167DC4;
+			remoteInfo = cxxreact;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BECE9DF41F496FBC003B566F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				BECE9DFC1F496FBC003B566F /* OcParser.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BE56FA981F49CAFB005CA245 /* OcParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OcParser.m; sourceTree = "<group>"; };
+		BEA0E0E51F4971F200F38096 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		BECE9DF61F496FBC003B566F /* libocparser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libocparser.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BECE9DF91F496FBC003B566F /* OcParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OcParser.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BECE9DF31F496FBC003B566F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEA0E10E1F4972FB00F38096 /* libdouble-conversion.a in Frameworks */,
+				BEA0E10D1F4972F600F38096 /* libyoga.a in Frameworks */,
+				BEA0E10C1F4972EF00F38096 /* libjschelpers.a in Frameworks */,
+				BEA0E1071F49723A00F38096 /* libcxxreact.a in Frameworks */,
+				BEA0E1061F49720100F38096 /* libReact.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BEA0E0E61F4971F200F38096 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEA0E0F31F4971F300F38096 /* libReact.a */,
+				BEA0E0F51F4971F300F38096 /* libReact.a */,
+				BEA0E0F71F4971F300F38096 /* libyoga.a */,
+				BEA0E0F91F4971F300F38096 /* libyoga.a */,
+				BEA0E0FB1F4971F300F38096 /* libcxxreact.a */,
+				BEA0E0FD1F4971F300F38096 /* libcxxreact.a */,
+				BEA0E0FF1F4971F300F38096 /* libjschelpers.a */,
+				BEA0E1011F4971F300F38096 /* libjschelpers.a */,
+				BEA0E1031F4971F300F38096 /* libthird-party.a */,
+				BEA0E1051F4971F300F38096 /* libdouble-conversion.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BECE9DED1F496FBC003B566F = {
+			isa = PBXGroup;
+			children = (
+				BECE9E021F496FF2003B566F /* Libraries */,
+				BECE9DF81F496FBC003B566F /* ocparser */,
+				BECE9DF71F496FBC003B566F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BECE9DF71F496FBC003B566F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BECE9DF61F496FBC003B566F /* libocparser.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BECE9DF81F496FBC003B566F /* ocparser */ = {
+			isa = PBXGroup;
+			children = (
+				BE56FA981F49CAFB005CA245 /* OcParser.m */,
+				BECE9DF91F496FBC003B566F /* OcParser.h */,
+			);
+			path = ocparser;
+			sourceTree = "<group>";
+		};
+		BECE9E021F496FF2003B566F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BEA0E0E51F4971F200F38096 /* React.xcodeproj */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BECE9DF51F496FBC003B566F /* ocparser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BECE9DFF1F496FBC003B566F /* Build configuration list for PBXNativeTarget "ocparser" */;
+			buildPhases = (
+				BECE9DF21F496FBC003B566F /* Sources */,
+				BECE9DF31F496FBC003B566F /* Frameworks */,
+				BECE9DF41F496FBC003B566F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEA0E10B1F4972D800F38096 /* PBXTargetDependency */,
+				BEA0E1091F4972D300F38096 /* PBXTargetDependency */,
+			);
+			name = ocparser;
+			productName = ocparser;
+			productReference = BECE9DF61F496FBC003B566F /* libocparser.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BECE9DEE1F496FBC003B566F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = None;
+				TargetAttributes = {
+					BECE9DF51F496FBC003B566F = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BECE9DF11F496FBC003B566F /* Build configuration list for PBXProject "ocparser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BECE9DED1F496FBC003B566F;
+			productRefGroup = BECE9DF71F496FBC003B566F /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BEA0E0E61F4971F200F38096 /* Products */;
+					ProjectRef = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				BECE9DF51F496FBC003B566F /* ocparser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BEA0E0F31F4971F300F38096 /* libReact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReact.a;
+			remoteRef = BEA0E0F21F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEA0E0F51F4971F300F38096 /* libReact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReact.a;
+			remoteRef = BEA0E0F41F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEA0E0F71F4971F300F38096 /* libyoga.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoga.a;
+			remoteRef = BEA0E0F61F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEA0E0F91F4971F300F38096 /* libyoga.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoga.a;
+			remoteRef = BEA0E0F81F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEA0E0FB1F4971F300F38096 /* libcxxreact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcxxreact.a;
+			remoteRef = BEA0E0FA1F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEA0E0FD1F4971F300F38096 /* libcxxreact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcxxreact.a;
+			remoteRef = BEA0E0FC1F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEA0E0FF1F4971F300F38096 /* libjschelpers.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjschelpers.a;
+			remoteRef = BEA0E0FE1F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEA0E1011F4971F300F38096 /* libjschelpers.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjschelpers.a;
+			remoteRef = BEA0E1001F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEA0E1031F4971F300F38096 /* libthird-party.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libthird-party.a";
+			remoteRef = BEA0E1021F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BEA0E1051F4971F300F38096 /* libdouble-conversion.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libdouble-conversion.a";
+			remoteRef = BEA0E1041F4971F300F38096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BECE9DF21F496FBC003B566F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE56FA991F49CAFB005CA245 /* OcParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEA0E1091F4972D300F38096 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = React;
+			targetProxy = BEA0E1081F4972D300F38096 /* PBXContainerItemProxy */;
+		};
+		BEA0E10B1F4972D800F38096 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = cxxreact;
+			targetProxy = BEA0E10A1F4972D800F38096 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BECE9DFD1F496FBC003B566F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BECE9DFE1F496FBC003B566F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BECE9E001F496FBC003B566F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native/React/**";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BECE9E011F496FBC003B566F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native/React/**";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BECE9DF11F496FBC003B566F /* Build configuration list for PBXProject "ocparser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BECE9DFD1F496FBC003B566F /* Debug */,
+				BECE9DFE1F496FBC003B566F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BECE9DFF1F496FBC003B566F /* Build configuration list for PBXNativeTarget "ocparser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BECE9E001F496FBC003B566F /* Debug */,
+				BECE9E011F496FBC003B566F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BECE9DEE1F496FBC003B566F /* Project object */;
+}
