@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BE56FA991F49CAFB005CA245 /* OcParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE56FA981F49CAFB005CA245 /* OcParser.m */; };
-		BEA0E1061F49720100F38096 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E0F31F4971F300F38096 /* libReact.a */; };
-		BEA0E1071F49723A00F38096 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E0FB1F4971F300F38096 /* libcxxreact.a */; };
-		BEA0E10C1F4972EF00F38096 /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E0FF1F4971F300F38096 /* libjschelpers.a */; };
-		BEA0E10D1F4972F600F38096 /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E0F71F4971F300F38096 /* libyoga.a */; };
-		BEA0E10E1F4972FB00F38096 /* libdouble-conversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA0E1051F4971F300F38096 /* libdouble-conversion.a */; };
 		BECE9DFC1F496FBC003B566F /* OcParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BECE9DF91F496FBC003B566F /* OcParser.h */; };
 /* End PBXBuildFile section */
 
@@ -87,20 +82,6 @@
 			remoteGlobalIDString = 139D7E881E25C6D100323FB7;
 			remoteInfo = "double-conversion";
 		};
-		BEA0E1081F4972D300F38096 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
-			remoteInfo = React;
-		};
-		BEA0E10A1F4972D800F38096 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEA0E0E51F4971F200F38096 /* React.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3D3CD9191DE5FBEC00167DC4;
-			remoteInfo = cxxreact;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -128,11 +109,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEA0E10E1F4972FB00F38096 /* libdouble-conversion.a in Frameworks */,
-				BEA0E10D1F4972F600F38096 /* libyoga.a in Frameworks */,
-				BEA0E10C1F4972EF00F38096 /* libjschelpers.a in Frameworks */,
-				BEA0E1071F49723A00F38096 /* libcxxreact.a in Frameworks */,
-				BEA0E1061F49720100F38096 /* libReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,8 +180,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				BEA0E10B1F4972D800F38096 /* PBXTargetDependency */,
-				BEA0E1091F4972D300F38096 /* PBXTargetDependency */,
 			);
 			name = ocparser;
 			productName = ocparser;
@@ -334,19 +308,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		BEA0E1091F4972D300F38096 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = React;
-			targetProxy = BEA0E1081F4972D300F38096 /* PBXContainerItemProxy */;
-		};
-		BEA0E10B1F4972D800F38096 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = cxxreact;
-			targetProxy = BEA0E10A1F4972D800F38096 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		BECE9DFD1F496FBC003B566F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -442,6 +403,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native/React/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -452,6 +415,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native/React/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
