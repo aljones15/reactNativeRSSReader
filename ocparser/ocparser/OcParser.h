@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
+#import "MWFeedParser.h"
+
+@interface TestParser : NSObject <MWFeedParserDelegate>{
+    // Parsing
+    MWFeedParser *feedParser;
+    NSMutableArray *parsedItems;
+    RCTPromiseResolveBlock resolve;
+    RCTPromiseRejectBlock reject;
+
+}
+@end
 
 @interface OcParser : NSObject <RCTBridgeModule>
 
