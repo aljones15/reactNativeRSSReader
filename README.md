@@ -15,6 +15,9 @@
 - [ ] Write a Detox test
 - [x] Organize the Reducers
 - [ ] Make Folders for each Component with jest test and query
+- [ ] Create mock of Rss Native Module
+- [ ] Create Java version of the Native Module
+- [ ] Find a basic Objective-c tutorial
 
 ### Install
 ```
