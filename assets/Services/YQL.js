@@ -115,7 +115,8 @@ export default class YQL {
           console.log(t);
           const feeds = t.query.results.item || [];
           cb({loading: false, feeds: feeds});
-        })
+        }).
+          catch((err) => cb({loading: false, error: err, feeds: []}));
     } else {
       cb({
         loading: false,

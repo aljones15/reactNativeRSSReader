@@ -31,11 +31,7 @@ class RssList extends React.PureComponent{
     console.log(this.props);
   } 
   render(){
-    /**
-    * not valid means there are no rss items to display so we let the user refresh
-    */
-    /*
-    if(!this.props.valid){
+   if(this.props.empty){
       return(
   	<View style={styles.container} testID="rss_list">
           <View style={{marginTop: 35}} />
@@ -45,7 +41,7 @@ class RssList extends React.PureComponent{
 	    <Text>Refresh</Text> 
           </View> 
         </View>);
-  } */
+  } 
   return(
     <View style={ styles.container }>
       <ListView
@@ -79,7 +75,8 @@ const mapStateToProps = (state, props) => {
   //const validRss = validateRss(state.items);
   return {
     items: ds.cloneWithRows(props.feeds.sort(sortByPubDate)),
-    loading: props.loading
+    loading: props.loading,
+    empty: props.feeds.length == 0 && !props.loading
   };
 }
 
