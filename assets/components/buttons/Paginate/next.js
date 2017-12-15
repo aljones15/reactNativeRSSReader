@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { nextStyle } from './style.js';
 
@@ -10,15 +10,17 @@ import { nextStyle } from './style.js';
 */
 
 const Next = ({action}) =>
-  <View 
-    style={ nextStyle } 
-    testID="next_btn"
-    accessible={true}
+  <TouchableWithoutFeedback onPress={action}>
+    <View 
+      style={ nextStyle } 
+      testID="next_btn"
+      accessible={true}
     >
-      <Text onPress={action}>
+      <Text>
         Next
       </Text>
       <Icon name="arrow-right" size={30} color="#080707"/>
-  </View>
+    </View>
+  </TouchableWithoutFeedback> 
 
 export default Next;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { disabled, previousStyle } from './style.js';
 
@@ -11,14 +11,16 @@ import { disabled, previousStyle } from './style.js';
 */
 
 const Previous = ({skip, action}) =>
-  <View 
-    style={ previousStyle }
-    testID="previous_btn"
+  <TouchableWithoutFeedback onPress={action}>
+    <View 
+      style={ previousStyle }
+      testID="previous_btn"
     >
-      <Icon name="arrow-left" size={30} color={disabled(skip)}/>
-      <Text onPress={action} style={[{color: disabled(skip)}]} >
-        Previous
-      </Text>
-  </View>
+        <Icon name="arrow-left" size={30} color={disabled(skip)}/>
+        <Text style={[{color: disabled(skip)}]} >
+          Previous
+        </Text>
+    </View>
+  </TouchableWithoutFeedback>
 
 export default Previous;
