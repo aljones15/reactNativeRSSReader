@@ -30,7 +30,7 @@ const MapStateToProps = ({skip}) => {
   };
 }
 
-const DispatchToStore = (dispatch) => {
+const DispatchToStore = (dispatch, {update}) => {
   return {
     /**
     * if skip minus 10 is greater than or equal to 0 then we allow the user to move back
@@ -40,7 +40,7 @@ const DispatchToStore = (dispatch) => {
     previous: (skip: number) => () => {
 	    let s = skip - 10 >= 0 ? skip - 10 : skip;
             console.log("Paginate Index -> previous skip: " + s);
-	    dispatch(decrementThunk(skip, s));
+	    dispatch(decrementThunk(skip, s, update));
     },
     /**
     * next simply increments skip by 10 then dispatches the action
@@ -49,7 +49,7 @@ const DispatchToStore = (dispatch) => {
     next: (skip: number) => () => {
 	    let s = skip + 10;
             console.log("Paginate Index -> next skip: " + s);
-            dispatch(incrementThunk(s));
+            dispatch(incrementThunk(s, update));
     }
   }
 }

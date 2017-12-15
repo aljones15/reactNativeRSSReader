@@ -30,7 +30,7 @@ export function getRssFeeds(cb: Function){
       cb({ loading: true });
       return yql.Fetch(cb);
     }
-  }
+};
 /**
  * refreshes the current feeds
  * @param {Redux Dispatch} dispatch

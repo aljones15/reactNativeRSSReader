@@ -65,7 +65,7 @@ class RssList extends React.PureComponent{
             selectItem={this.props.updateParent} 
           />
       }
-      renderFooter={() => <PaginateView />}
+      renderFooter={() => <PaginateView update={this.props.updateParent} />}
       />
       {this.props.children} 
     </View>);

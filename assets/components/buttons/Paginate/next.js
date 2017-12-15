@@ -13,6 +13,7 @@ const Next = ({action}) =>
   <View 
     style={ nextStyle } 
     testID="next_btn"
+    accessible={true}
     >
       <Text onPress={action}>
         Next
