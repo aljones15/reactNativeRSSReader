@@ -52,7 +52,7 @@ class RssList extends React.PureComponent{
 	    onRefresh={this.props.refresh} 
 	    />  }
       dataSource={this.props.items}
-      renderHeader={() => <MainHeader />}
+      renderHeader={() => <MainHeader update={this.props.updateParent} />}
       renderRow={
         (rowData, sectionID, rowID, highlightRow) =>
           <Item 

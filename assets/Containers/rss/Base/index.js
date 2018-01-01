@@ -4,8 +4,6 @@ import { View, Text  } from 'react-native';
 import { RSS_UPDATE, UPDATE_ITEMS_FAILED } from 'Services/redux/actions.js';
 import { styles, growFlex, flatten } from 'Styles/styles.js';
 import ItemView from 'Components/items/itemView.js';
-import MainHeader from 'Components/headers/Base/';
-import FeedModal from 'Components/modal/modal.js';
 import Loading from 'Components/modal/loading.js';
 import { addUrl, 
 	getAllSubs, 
@@ -57,7 +55,7 @@ class RssBase extends React.PureComponent {
           <Loading />
         </View>
       );
-      }
+    }
     return(
       <RssList 
         loading={this.state.loading} 

@@ -38,7 +38,7 @@ class MainHeader extends React.PureComponent{
 	  onPress={this.props.open("new_feed")} 
 	  style={growFlex(1)}> Add </Text>
 	</View>
-	<FeedModal />
+	<FeedModal update={this.props.update} />
       </View>
     )
   }

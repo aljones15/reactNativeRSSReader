@@ -37,10 +37,10 @@ export function getRssFeeds(cb: Function){
  * @param {{type: String}} action
  */
 export function refreshFeeds(dispatch: Function, action: object){
-      getAllSubs().then((urls) => {
-        getRssFeeds(dispatch)(urls);
-        if(action){
-          dispatch(action);
-        }
-      })
-  }
+  getAllSubs().then((urls) => {
+    getRssFeeds(dispatch)(urls);
+      if(action){
+        dispatch(action);
+      }
+  });
+};

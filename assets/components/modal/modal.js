@@ -10,6 +10,10 @@ import ModalMenu from './modalMenu.js';
 import ModalFeed from './modalFeed.js';
 
 
+/**
+ * I don't think this is being used
+ */
+
 class FeedModal extends React.PureComponent {
   constructor(props){
     super(props)
@@ -32,17 +36,22 @@ const mapStateToProps = ({display}, props) => {
   return { ...display };
 }
 
-const dispatchToStore = (dispatch) => {
+const dispatchToStore = (dispatch, {update}) => {
   return {
     close: (modal_name) => (event) => dispatch({type: TOGGLE_MODAL}),
     submit: (input) => (e) => {
-      addUrl(input);
-      dispatch({
-        type: ADD_FEED,
-        url: input
-      });
-      refreshFeeds(dispatch, {type: TOGGLE_MODAL});
+      if (input) {
+        console.log('new url submit');
+        addUrl(input);
+        dispatch({
+          type: ADD_FEED,
+          url: input
+        });
+        refreshFeeds(update);
+      }
+      dispatch({type: TOGGLE_MODAL});
+    }
   }
-}}
+};
 
 export default connect(mapStateToProps, dispatchToStore)(FeedModal)
