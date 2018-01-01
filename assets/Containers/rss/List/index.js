@@ -45,7 +45,8 @@ class RssList extends React.PureComponent{
       style={ styles.mainFeed }
       refreshControl={ <RefreshControl 
 	    refreshing={this.props.loading} 
-	    onRefresh={this.props.refresh} 
+	    onRefresh={this.props.refresh}
+            title='Loading Feeds' 
 	    />  }
       dataSource={this.props.items}
       renderHeader={() => <MainHeader update={this.props.updateParent} />}
