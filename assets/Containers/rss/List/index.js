@@ -7,21 +7,12 @@ import MainHeader from 'Components/headers/Base/';
 import PaginateView from 'Components/buttons/Paginate/';
 import { Item } from 'Components/items/item.js';
 import Icon from 'react-native-vector-icons/EvilIcons';
-
+import { sortByPubDate } from 'Services/filters';
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
 
-function sortByPubDate(a,b){
-    let dateA = new Date(a.pubDate);
-    let dateB = new Date(b.pubDate);
-    if(dateA > dateB){
-      return -1;
-    }
-    if(dateA < dateB){
-      return 1;
-    }
-    return 0;
-}
-
+/**
+ * RssList - contains the header and items for the view
+ */
 class RssList extends React.PureComponent{
   constructor(props){
     super(props);

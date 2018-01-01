@@ -1,13 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text  } from 'react-native';
-import { RSS_UPDATE, UPDATE_ITEMS_FAILED } from 'Services/redux/actions.js';
 import { styles, growFlex, flatten } from 'Styles/styles.js';
 import ItemView from 'Components/items/itemView.js';
-import Loading from 'Components/modal/loading.js';
-import { addUrl, 
-	getAllSubs, 
-	initFeeds } from 'Services/asyncStorage.js';
+import { initFeeds } from 'Services/asyncStorage.js';
 import RssList from '../List/';
 import { refreshFeeds } from 'Services/rssService.js';
 

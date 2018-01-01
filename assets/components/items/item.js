@@ -3,7 +3,11 @@ import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { styles, growFlex, 
 	evenItemColor, oddItemColor } from 'Styles/styles.js';
+import LinearGradient from 'react-native-linear-gradient';
 
+/**
+ * Item - the rss items in the Rss List
+ */
 export class Item extends React.PureComponent {
   constructor(props){
     super(props);
