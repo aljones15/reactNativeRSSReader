@@ -26,10 +26,6 @@ class RssList extends React.PureComponent{
   constructor(props){
     super(props);
   }  
-  componentDidUpdate(){
-    console.log('RssList -> componentDidUpdate');
-    console.log(this.props);
-  } 
   render(){
    if(this.props.empty){
       return(
@@ -70,9 +66,6 @@ class RssList extends React.PureComponent{
 
 
 const mapStateToProps = (state, props) => {
-  console.log('RssList -> mapToProps');
-  console.log(props);
-  //const validRss = validateRss(state.items);
   return {
     items: ds.cloneWithRows(props.feeds.sort(sortByPubDate)),
     loading: props.loading,

@@ -48,14 +48,6 @@ class RssBase extends React.PureComponent {
           back={this.back.bind(this)} 
       />);
     }
-    if(this.props.network_update){
-      return(
-        <View style={ styles.container } 
-	testID="rss_base">
-          <Loading />
-        </View>
-      );
-    }
     return(
       <RssList 
         loading={this.state.loading} 

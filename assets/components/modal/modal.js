@@ -11,7 +11,8 @@ import ModalFeed from './modalFeed.js';
 
 
 /**
- * I don't think this is being used
+ * FeedModal - appears at the top of the feed list
+ * controls the Menu and Add buttons
  */
 
 class FeedModal extends React.PureComponent {
@@ -41,7 +42,6 @@ const dispatchToStore = (dispatch, {update}) => {
     close: (modal_name) => (event) => dispatch({type: TOGGLE_MODAL}),
     submit: (input) => (e) => {
       if (input) {
-        console.log('new url submit');
         addUrl(input);
         dispatch({
           type: ADD_FEED,
