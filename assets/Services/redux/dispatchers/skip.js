@@ -8,7 +8,10 @@ import * as Actions from '../actions.js';
 */
 // @flow
 function setNumber(i: number, s: any, key: string): any{
-  s[key] = i;
+  const isNumber = !isNaN(Number(i));
+  if (isNumber) {
+    s[key] = i;
+  }
   return Object.assign({}, s);
 }
 

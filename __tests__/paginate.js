@@ -23,13 +23,13 @@ describe("Should ", () => {
     const state = store.getState();
     expect(state.skip.skip).toBe(0);
   })
-/*
+
   it("should not increment", () => {
     const skip = "BAD2";
     store.dispatch({type: DECREMENT_SKIP, payload: skip});
     const state = store.getState();
-    expect(state.reduceSkip.skip).toBe(0);
+    expect(state.skip.skip).toBe(0);
 
   })
-*/
+
 });
