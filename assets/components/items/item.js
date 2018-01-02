@@ -26,16 +26,16 @@ export class Item extends React.PureComponent {
   }
   getColors() {
     return [
-      '#F0FFFF80',
-      '#F0FFFF80',
-      '#F0FEFF80',
-      '#FFFEFF80',
-      '#FFFEFF80',
-      '#FFFEF080',
-      '#FFFFF080',
-      '#FFFFF080',
-      '#F1FFF080',
-      '#F1F0F080'
+      '#FBFFFFFF',
+      '#F8FFFFFF',
+      '#F6FFFFFF',
+      '#F4FFFFFF',
+      '#F3FFFFFF',
+      '#FFFBFFFF',
+      '#FFFAFFFF',
+      '#FFF7FFFF',
+      '#FFF5FFFF',
+      '#FFF2FFFF'
     ];
   }
   /***
@@ -56,10 +56,10 @@ export class Item extends React.PureComponent {
       return(
         <TouchableWithoutFeedback 
 	onPress={this.selectItem}>
-        <LinearGradient colors={this.getColors()}> 
-          <Text style={styles.itemText}>{this.props.item.title ? 
+          <LinearGradient colors={this.getColors()}> 
+            <Text style={styles.itemText}>{this.props.item.title ? 
 		  this.props.item.title.trim() : "no title"}</Text>
-        </LinearGradient >
+          </LinearGradient >
         </TouchableWithoutFeedback>
       )
   }
