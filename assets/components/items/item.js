@@ -55,7 +55,8 @@ export class Item extends React.PureComponent {
   render() {
       return(
         <TouchableWithoutFeedback 
-	onPress={this.selectItem}>
+	  onPress={this.selectItem}
+        >
           <LinearGradient colors={this.getColors()}> 
             <Text style={styles.itemText}>{this.props.item.title ? 
 		  this.props.item.title.trim() : "no title"}</Text>
