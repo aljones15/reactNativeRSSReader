@@ -24,6 +24,20 @@ export class Item extends React.PureComponent {
       borderLeftColor: color 
     }
   }
+  getColors() {
+    return [
+      '#F0FFFF80',
+      '#F0FFFF80',
+      '#F0FEFF80',
+      '#FFFEFF80',
+      '#FFFEFF80',
+      '#FFFEF080',
+      '#FFFFF080',
+      '#FFFFF080',
+      '#F1FFF080',
+      '#F1F0F080'
+    ];
+  }
   /***
    * modulates the color of an item by odd or even
    * @param {int} the item index
@@ -42,10 +56,10 @@ export class Item extends React.PureComponent {
       return(
         <TouchableWithoutFeedback 
 	onPress={this.selectItem}>
-        <View style={ this.getItemStyle(this.props.colorPicker) }>
+        <LinearGradient colors={this.getColors()}> 
           <Text style={styles.itemText}>{this.props.item.title ? 
 		  this.props.item.title.trim() : "no title"}</Text>
-        </View>
+        </LinearGradient >
         </TouchableWithoutFeedback>
       )
   }
