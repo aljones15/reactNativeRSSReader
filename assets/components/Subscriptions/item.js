@@ -1,11 +1,11 @@
 import React from 'react';
-import { styles, growFlex, makeBorder } from 'Styles/styles.js';
 import { View, Text } from 'react-native';
+import style from './style';
 
-const Item = ({url}) => {
+const Item = ({index, item, seperators}) => {
   return(
-    <Text>
-       {url}
+    <Text style={style.item}>
+       {item}
     </Text>
   );
 };

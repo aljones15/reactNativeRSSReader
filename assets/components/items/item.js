@@ -11,6 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 export class Item extends React.PureComponent {
   constructor(props){
     super(props);
+    console.log(props);
   }
   /***
   * returns an object so each item has an even color

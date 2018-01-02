@@ -15,10 +15,7 @@ import { sortByPubDate } from 'Services/filters';
 class RssList extends React.PureComponent{
   constructor(props){
     super(props);
-  }
-   _keyExtractor(item, index) {
-    return index;
-  } 
+  }  
   render(){
    if(this.props.empty){
       return(
@@ -31,6 +28,9 @@ class RssList extends React.PureComponent{
           </View> 
         </View>);
   }
+  _keyExtractor(item, index) {
+    return index;
+  } 
   return(
     <View style={ styles.container }>
       <FlatList
@@ -39,7 +39,7 @@ class RssList extends React.PureComponent{
 	onRefresh={this.props.refresh}
         keyExtractor={this._keyExtractor}
         data={this.props.items}
-        ListHeaderComponent={() => <MainHeader update={this.props.updateParent} />}
+        renderHeader={() => <MainHeader update={this.props.updateParent} />}
         renderItem={
         (item) =>
           <Item 
@@ -47,7 +47,7 @@ class RssList extends React.PureComponent{
             selectItem={this.props.updateParent} 
           />
       }
-      ListFooterComponent={() => <PaginateView update={this.props.updateParent} />}
+      renderFooter={() => <PaginateView update={this.props.updateParent} />}
       />
       {this.props.children} 
     </View>);
