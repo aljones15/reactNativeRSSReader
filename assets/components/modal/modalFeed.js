@@ -11,7 +11,7 @@ export default class ModalFeed extends React.PureComponent {
   }
   componentDidUpdate(){
   }
-  change(e){
+  change = (e) => {
     this.setState({ input: e.nativeEvent.text, 
 	    valid: isUrl.test(e.nativeEvent.text) });
   }
@@ -49,7 +49,7 @@ export default class ModalFeed extends React.PureComponent {
           autoCorrect={false}
           autoFocus={true}
           keyboardType="url"
-          onChange={this.change.bind(this)}
+          onChange={this.change}
           onEndEditing={this.props.submit(this.state.input)}
         />
         <Icon name="check" 

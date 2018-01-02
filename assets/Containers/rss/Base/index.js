@@ -24,12 +24,12 @@ class RssBase extends React.PureComponent {
     this.state = {loading: false, item: null, feeds: []}
   }
   async componentDidMount(){
-    await initFeeds(this.callBack.bind(this))
+    await initFeeds(this.callBack)
   }
-  back(){
+  back = () => {
     this.setState({item: null});
   }
-  callBack(action){
+  callBack = (action) => {
     console.log('callBack Base ->');
     console.log(action);
     this.setState(action);
@@ -41,15 +41,15 @@ class RssBase extends React.PureComponent {
       return(
         <ItemView 
           item={this.state.item} 
-          back={this.back.bind(this)} 
+          back={this.back} 
       />);
     }
     return(
       <RssList 
         loading={this.state.loading} 
         feeds={this.state.feeds} 
-        refresh={() => refreshFeeds(this.callBack.bind(this))}
-        updateParent={this.callBack.bind(this)}
+        refresh={() => refreshFeeds(this.callBack)}
+        updateParent={this.callBack}
       />)
  }
 }

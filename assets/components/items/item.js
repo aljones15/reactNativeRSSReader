@@ -11,7 +11,6 @@ import LinearGradient from 'react-native-linear-gradient';
 export class Item extends React.PureComponent {
   constructor(props){
     super(props);
-    console.log(props);
   }
   /***
   * returns an object so each item has an even color
@@ -35,14 +34,14 @@ export class Item extends React.PureComponent {
     }  
     return [styles.item, growFlex(1), this.setItemColor(oddItemColor) ];
   }
+  selectItem = () => {
+    const {item} = this.props;
+    this.props.selectItem({item});
+  }
   render() {
       return(
         <TouchableWithoutFeedback 
-	onPress={() => {
-          const {item} = this.props;
-          console.log(item);
-          this.props.selectItem({item: item})
-        }}>
+	onPress={this.selectItem}>
         <View style={ this.getItemStyle(this.props.colorPicker) }>
           <Text style={styles.itemText}>{this.props.item.title ? 
 		  this.props.item.title.trim() : "no title"}</Text>

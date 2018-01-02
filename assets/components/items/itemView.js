@@ -55,7 +55,7 @@ class ItemView extends React.PureComponent{
     }
     return uri;
   }
-  storeHTML({nativeEvent}){
+  storeHTML = ({nativeEvent}) => {
     console.log('storeHTML');
     // the message comes in on the data property
     this.state.html = nativeEvent.data;
@@ -71,7 +71,7 @@ class ItemView extends React.PureComponent{
 	     startInLoadingState={true}
              ref={(wv) => this.bridge = wv}
              injectedJavaScript={patchPostMessageJsCode}
-             onMessage={this.storeHTML.bind(this)}
+             onMessage={this.storeHTML}
 	     renderLoading={() => {return(<Activity />)}}
    	     source={{uri: this.secureUri(this.props.item.link) }} 
 	     style={{ height: height, width: width }} />
