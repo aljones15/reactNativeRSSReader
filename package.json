@@ -45,6 +45,9 @@
     "util": "^0.10.3",
     "wd": "^1.1.1"
   },
+  "rnpm": {
+    "assets": ["./assets/fonts/"]
+  },
   "jest": {
     "preset": "react-native",
     "testPathIgnorePatterns": [

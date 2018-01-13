@@ -107,6 +107,8 @@ export const styles = StyleSheet.create({
     borderStyle: 'solid'
   },
   itemText: {
+    fontFamily: 'hack',
+    fontSize: 12,
     color: colors.fontColor,
     textAlign: 'center',
     padding: 5,
