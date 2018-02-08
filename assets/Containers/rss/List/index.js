@@ -22,7 +22,7 @@ class RssList extends React.PureComponent{
   render(){
    if(this.props.empty){
       return(
-  	<View style={styles.container} testID="rss_list">
+  	<View style={styles.container} testID="rss_list_empty">
           <View style={{marginTop: 35}} />
 	  <View style={[styles.mainFeed, styles.flexCenterCol]}>
 	    <Text>No Items</Text>
@@ -32,8 +32,9 @@ class RssList extends React.PureComponent{
         </View>);
   }
   return(
-    <View style={ styles.container }>
+    <View style={ styles.container } testID='RssList'>
       <FlatList
+        testID='rss_list_populated'
         style={ styles.mainFeed }
         refreshing={this.props.loading} 
 	onRefresh={this.props.refresh}

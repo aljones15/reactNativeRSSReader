@@ -41,7 +41,8 @@ class RssBase extends React.PureComponent {
       return(
         <ItemView 
           item={this.state.item} 
-          back={this.back} 
+          back={this.back}
+          testID='RssItemView' 
       />);
     }
     return(

@@ -54,12 +54,14 @@ export class Item extends React.PureComponent {
   }
   render() {
       return(
-        <TouchableWithoutFeedback 
+        <TouchableWithoutFeedback
+          testID={'rss_list_' + this.props.index}
 	  onPress={this.selectItem}
         >
           <LinearGradient colors={this.getColors()}> 
-            <Text style={styles.itemText}>{this.props.item.title ? 
-		  this.props.item.title.trim() : "no title"}</Text>
+            <Text style={styles.itemText}>
+              {this.props.item.title ? this.props.item.title.trim() : "no title"}
+            </Text>
           </LinearGradient >
         </TouchableWithoutFeedback>
       )
