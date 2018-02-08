@@ -20,11 +20,11 @@ describe('Click on an Item', () => {
   });
  
   it('should tap on the rss item', async () => {
-    await element(by.id('rss_list_2')).longPress();
+    await element(by.id('rss_list_2')).tap();
   });
 
   it('should see the item view', async () => {
-    await expect(element(by.id('item_view'))).toBeVisible();
+    await waitFor(element(by.id('item_view'))).toBeVisible().withTimeout(10000);
   });
   
 })
