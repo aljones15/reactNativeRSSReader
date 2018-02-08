@@ -12,7 +12,7 @@ import { sortByPubDate } from 'Services/filters';
 /**
  * RssList - contains the header and items for the view
  */
-class RssList extends React.PureComponent{
+export class RssList extends React.PureComponent{
   constructor(props){
     super(props);
   }
