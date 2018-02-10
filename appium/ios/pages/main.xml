@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><AppiumAUT><XCUIElementTypeApplication type="XCUIElementTypeApplication" name="rssTwo" label="rssTwo" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+  <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" name="Subscriptions http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" label="Subscriptions http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="Subscriptions http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" label="Subscriptions http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" name="Subscriptions http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" label="Subscriptions http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" name="Subscriptions http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" label="Subscriptions http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Subscriptions" name="Subscriptions" label="Subscriptions" enabled="true" visible="true" x="120" y="30" width="135" height="25"/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" name="http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" label="http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" enabled="true" visible="true" x="8" y="59" width="359" height="608">
+                <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" enabled="true" visible="true" x="8" y="59" width="359" height="608">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" name="http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" label="http://rss.slashdot.org/Slashdot/slashdotMain http://kotaku.com/vip.xml https://feedpress.me/techbeacon http://rss.nytimes.com/services/xml/rss/nyt/World.xml http://boingboing.net/feed" enabled="true" visible="true" x="8" y="59" width="359" height="136">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="http://rss.slashdot.org/Slashdot/slashdotMain" label="http://rss.slashdot.org/Slashdot/slashdotMain" enabled="true" visible="true" x="8" y="59" width="359" height="28">
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="http://rss.slashdot.org/Slashdot/slashdotMain" name="http://rss.slashdot.org/Slashdot/slashdotMain" label="http://rss.slashdot.org/Slashdot/slashdotMain" enabled="true" visible="true" x="8" y="59" width="359" height="28"/>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="http://kotaku.com/vip.xml" label="http://kotaku.com/vip.xml" enabled="true" visible="true" x="8" y="86" width="359" height="28">
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="http://kotaku.com/vip.xml" name="http://kotaku.com/vip.xml" label="http://kotaku.com/vip.xml" enabled="true" visible="true" x="8" y="86" width="359" height="28"/>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="https://feedpress.me/techbeacon" label="https://feedpress.me/techbeacon" enabled="true" visible="true" x="8" y="113" width="359" height="28">
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="https://feedpress.me/techbeacon" name="https://feedpress.me/techbeacon" label="https://feedpress.me/techbeacon" enabled="true" visible="true" x="8" y="113" width="359" height="28"/>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="http://rss.nytimes.com/services/xml/rss/nyt/World.xml" label="http://rss.nytimes.com/services/xml/rss/nyt/World.xml" enabled="true" visible="true" x="8" y="140" width="359" height="28">
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="http://rss.nytimes.com/services/xml/rss/nyt/World.xml" name="http://rss.nytimes.com/services/xml/rss/nyt/World.xml" label="http://rss.nytimes.com/services/xml/rss/nyt/World.xml" enabled="true" visible="true" x="8" y="140" width="359" height="28"/>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="http://boingboing.net/feed" label="http://boingboing.net/feed" enabled="true" visible="true" x="8" y="167" width="359" height="28">
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="http://boingboing.net/feed" name="http://boingboing.net/feed" label="http://boingboing.net/feed" enabled="true" visible="true" x="8" y="167" width="359" height="28"/>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeScrollView>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeOther>
+  </XCUIElementTypeWindow>
+  <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="false" x="0" y="0" width="375" height="667">
+    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="667"/>
+  </XCUIElementTypeWindow>
+  <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+    <XCUIElementTypeStatusBar type="XCUIElementTypeStatusBar" enabled="true" visible="true" x="0" y="0" width="375" height="20">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="20"/>
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="20">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="6" y="0" width="39" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" value="SSID" name="3 of 3 Wi-Fi bars" label="3 of 3 Wi-Fi bars" enabled="true" visible="true" x="50" y="0" width="13" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="3:37 PM" label="3:37 PM" enabled="true" visible="true" x="165" y="0" width="49" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="-100% battery power" label="-100% battery power" enabled="true" visible="true" x="337" y="0" width="33" height="20"/>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeStatusBar>
+  </XCUIElementTypeWindow>
+</XCUIElementTypeApplication></AppiumAUT>
