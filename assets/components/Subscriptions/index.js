@@ -1,6 +1,6 @@
 import React from 'react';
 import { getAllSubs } from 'Services/asyncStorage.js';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList, Text, Button } from 'react-native';
 import RowItem from './item';
 import Header from './header';
 import {connect} from 'react-redux';
@@ -25,12 +25,18 @@ class Subscriptions extends React.PureComponent{
   }
   render(){
     return(
-      <View style={style.container}>
-        <Text style={style.title}>Subscriptions</Text>
+      <View style={style.container} testID="subscriptions_page">
+        <Text style={style.title} testID="subscriptions_title">Subscriptions</Text>
         <FlatList
           data={this.state.subscriptions}
           keyExtractor={this.createKeys}
           renderItem={this.createItem}
+          testID="subscriptions_list"
+        />
+        <Button
+          title="Back"
+          testID="subscriptions_back"
+          onPress={() => this.props.changeSection("RssFeed")}
         />
       </View>  
     )

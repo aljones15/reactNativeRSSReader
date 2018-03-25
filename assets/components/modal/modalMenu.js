@@ -23,8 +23,10 @@ class ModalMenu extends React.PureComponent {
           <Icon name="eraser" size={20} color="#080707"/> Delete All
         </Text>
         <Text 
-	onPress={this.props.subscriptions} 
-	style={[styles.fontCenter, growFlex(2)]}>
+	      onPress={this.props.subscriptions}
+	      style={[styles.fontCenter, growFlex(2)]}
+	      testID="subscriptions_text"
+	     >
           <Icon name="list-ol" size={20} color="#080707"/> Subscriptions
         </Text>
       </View>

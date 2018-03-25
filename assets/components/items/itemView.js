@@ -68,6 +68,7 @@ class ItemView extends React.PureComponent{
           <Header back={this.props.back} />
           <ScrollView style={styles.scollWebView}>
   	    <WebView
+  	     testID="web_view_item"
 	     startInLoadingState={true}
              ref={(wv) => this.bridge = wv}
              injectedJavaScript={patchPostMessageJsCode}

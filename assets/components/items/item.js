@@ -58,8 +58,8 @@ export class Item extends React.PureComponent {
           testID={'rss_list_' + this.props.index}
 	  onPress={this.selectItem}
         >
-          <View testID={'rss_list_text_' + this.props.index}>
-            <Text style={styles.itemText}>
+          <View testID={'rss_list_view_' + this.props.index}>
+            <Text style={styles.itemText} testID={'rss_list_text_' + this.props.index}>
               {this.props.item.title ? this.props.item.title.trim() : "no title"}
             </Text>
           </View>

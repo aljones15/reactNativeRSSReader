@@ -66,6 +66,24 @@
                BlueprintName = "rssTwoTests"
                ReferencedContainer = "container:rssTwo.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "NewTests">
+               </Test>
+               <Test
+                  Identifier = "NewTests/testExample()">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BE3F44AD2057D20E0087E853"
+               BuildableName = "rssTwoUITests.xctest"
+               BlueprintName = "rssTwoUITests"
+               ReferencedContainer = "container:rssTwo.xcodeproj">
+            </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
