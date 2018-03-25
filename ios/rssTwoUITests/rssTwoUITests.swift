@@ -28,22 +28,24 @@ class rssTwoUITests: XCTestCase {
         super.tearDown()
     }
   
+  
   func waitForExist(el: XCUIElement) {
     let exists = el.waitForExistence(timeout: 10);
-    XCTAssertTrue(exists, "Expected Element to Exist");
+    XCTAssertTrue(exists, "Expected Element to Exist After 10 Seconds");
   }
      
   func testClicksOnMenu() {
     let app = XCUIApplication();
     let containsMenu = NSPredicate(format: "label contains[c] %@", "Menu");
+    // Menu is a testID so we can just access it using the accesibilibyId
     let other = app.otherElements.containing(containsMenu).staticTexts["Menu"];
     waitForExist(el: other);
     other.tap();
   }
   
   func testClicksSubscription() {
-    let app = XCUIApplication();
     testClicksOnMenu();
+    let app = XCUIApplication();
     let modal_menu = app.otherElements["modal_menu"];
     waitForExist(el: modal_menu);
     let sub_text = modal_menu.staticTexts["subscriptions_text"];
@@ -54,5 +56,22 @@ class rssTwoUITests: XCTestCase {
     let back = sub_page.buttons["subscriptions_back"];
     waitForExist(el: back);
     back.tap();
+  }
+  
+  func testScrollFeedList(){
+    testClicksSubscription();
+    let app = XCUIApplication();
+    let rss_list = app.otherElements["RssList"];
+    waitForExist(el: rss_list);
+    let rss_scroll = app.otherElements["rss_list_populated"];
+    waitForExist(el: rss_scroll);
+    for _ in 0...4{
+      rss_scroll.swipeUp();
+    }
+    let paginate_view = app.otherElements["paginate_view"];
+    waitForExist(el: paginate_view);
+    let next_btn = paginate_view.otherElements.element(boundBy: 1);
+    waitForExist(el: next_btn)
+    next_btn.tap();
   }
 }

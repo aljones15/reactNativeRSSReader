@@ -10,13 +10,13 @@ import { nextStyle } from './style.js';
 */
 
 const Next = ({action}) =>
-  <TouchableWithoutFeedback onPress={action}>
+  <TouchableWithoutFeedback onPress={action} testID="next_tap">
     <View 
       style={ nextStyle } 
       testID="next_btn"
       accessible={true}
     >
-      <Text>
+      <Text testID='next_text'>
         Next
       </Text>
       <Icon name="arrow-right" size={30} color="#080707"/>
