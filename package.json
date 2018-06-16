@@ -13,6 +13,7 @@
   "dependencies": {
     "create-react-class": "^15.5.3",
     "fathom-web": "^2.1.0",
+    "lottie-react-native": "^2.5.0",
     "prop-types": "^15.5.10",
     "react": "^16.2.0",
     "react-native": "^0.51.0",
