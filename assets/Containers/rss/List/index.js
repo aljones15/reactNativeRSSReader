@@ -17,7 +17,7 @@ export class RssList extends React.PureComponent{
     super(props);
   }
    _keyExtractor(item, index) {
-    return index;
+    return String(index + item.index);
   } 
   render(){
    if(this.props.empty){
