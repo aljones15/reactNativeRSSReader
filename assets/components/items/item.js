@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import { styles, growFlex, 
 	evenItemColor, oddItemColor } from 'Styles/styles.js';
 import LinearGradient from 'react-native-linear-gradient';
+import throttle from 'lodash/throttle';
 
 /**
- * Item - the rss items in the Rss List
+ * @class Item 
+ * @description the rss items in the Rss List
  */
 export class Item extends React.PureComponent {
   constructor(props){
@@ -48,10 +50,10 @@ export class Item extends React.PureComponent {
     }  
     return [styles.item, growFlex(1), this.setItemColor(oddItemColor) ];
   }
-  selectItem = () => {
+  selectItem = throttle(() => {
     const {item} = this.props;
     this.props.selectItem({item});
-  }
+  }, 100)
   render() {
       return(
         <TouchableWithoutFeedback

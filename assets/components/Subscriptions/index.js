@@ -6,6 +6,7 @@ import Header from './header';
 import {connect} from 'react-redux';
 import changeSection from './actions';
 import style from './style';
+import throttle from 'lodash/throttle';
 
 class Subscriptions extends React.PureComponent{
   constructor(props){
@@ -45,7 +46,7 @@ class Subscriptions extends React.PureComponent{
 
 const mapStateToProps = (nextState, props) => ({});
 const dispatchToProps = (dispatch, props) => ({
-  changeSection: changeSection(dispatch)
+  changeSection: throttle(changeSection(dispatch), 100)
 });
 
 export default connect(mapStateToProps, dispatchToProps)(Subscriptions);

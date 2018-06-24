@@ -7,11 +7,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import FeedModal from 'Components/modal/modal.js';
 import HeaderStyles from './style.js';
 import LinearGradient from 'react-native-linear-gradient';
+import throttle from 'lodash/throttle';
 
 /**
 * This is the Main Page's Header
 * it contains the Menu and Add Feed Buttons
-* @ params {Object} props a one dimensional object (no nested structs)
+* @class MainHeader
+* @param {Object} props a one dimensional object (no nested structs)
 * @param {Object} state not using any state right now
 */
 class MainHeader extends React.PureComponent{
@@ -60,7 +62,7 @@ const mapStateToProps = ({display}, props) => {
 
 const dispatchToStore = (dispatch) => {
   return {
-    open: (modal_name) => (event) => dispatch({type: TOGGLE_MODAL, name: modal_name})
+    open: (modal_name) => throttle((event) => dispatch({type: TOGGLE_MODAL, name: modal_name}), 100)
   }
 };
 
